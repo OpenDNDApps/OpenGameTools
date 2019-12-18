@@ -22,7 +22,7 @@ A lightweight framework we use as a base on all our projects.
 
 ## Requirements
 
-- [Odin Inspector](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
+- [Odin Inspector](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041) (If you don't have Odin, you can just delete all attributes that give errors but we're not giving support to that, even though everything should work just fine.)
 - [DOTween - Free or Pro](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
 
 
