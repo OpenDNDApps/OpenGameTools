@@ -7,7 +7,7 @@
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/anvil3d/anvil3d-toolset)](https://github.com/Anvil3D/Anvil3D-Toolset/releases) 
 ![GitHub repo size](https://img.shields.io/github/repo-size/anvil3d/anvil3d-toolset)
 
-# Anvil-Toolset
+# Anvil3D-Toolset
 
 A lightweight framework we use as a base on all our projects.
 
