@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241b8004ebe622d4ebd27d2294fed023, type: 3}
+  m_Name: AnvilGameSettings
+  m_EditorClassIdentifier: 
+  version: v0.0.1a
+  versionPref: game_version
+  build: 10
+  buildPref: game_build
+  damageModifiers:
+    modifiers:
+    - type: 1
+      modifier: 1
+    - type: 2
+      modifier: 1
+    - type: 3
+      modifier: 1
+    - type: 4
+      modifier: 1

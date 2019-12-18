@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6609e2143aaba414b9273167987bcfaf, type: 3}
+  m_Name: MorningStar
+  m_EditorClassIdentifier: 
+  hasID: 0
+  id: 0
+  resetInRuntime: 1
+  onChangeToggle: 0
+  OnChangeScriptableObject: {fileID: 0}
+  OnChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  title: Morning Star
+  damage:
+    min: 1
+    max: 4
+    type: 1
+  modDamages:
+  - min: 1
+    max: 4
+    type: 4
+  - min: 1
+    max: 4
+    type: 3
+  durability: 100
+  art: {fileID: 21300000, guid: 831cb1dd59ca5714c8ac3d8968d3a514, type: 3}
+  body: {fileID: 3114999249977261601, guid: 260b0a64b80bccc43b01954f276ba65d, type: 3}
+  type: 0
+  size: 2
+  usage: 0

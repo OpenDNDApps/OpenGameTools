@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6609e2143aaba414b9273167987bcfaf, type: 3}
+  m_Name: Bow_Small
+  m_EditorClassIdentifier: 
+  hasID: 0
+  id: 0
+  resetInRuntime: 1
+  onChangeToggle: 0
+  OnChangeScriptableObject: {fileID: 0}
+  OnChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  title: Small Bow
+  damage:
+    min: 3
+    max: 6
+    type: 1
+  modDamages: []
+  durability: 100
+  art: {fileID: 21300000, guid: d8fcaec04f8573f42a9095076e25a868, type: 3}
+  body: {fileID: 2177080602861721003, guid: 422ba8ed022260c498576958db5ef791, type: 3}
+  type: 1
+  size: 1
+  usage: 3

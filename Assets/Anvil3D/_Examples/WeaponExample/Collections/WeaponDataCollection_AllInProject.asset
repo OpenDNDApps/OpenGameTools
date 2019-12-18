@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d6b414f1fa78342abd412987d86e6f, type: 3}
+  m_Name: WeaponDataCollection_AllInProject
+  m_EditorClassIdentifier: 
+  hasID: 0
+  id: 0
+  resetInRuntime: 0
+  onChangeToggle: 0
+  OnChangeScriptableObject: {fileID: 0}
+  OnChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _list:
+  - {fileID: 11400000, guid: 72c94b5475085a2468b235714fe42814, type: 2}
+  - {fileID: 11400000, guid: 5b109bec249064347aba5cf8ff6574f3, type: 2}
+  - {fileID: 11400000, guid: 2c1a3a8e121d1f349b8a81ae16886919, type: 2}
+  - {fileID: 11400000, guid: 897866220ee6b10409cc1eb0063e38b1, type: 2}
+  - {fileID: 11400000, guid: 9f67935582872fb4289f471589aee748, type: 2}
+  - {fileID: 11400000, guid: a127972a72e54354fbc84084cc3f13f7, type: 2}
+  - {fileID: 11400000, guid: 9a23b332db559b54b867b41ccb8aa65c, type: 2}
+  - {fileID: 11400000, guid: 82ca14b92c56b594194f700f239b6ff3, type: 2}
