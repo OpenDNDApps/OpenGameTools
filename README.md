@@ -5,7 +5,7 @@
 [![GitHub Issues](https://img.shields.io/github/issues/anvil3d/anvil3d-toolset)](https://github.com/Anvil3D/Anvil3D-Toolset/issues) 
 ![GitHub last commit](https://img.shields.io/github/last-commit/anvil3d/anvil3d-toolset) 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/anvil3d/anvil3d-toolset)](https://github.com/Anvil3D/Anvil3D-Toolset/releases) 
-![GitHub repo size](https://img.shields.io/github/repo-size/anvil3d/anvil3d-toolset)
+![GitHub repo size](https://img.shields.io/github/repo-size/anvil3d/anvil3d-toolset) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/anvil3d/anvil3d-toolset)
 
 # Anvil3D-Toolset
 
