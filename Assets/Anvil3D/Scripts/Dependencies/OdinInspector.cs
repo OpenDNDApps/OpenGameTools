@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !ODIN_INSPECTOR
+using System;
 
 namespace Sirenix.OdinInspector
 {
@@ -70,3 +71,4 @@ namespace Sirenix.OdinInspector
 
 	internal class ShowInInspectorAttribute : Attribute { }
 }
+#endif
