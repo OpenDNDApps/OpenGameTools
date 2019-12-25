@@ -9,23 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89da6679fc7820c49b96a9270c0b5651, type: 3}
+  m_Script: {fileID: 11500000, guid: b66a5aa4db7831a47813c5bd0a247b35, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  hasID: 0
+  id: 0
+  resetInRuntime: 0
   onChangeToggle: 0
   OnChangeScriptableObject: {fileID: 0}
   OnChangeEvent:
     m_PersistentCalls:
       m_Calls: []
   owner: {fileID: 0}
-  nickname: {fileID: 11400000, guid: 87cf211009a29344db5f6b5fec3f9dc4, type: 2}
+  nickname: {fileID: 11400000, guid: fa56e4e602183b24692f85ca7406448c, type: 2}
   stats:
-    agility: {fileID: 11400000, guid: e4c9722114fe6a2468236048e5e62983, type: 2}
-    strength: {fileID: 11400000, guid: e8563d3ba0d14d04d854b9e192c65c54, type: 2}
-    intelligence: {fileID: 11400000, guid: 13d7f5194b38caa469636bf7955e86c2, type: 2}
-    stamina: {fileID: 11400000, guid: e8bad8640934a4a4e8bf786abf63d10d, type: 2}
-  level: {fileID: 11400000, guid: 6bfe56160e1745b479426f08ec7a6f8c, type: 2}
-  experience: {fileID: 11400000, guid: 159c604b404ca5c4f95ac3aedcd2900d, type: 2}
+    agility: {fileID: 11400000, guid: f62f07ab796f9034385df5c4730d2378, type: 2}
+    strength: {fileID: 11400000, guid: d18e8ba2734b55e45a800476406c6d9a, type: 2}
+    intelligence: {fileID: 11400000, guid: 8f7cb36f1d716964f80269be722f33ef, type: 2}
+    stamina: {fileID: 11400000, guid: e428be36b2c1f7144b6e4fdb8dbe88b6, type: 2}
+  level: {fileID: 11400000, guid: ad7acc90482c0d547b92cbd5185735d4, type: 2}
+  experience: {fileID: 11400000, guid: e472a584a7348904185d1ee4fb49c2b5, type: 2}
   wallet:
-    currency: {fileID: 11400000, guid: 72ef629b844678340965326dab886369, type: 2}
-    credits: {fileID: 11400000, guid: 0001915e1cc924d47a304b249dfc2fe0, type: 2}
+    currency: {fileID: 11400000, guid: 965b149a456193245a797963953687e7, type: 2}
+    credits: {fileID: 11400000, guid: 5a5723c36f75cf44ab22c3b75e58e6ae, type: 2}

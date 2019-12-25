@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6997dd47324e58548b836368fb6bc313, type: 3}
+  m_Script: {fileID: 11500000, guid: ee2558ff7d66cd749999e4e493d37003, type: 3}
   m_Name: PlayerData Stats Intelligence
   m_EditorClassIdentifier: 
   onChangeToggle: 0

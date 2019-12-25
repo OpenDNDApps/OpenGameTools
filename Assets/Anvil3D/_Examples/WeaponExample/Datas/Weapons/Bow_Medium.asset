@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6609e2143aaba414b9273167987bcfaf, type: 3}
+  m_Script: {fileID: 11500000, guid: ed1d0ea513ce79d4c8f0413ed54862cb, type: 3}
   m_Name: Bow_Medium
   m_EditorClassIdentifier: 
   hasID: 0

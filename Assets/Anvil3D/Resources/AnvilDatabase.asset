@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 288ced005dc9fe942aeb0d1ed225ade5, type: 3}
+  m_Script: {fileID: 11500000, guid: ea0a35fc717ae1b418c0b24dc031f91b, type: 3}
   m_Name: AnvilDatabase
   m_EditorClassIdentifier: 
   hasID: 0
@@ -20,10 +20,10 @@ MonoBehaviour:
   OnChangeEvent:
     m_PersistentCalls:
       m_Calls: []
-  playerData: {fileID: 11400000, guid: 4a662fa6d1328b14c9d7df929bc2efa8, type: 2}
-  allWeaponDatasInProject: {fileID: 11400000, guid: acacc2b6498453d42ab056072e182b0c,
+  playerData: {fileID: 11400000, guid: 1c3f9f32396c3f34483d36745cf85f6a, type: 2}
+  allWeaponDatasInProject: {fileID: 11400000, guid: adb4753cc42f3be46b725e000a96b0c1,
     type: 2}
-  allWeaponWorldItemsInGameBuilt: {fileID: 11400000, guid: 0aae8e0b9bf000b4aabf0231ea6a4bcf,
+  allWeaponWorldItemsInGameBuilt: {fileID: 11400000, guid: 7764a601266e03a4a84123cb243e0d69,
     type: 2}
-  allWeaponUIItemsInGameBuilt: {fileID: 11400000, guid: 83004f66e7af4314c9149a8958556d96,
+  allWeaponUIItemsInGameBuilt: {fileID: 11400000, guid: 3a4b9729288bc33468f7fe721469c535,
     type: 2}

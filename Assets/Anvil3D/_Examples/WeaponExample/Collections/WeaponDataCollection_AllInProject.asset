@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d6b414f1fa78342abd412987d86e6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dd293ed877f9ac42ae95e8345266e5d, type: 3}
   m_Name: WeaponDataCollection_AllInProject
   m_EditorClassIdentifier: 
   hasID: 0
@@ -21,11 +21,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _list:
-  - {fileID: 11400000, guid: 72c94b5475085a2468b235714fe42814, type: 2}
-  - {fileID: 11400000, guid: 5b109bec249064347aba5cf8ff6574f3, type: 2}
-  - {fileID: 11400000, guid: 2c1a3a8e121d1f349b8a81ae16886919, type: 2}
-  - {fileID: 11400000, guid: 897866220ee6b10409cc1eb0063e38b1, type: 2}
-  - {fileID: 11400000, guid: 9f67935582872fb4289f471589aee748, type: 2}
-  - {fileID: 11400000, guid: a127972a72e54354fbc84084cc3f13f7, type: 2}
-  - {fileID: 11400000, guid: 9a23b332db559b54b867b41ccb8aa65c, type: 2}
-  - {fileID: 11400000, guid: 82ca14b92c56b594194f700f239b6ff3, type: 2}
+  - {fileID: 11400000, guid: deaf933b308e5e847858079c02f92753, type: 2}
+  - {fileID: 11400000, guid: fdf103e0e3298e5458d07042909bf5cb, type: 2}
+  - {fileID: 11400000, guid: ed221c04f32449646ba6385ef1b98d27, type: 2}
+  - {fileID: 11400000, guid: ce0c997f6f3ba1f4cb1b1da0d6524980, type: 2}
+  - {fileID: 11400000, guid: 4fe40bc7485edc44c926d4c74a4818dc, type: 2}
+  - {fileID: 11400000, guid: 7fea195b01ce6a04c9d074ea05f2c0a3, type: 2}
+  - {fileID: 11400000, guid: b359f2f12100508419789a0984c1f9df, type: 2}
+  - {fileID: 11400000, guid: 834580bcd4deb8e47848afe5597f70f7, type: 2}
