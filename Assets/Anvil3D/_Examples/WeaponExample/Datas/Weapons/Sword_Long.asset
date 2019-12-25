@@ -28,7 +28,7 @@ MonoBehaviour:
   modDamages: []
   durability: 100
   art: {fileID: 21300000, guid: 99237d90e1dd12d4486b4c3e73195c21, type: 3}
-  body: {fileID: 2234601114682645086, guid: 9a6e6cb7541696347a1b7749349ffc8b, type: 3}
+  body: {fileID: 5469725151796146375, guid: c7c74a89a00e72049b3e9c4fba989ec4, type: 3}
   type: 0
   size: 3
   usage: 3

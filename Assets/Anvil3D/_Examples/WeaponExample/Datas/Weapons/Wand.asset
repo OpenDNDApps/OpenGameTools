@@ -31,7 +31,7 @@ MonoBehaviour:
     type: 3
   durability: 100
   art: {fileID: 21300000, guid: 70c402a9026952c4980befd7658919a8, type: 3}
-  body: {fileID: 3114999249977261601, guid: f82698bd702244048883046aa9002eee, type: 3}
+  body: {fileID: 389144285175892687, guid: 181047e3c468123478183163cef8ed2a, type: 3}
   type: 1
   size: 0
   usage: 2
