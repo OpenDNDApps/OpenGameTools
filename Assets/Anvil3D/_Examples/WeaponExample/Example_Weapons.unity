@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 30
   m_Viewport: {fileID: 122348719}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1923720684}
@@ -555,6 +555,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WeaponWorldItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426791565298403702, guid: caecbe9d6e0ec2c4c984abd133e5b0fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6451082157789007998, guid: caecbe9d6e0ec2c4c984abd133e5b0fe,
         type: 3}
@@ -899,6 +904,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponUIItem
       objectReference: {fileID: 0}
+    - target: {fileID: 5395957208738667529, guid: 0ae45e0895ff6c349b61bcccd40ab853,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ae45e0895ff6c349b61bcccd40ab853, type: 3}
 --- !u!224 &576347549 stripped
@@ -983,6 +993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1387969442}
   - component: {fileID: 1387969443}
+  - component: {fileID: 1387969444}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1008,7 +1019,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1387969443
 MonoBehaviour:
@@ -1034,6 +1045,20 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1387969444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387969441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 1
 --- !u!1 &1452169968
 GameObject:
   m_ObjectHideFlags: 0

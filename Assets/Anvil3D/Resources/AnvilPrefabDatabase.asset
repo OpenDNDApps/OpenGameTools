@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b53154dd7e15b41984324550cbef9f, type: 3}
   m_Name: AnvilPrefabDatabase
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  weaponUIItem: {fileID: 0}
-  weaponWorldItem: {fileID: 0}
+  player: {fileID: 3829328746837798313, guid: cf268a9d8380ac6428501d404a297fbc, type: 3}
+  weaponUIItem: {fileID: 157159356281610242, guid: 0ae45e0895ff6c349b61bcccd40ab853,
+    type: 3}
+  weaponWorldItem: {fileID: 6563604720965060762, guid: caecbe9d6e0ec2c4c984abd133e5b0fe,
+    type: 3}
