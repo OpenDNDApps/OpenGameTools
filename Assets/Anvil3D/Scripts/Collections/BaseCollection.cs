@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Anvil3D {
-	public abstract class BaseCollection<T> : AnvilScriptableObject, IOnChangeHandler, ISerializationCallbackReceiver, IEnumerable<T>
+	public abstract class BaseCollection<T> : AnvilScriptableObject, IOnChangeHandler, ISerializationCallbackReceiver, IEnumerable<T>, IList<T>
 	{
 		public T this[int index]
 		{
@@ -42,6 +42,8 @@ namespace Anvil3D {
 		}
 
 		public int Count { get { return List.Count; } }
+
+		public bool IsReadOnly { get { return List.IsReadOnly; } }
 
 		public void Add(T obj)
 		{
@@ -172,6 +174,16 @@ namespace Anvil3D {
 		{
 			if(resetInRuntime)
 				_list = initList;
+		}
+
+		public void CopyTo(T[] array, int arrayIndex)
+		{
+			List.CopyTo(array, arrayIndex);
+		}
+
+		bool ICollection<T>.Remove(T item)
+		{
+			return ((ICollection<T>)List).Remove(item);
 		}
 	}
 
