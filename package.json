@@ -2,13 +2,20 @@
     "name": "com.anvil3d.toolset",
     "displayName": "Anvil3D Toolset",
     "description": "Anvil3D Toolset is a compilation of several systems, scripts and extensions made by us and found on the internet over the years.",
-    "version": "0.1.0",
-    "unity": "2019.3",
+    "version": "0.2.0",
+    "unity": "2019.4.1",
     "license": "CCBY40",
     "repository": {
         "type": "git",
         "url": "https://github.com/Anvil3D/Anvil3D-Toolset.git"
     },
-    "author": "Eduardo Uribe - Anvil3D <eduardo.u24@gmail.com> (https://github.com/Anvil3D/)",
+    "keywords": [
+        "toolset", "framework", "tools", "utilities", "extensions", "inventory", "healthbar", "manabar"
+    ],
+    "author": {
+        "name": "Eduardo Uribe",
+        "email": "eduardo.u24@gmail.com",
+        "url": "https://github.com/Anvil3D/"
+    },
     "dependencies": {}
 }
