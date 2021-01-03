@@ -8,24 +8,30 @@ namespace Anvil3D
 	[CreateAssetMenu(fileName = "New GameEvent", menuName = "Anvil3D/Events/GameEvent")]
 	public class GameEvent : ScriptableObject
 	{
-		public List<GameEventListener> baseListeners = new List<GameEventListener>();
-		public List<GameBehaviour> gameBehaviours = new List<GameBehaviour>();
-		internal bool hasBeenRaised = false;
+		protected List<GameEventListener> m_baseListeners = new List<GameEventListener>();
+		protected List<GameBehaviour> m_gameBehaviours = new List<GameBehaviour>();
+		protected bool m_hasBeenRaised = false;
 
 		public void Raise()
 		{
-			foreach (GameEventListener _listener in baseListeners)
+			foreach (GameEventListener listener in m_baseListeners)
 			{
-				_listener?.OnEventRaised();
+				if (listener != null)
+				{
+					listener.OnEventRaised();	
+				}
 			}
 
-			foreach (GameBehaviour _behaviour in gameBehaviours)
+			foreach (GameBehaviour behaviour in m_gameBehaviours)
 			{
-				_behaviour?.Behave();
+				if (behaviour != null)
+				{
+					behaviour.Behave();
+				}
 			}
 
 			EventsManager.TriggerEvent(this.name);
-			hasBeenRaised = true;
+			m_hasBeenRaised = true;
 		}
 
 		public void RegisterAction(UnityAction newAction)
@@ -38,44 +44,44 @@ namespace Anvil3D
 			EventsManager.StopListening(this.name, newAction);
 		}
 
-		public void RegisterListener(GameEventListener _eventableToAdd)
+		public void RegisterListener(GameEventListener eventToAdd)
 		{
-			if (!baseListeners.Contains(_eventableToAdd))
+			if (!m_baseListeners.Contains(eventToAdd))
 			{
-				baseListeners.Add(_eventableToAdd);
+				m_baseListeners.Add(eventToAdd);
 			}
 		}
 
-		public void RegisterListener(GameBehaviour _eventableToAdd)
+		public void RegisterListener(GameBehaviour eventToAdd)
 		{
-			if (!gameBehaviours.Contains(_eventableToAdd))
+			if (!m_gameBehaviours.Contains(eventToAdd))
 			{
-				gameBehaviours.Add(_eventableToAdd);
+				m_gameBehaviours.Add(eventToAdd);
 			}
 		}
 
-		public void UnregisterListener(GameEventListener _eventableToRemove)
+		public void UnregisterListener(GameEventListener eventToRemove)
 		{
-			if (baseListeners.Contains(_eventableToRemove))
+			if (m_baseListeners.Contains(eventToRemove))
 			{
-				baseListeners.Remove(_eventableToRemove);
+				m_baseListeners.Remove(eventToRemove);
 			}
 		}
 
-		public void UnregisterListener(GameBehaviour _eventableToRemove)
+		public void UnregisterListener(GameBehaviour eventToRemove)
 		{
-			if (gameBehaviours.Contains(_eventableToRemove))
+			if (m_gameBehaviours.Contains(eventToRemove))
 			{
-				gameBehaviours.Remove(_eventableToRemove);
+				m_gameBehaviours.Remove(eventToRemove);
 			}
 		}
 
 		#if UNITY_EDITOR
 		public void OnEnable()
 		{
-			baseListeners.Clear();
-			gameBehaviours.Clear();
-			hasBeenRaised = false;
+			m_baseListeners.Clear();
+			m_gameBehaviours.Clear();
+			m_hasBeenRaised = false;
 			UnityEditor.EditorUtility.SetDirty(this);
 		}
 		#endif

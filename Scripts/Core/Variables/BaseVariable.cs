@@ -27,7 +27,7 @@ namespace Anvil3D
 
 		public void OnAfterDeserialize()
 		{
-			if(resetInRuntime)
+			if(m_resetInRuntime)
 				_value = initValue;
 		}
 

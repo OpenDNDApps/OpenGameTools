@@ -7,84 +7,62 @@ using UnityEngine;
 namespace Anvil3D {
 	public abstract class BaseCollection<T> : AnvilScriptableObject, IOnChangeHandler, ISerializationCallbackReceiver, IEnumerable<T>, IList<T>
 	{
+		[SerializeField] protected List<T> m_list = new List<T>();
+		[NonSerialized] protected List<T> m_initList = new List<T>();
+		
 		public T this[int index]
 		{
-			get
-			{
-				return _list[index];
-			}
-			set
-			{
-				_list[index] = value;
-			}
+			get => m_list[index];
+			set => m_list[index] = value;
 		}
 
-		[SerializeField]
-		protected List<T> _list = new List<T>();
+		public IList List => m_list;
+		public int Count => List.Count;
 
-		[NonSerialized]
-		protected List<T> initList = new List<T>();
+		public Type Type => typeof(T);
 
-		public IList List
-		{
-			get
-			{
-				return _list;
-			}
-		}
-
-		public Type Type
-		{
-			get
-			{
-				return typeof(T);
-			}
-		}
-
-		public int Count { get { return List.Count; } }
-
-		public bool IsReadOnly { get { return List.IsReadOnly; } }
+		public bool IsReadOnly => List.IsReadOnly;
 
 		public void Add(T obj)
 		{
-			if (!_list.Contains(obj))
-				_list.Add(obj);
+			if (!m_list.Contains(obj))
+				m_list.Add(obj);
 
 			OnChange();
 		}
 
 		public void Insert(int index, T value)
 		{
-			_list.Insert(index, value);
+			m_list.Insert(index, value);
 
 			OnChange();
 		}
 
 		public void Remove(T obj)
 		{
-			if (_list.Contains(obj))
-				_list.Remove(obj);
+			if (m_list.Contains(obj))
+				m_list.Remove(obj);
 
 			OnChange();
 		}
 
 		public void RemoveAt(int index)
 		{
-			_list.RemoveAt(index);
+			m_list.RemoveAt(index);
 
 			OnChange();
 		}
 
 		public void Clear()
 		{
-			_list.Clear();
+			m_list.Clear();
 
 			OnChange();
 		}
 
 		public bool Contains(T value)
 		{
-			return _list.Contains(value);
+			return m_list.Contains(value);
 		}
 
 		/// <summary>
@@ -101,7 +79,7 @@ namespace Anvil3D {
 				return false;
 			}
 
-			return _list.Exists((x) => ((AnvilScriptableObject)(object)x).id == id);
+			return m_list.Exists((x) => ((AnvilScriptableObject)(object)x).ID == id);
 		}
 
 		/// <summary>
@@ -118,7 +96,7 @@ namespace Anvil3D {
 				return default;
 			}
 
-			return _list.Find((x) => ((AnvilScriptableObject)(object)x).id == id);
+			return m_list.Find((x) => ((AnvilScriptableObject)(object)x).ID == id);
 		}
 
 		/// <summary>
@@ -135,17 +113,17 @@ namespace Anvil3D {
 				return default;
 			}
 
-			return _list.FindAll((x) => ((AnvilScriptableObject)(object)x).id == id);
+			return m_list.FindAll((x) => ((AnvilScriptableObject)(object)x).ID == id);
 		}
 
 		public T GetRandomItem()
 		{
-			return _list[UnityEngine.Random.Range(0, _list.Count - 1)];
+			return m_list[UnityEngine.Random.Range(0, m_list.Count - 1)];
 		}
 
 		public int IndexOf(T value)
 		{
-			return _list.IndexOf(value);
+			return m_list.IndexOf(value);
 		}
 
 		IEnumerator IEnumerable.GetEnumerator()
@@ -155,7 +133,7 @@ namespace Anvil3D {
 
 		public IEnumerator<T> GetEnumerator()
 		{
-			return _list.GetEnumerator();
+			return m_list.GetEnumerator();
 		}
 
 		public override string ToString()
@@ -165,15 +143,15 @@ namespace Anvil3D {
 
 		public T[] ToArray()
 		{
-			return _list.ToArray();
+			return m_list.ToArray();
 		}
 
 		public void OnBeforeSerialize() {}
 
 		public void OnAfterDeserialize()
 		{
-			if(resetInRuntime)
-				_list = initList;
+			if(m_resetInRuntime)
+				m_list = m_initList;
 		}
 
 		public void CopyTo(T[] array, int arrayIndex)

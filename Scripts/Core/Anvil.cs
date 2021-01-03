@@ -15,9 +15,11 @@
 
 		public const string API_BASE_URL = "https://castle.myl.cl/";
 
-		public const string GamePropertiesFileName = "AnvilGameSettings";
-		public const string MasterAccessFileName = "AnvilDatabase";
-		public const string PrefabsAccessFileName = "AnvilPrefabDatabase";
+		public const string kGamePropertiesFileName = "AnvilGameSettings";
+		public const string kMasterAccessFileName = "AnvilDatabase";
+		public const string kPrefabsAccessFileName = "AnvilPrefabDatabase";
+		
+		public const int kIDPrefixINTValue = -99;
 		#endregion
 
 
@@ -29,9 +31,9 @@
 			get
 			{
 				if (_gameSettings == null)
-					_gameSettings = (AnvilGameSettings)Resources.Load(Anvil.GamePropertiesFileName, typeof(AnvilGameSettings));
+					_gameSettings = (AnvilGameSettings)Resources.Load(Anvil.kGamePropertiesFileName, typeof(AnvilGameSettings));
 				if (_gameSettings == null)
-					Debug.LogError($"Asset '{Anvil.GamePropertiesFileName}' not found.");
+					Debug.LogError($"Asset '{Anvil.kGamePropertiesFileName}' not found.");
 				return _gameSettings;
 			}
 		}
@@ -42,9 +44,9 @@
 			get
 			{
 				if (_dataBase == null)
-					_dataBase = (AnvilDatabase)Resources.Load(Anvil.MasterAccessFileName, typeof(AnvilDatabase));
+					_dataBase = (AnvilDatabase)Resources.Load(Anvil.kMasterAccessFileName, typeof(AnvilDatabase));
 				if (_dataBase == null)
-					Debug.LogError($"Asset '{Anvil.MasterAccessFileName}' not found.");
+					Debug.LogError($"Asset '{Anvil.kMasterAccessFileName}' not found.");
 				return _dataBase;
 			}
 		}
@@ -55,9 +57,9 @@
 			get
 			{
 				if (_prefabDatabase == null)
-					_prefabDatabase = (AnvilPrefabDatabase)Resources.Load(Anvil.PrefabsAccessFileName, typeof(AnvilPrefabDatabase));
+					_prefabDatabase = (AnvilPrefabDatabase)Resources.Load(Anvil.kPrefabsAccessFileName, typeof(AnvilPrefabDatabase));
 				if (_prefabDatabase == null)
-					Debug.LogError($"Asset '{Anvil.PrefabsAccessFileName}' not found.");
+					Debug.LogError($"Asset '{Anvil.kPrefabsAccessFileName}' not found.");
 				return _prefabDatabase;
 			}
 		}

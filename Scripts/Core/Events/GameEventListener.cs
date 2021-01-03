@@ -8,25 +8,31 @@ namespace Anvil3D
 	[AddComponentMenu("Anvil3D/Events/GameEventListener")]
 	public class GameEventListener : MonoBehaviour
 	{
-		public GameEvent Event;
+		[SerializeField] private GameEvent m_event;
+		[SerializeField] private List<UnityEvent> m_responses = new List<UnityEvent>();
 
-		public List<UnityEvent> Responses = new List<UnityEvent>();
-
+		public GameEvent Event => m_event;
+		public List<UnityEvent> Responses => m_responses;
+		
 		public void OnEnable()
 		{
-			if (Event)
-				Event.RegisterListener(this);
+			if (m_event)
+			{
+				m_event.RegisterListener(this);
+			}
 		}
 
 		public void OnDisable()
 		{
-			if (Event)
-				Event.UnregisterListener(this);
+			if (m_event)
+			{
+				m_event.UnregisterListener(this);
+			}
 		}
 
 		public virtual void OnEventRaised()
 		{
-			foreach (UnityEvent currentResponse in Responses)
+			foreach (UnityEvent currentResponse in m_responses)
 			{
 				currentResponse.Invoke();
 			}
