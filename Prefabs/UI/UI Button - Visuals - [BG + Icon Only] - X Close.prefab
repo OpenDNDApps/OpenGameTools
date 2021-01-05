@@ -9,12 +9,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 234888661209057616, guid: 18e246a6f8979c84f86dce86834ebbc2,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c62cdee006fb282448c53058619938c3,
-        type: 3}
-    - target: {fileID: 234888661209057616, guid: 18e246a6f8979c84f86dce86834ebbc2,
-        type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
@@ -162,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 6057924670494537277, guid: 18e246a6f8979c84f86dce86834ebbc2,
         type: 3}
       propertyPath: m_Name
-      value: UI Button - Visuals - BG + Icon Only - X Close
+      value: UI Button - Visuals - [BG + Icon Only] - X Close
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18e246a6f8979c84f86dce86834ebbc2, type: 3}
