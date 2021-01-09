@@ -9,12 +9,23 @@ using UnityEngine.UI;
 
 namespace Anvil3D
 {
-    public class UIButton : BaseUIScript, IPointerClickHandler
+    public class UIButton : BaseUIScript
     {
+        [SerializeField] private Button m_baseButton;
         [SerializeField] private UnityEvent m_onClick;
         [SerializeField] private TMP_Text m_label;
         [SerializeField] private Image m_background;
         [SerializeField] private Image m_icon;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            
+            if (m_onClick != null)
+            {
+                m_baseButton.onClick.AddListener(m_onClick.Invoke);
+            }
+        }
 
         public void AddClickEvent(Action onClick, bool replaceAll = false)
         {
@@ -24,10 +35,16 @@ namespace Anvil3D
             }
             m_onClick.AddListener(onClick.Invoke);
         }
-        
-        public void OnPointerClick(PointerEventData eventData)
+
+        public void SetLabel(string newLabel)
         {
-            m_onClick?.Invoke();
+            m_label.text = newLabel;
+        }
+
+        public void SetIcon(Sprite newSprite)
+        {
+            m_icon.sprite = newSprite;
+            m_icon.overrideSprite = newSprite;
         }
     }
 }

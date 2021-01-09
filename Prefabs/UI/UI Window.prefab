@@ -166,8 +166,20 @@ MonoBehaviour:
   m_onChangeUnityEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_rootCanvasGroup: {fileID: 119948342012943641}
   m_hideOnAwake: 1
+  m_rootCanvasGroup: {fileID: 119948342012943641}
+  m_rectTransform: {fileID: 0}
+  m_isDraggable: 0
+  m_moveToFrontOnDrag: 0
+  m_onDragBegins:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onDrag:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onDragEnds:
+    m_PersistentCalls:
+      m_Calls: []
   m_closeButton: {fileID: 481221320222890997}
 --- !u!1 &6954290585889737718
 GameObject:
@@ -227,6 +239,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375229207085279651}
     m_Modifications:
+    - target: {fileID: 1267561643006937141, guid: eaa6049c7ac320146a95ee8417fa584a,
+        type: 3}
+      propertyPath: m_baseButton
+      value: 
+      objectReference: {fileID: 6456373022811005572}
     - target: {fileID: 2290299850948954049, guid: eaa6049c7ac320146a95ee8417fa584a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -355,5 +372,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99dafa9da7990cb4fa907da346876b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6456373022811005572 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5666453751166972228, guid: eaa6049c7ac320146a95ee8417fa584a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1673910402996245440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
