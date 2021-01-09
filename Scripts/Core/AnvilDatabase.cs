@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(menuName = "Anvil3D/Base/Database")]
+	[CreateAssetMenu(fileName = Anvil3D.kMainDatabaseFileName, menuName = Anvil3D.kMainDatabaseMenuName)]
 	public class AnvilDatabase : AnvilScriptableObject
 	{
-		public PlayerData playerData;
+		public PlayerData PlayerData;
 
-		public WeaponDataCollection allWeaponDatasInProject;
+		public WeaponDataCollection AllWeaponDatasInProject;
 
-		public WeaponWorldItemCollection allWeaponWorldItemsInGameBuilt;
-		public WeaponUIItemCollection allWeaponUIItemsInGameBuilt;
+		public WeaponWorldItemCollection AllWeaponWorldItemsInGameBuilt;
+		public WeaponUIItemCollection AllWeaponUIItemsInGameBuilt;
 	}
 }

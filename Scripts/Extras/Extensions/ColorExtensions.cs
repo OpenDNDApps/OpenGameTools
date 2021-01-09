@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// This collection of extensions contian code from:
+/// This collection of extensions contain code from:
 ///		- 
 ///		
 /// Extension methods for UnityEngine.Component.
@@ -18,8 +16,8 @@ public static class ColorExtensions
 	/// <returns>Color object</returns>
 	public static Color ToColor(this string hex)
 	{
-		bool _valid = ColorUtility.TryParseHtmlString(hex, out Color _color);
-		return _valid ? _color : Color.magenta;
+		bool valid = ColorUtility.TryParseHtmlString(hex, out Color color);
+		return valid ? color : Color.magenta;
 	}
 
 	/// <summary>

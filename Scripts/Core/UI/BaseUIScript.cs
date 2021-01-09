@@ -87,7 +87,7 @@ namespace Anvil3D
             m_rootCanvasGroup.DOFade(0f, 0f).OnComplete(() => m_rootCanvasGroup.gameObject.SetActive(false));
         }
 
-        public void OnDrag(PointerEventData eventData)
+        public virtual void OnDrag(PointerEventData eventData)
         {
             if (!m_isDraggable)
             {
@@ -101,7 +101,7 @@ namespace Anvil3D
             m_rectTransform.anchoredPosition = newPosition;
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
+        public virtual void OnBeginDrag(PointerEventData eventData)
         {
             if (!m_isDraggable)
             {
@@ -116,7 +116,7 @@ namespace Anvil3D
             m_onDragBegins?.Invoke();
         }
 
-        public void OnEndDrag(PointerEventData eventData)
+        public virtual void OnEndDrag(PointerEventData eventData)
         {
             if (!m_isDraggable)
             {

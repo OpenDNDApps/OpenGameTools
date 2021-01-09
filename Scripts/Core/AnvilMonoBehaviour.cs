@@ -10,27 +10,33 @@ namespace Anvil3D
 	[AddComponentMenu("")]
 	public class AnvilMonoBehaviour : AnvilMonoBase, IOnChangeHandler, IIdentifiable
 	{
-		[ToggleGroup("m_hasID", Anvil.kIDPrefixINTValue, "Has ID")]
+		#region ID / IIdentifiable Section
+		
+		[ToggleGroup(Anvil3D.kIDGroupKeyVariable, Anvil3D.kIDSortValue, Anvil3D.kIDGroupTitle)]
 		[SerializeField] protected bool m_hasID = false;
-		[ToggleGroup("m_hasID", Anvil.kIDPrefixINTValue, "Has ID")]
+		[ToggleGroup(Anvil3D.kIDGroupKeyVariable, Anvil3D.kIDSortValue)]
 		[SerializeField] protected int m_id;
 		
 		public int ID => m_id;
 		public bool HasID => m_hasID;
 		
-		[PropertySpace(50f), ToggleGroup("m_onChangeToggle", "On Change Events", Order = 9900)]
+		#endregion
+		
+		#region OnChange Section
+		
+		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder, Anvil3D.kOnChangeGroupTitle)]
 		[SerializeField] protected bool m_onChangeToggle = false;
 
-		[ToggleGroup("m_onChangeToggle", Order = 9901)]
+		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder)]
 		[SerializeField] protected GameEvent m_onChangeGameEvent;
 
-		[ToggleGroup("m_onChangeToggle", Order = 9902)]
+		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder)]
 		[SerializeField] protected UnityEvent m_onChangeUnityEvent;
 
-		[ToggleGroup("m_onChangeToggle", Order = 9902)]
+		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder)]
 		[SerializeField] protected UnityAction m_onChangeUnityAction;
 		
-		[ToggleGroup("m_onChangeToggle", Order = 9901), PropertyOrder(9903), Button("Trigger OnChange"), GUIColor(0.3f, 0.8f, 0.8f, 1f)]
+		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder), Button(Anvil3D.kOnChangeButtonTitle), GUIColor(0.3f, 0.8f, 0.8f, 1f)]
 		public virtual void OnChange()
 		{
 			if (m_onChangeGameEvent != null)
@@ -40,8 +46,10 @@ namespace Anvil3D
 			m_onChangeUnityEvent?.Invoke();
 			m_onChangeUnityAction?.Invoke();
 		}
+		
+		#endregion
 
-		public void OnEnable()
+		public virtual void OnEnable()
 		{
 			if(m_onChangeToggle)
 			{
@@ -49,7 +57,7 @@ namespace Anvil3D
 			}
 		}
 
-		public void OnDisable()
+		public virtual void OnDisable()
 		{
 			if (m_onChangeToggle)
 			{

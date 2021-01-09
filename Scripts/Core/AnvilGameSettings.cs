@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(fileName = "AnvilGameSettings", menuName = "Anvil3D/Base/GameSettings")]
+	[CreateAssetMenu(fileName = Anvil3D.kGamePropertiesFileName, menuName = Anvil3D.kGamePropertiesMenuName)]
 	public class AnvilGameSettings : ScriptableObject
 	{
 		/// <summary>
@@ -28,12 +28,12 @@ namespace Anvil3D
 		///		}
 		/// </summary>
 
-		public string version = "v0.0.1a";
-		public string versionPref = "game_version";
+		public string Version = "v0.0.1a";
+		public string VersionPref = "game_version";
 
-		public int build = 0010;
-		public string buildPref = "game_build";
+		public int Build = 0010;
+		public string BuildPref = "game_build";
 
-		public DamageModifiers damageModifiers;
+		public DamageModifiers DamageModifiers;
 	}
 }

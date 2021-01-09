@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,29 +7,31 @@ namespace Anvil3D
 	public class Example_WeaponUIItemSpawner : MonoBehaviour
 	{
 		// This is an example of the "Access" usage.
-		[ShowInInspector]
-		public WeaponUIItem Prefab => Anvil.Prefabs.weaponUIItem;
+		[SerializeField] private WeaponUIItem m_prefab => Anvil3D.Prefabs.WeaponUIItem;
 
 		// This is an example of a direct reference usage, see this is scene independent.
-		public WeaponUIItemCollection storedCollectionOfBuiltItems;
+		[SerializeField] private WeaponUIItemCollection m_storedCollectionOfBuiltItems;
 
 		// just a container for the instantiating.
-		public RectTransform holder;
+		[SerializeField] private RectTransform m_holder;
 
 		public void Start()
 		{
-			//runtimeCollectionOfBuiltItems = Instantiate(new ScriptableCollection<CardWorldItem>());
+			BuildDemoItems();
+		}
 
+		private void BuildDemoItems()
+		{
 			for (int x = -2; x < 2; x++)
 			{
 				for (int y = -2; y < 2; y++)
 				{
-					WeaponUIItem _newItem = Instantiate(Prefab, new Vector3(x, y, 0f), Quaternion.identity, holder);
+					WeaponUIItem newItem = Instantiate(m_prefab, new Vector3(x, y, 0f), Quaternion.identity, m_holder);
 
-					_newItem.data = Anvil.Database.allWeaponDatasInProject.GetRandomItem();
-					_newItem.Build();
+					newItem.data = Anvil3D.Database.AllWeaponDatasInProject.GetRandomItem();
+					newItem.Build();
 
-					storedCollectionOfBuiltItems.List.Add(_newItem);
+					m_storedCollectionOfBuiltItems.List.Add(newItem);
 				}
 			}
 		}

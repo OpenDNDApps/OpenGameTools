@@ -8,7 +8,7 @@ namespace Anvil3D {
 	public abstract class BaseCollection<T> : AnvilScriptableObject, IOnChangeHandler, ISerializationCallbackReceiver, IEnumerable<T>, IList<T>
 	{
 		[SerializeField] protected List<T> m_list = new List<T>();
-		[NonSerialized] protected List<T> m_initList = new List<T>();
+		[NonSerialized] private List<T> m_initList = new List<T>();
 		
 		public T this[int index]
 		{
@@ -73,13 +73,13 @@ namespace Anvil3D {
 		/// <returns></returns>
 		public bool ContainsByID(int id)
 		{
-			if (!(this is AnvilScriptableObject))
+			if (!(this is IIdentifiable))
 			{
-				Debug.LogError($"Cannot 'ContainsByID' on '{this.name}' of type '{this.GetType()}' is not an AnvilScriptableObject, failsafed to false", this);
+				Debug.LogError($"Cannot 'ContainsByID' on '{this.name}' of type '{this.GetType()}' is not an IIdentifiable, failsafed to false", this);
 				return false;
 			}
 
-			return m_list.Exists((x) => ((AnvilScriptableObject)(object)x).ID == id);
+			return m_list.Exists((x) => ((IIdentifiable)x).ID == id);
 		}
 
 		/// <summary>
@@ -90,13 +90,13 @@ namespace Anvil3D {
 		/// <returns></returns>
 		public T GetByID(int id)
 		{
-			if (!(this is AnvilScriptableObject))
+			if (!(this is IIdentifiable))
 			{
-				Debug.LogError($"Cannot 'GetByID' on '{this.name}' of type '{this.GetType()}' is not an AnvilScriptableObject, failsafed to default", this);
+				Debug.LogError($"Cannot 'GetByID' on '{this.name}' of type '{this.GetType()}' is not an IIdentifiable, failsafed to default", this);
 				return default;
 			}
 
-			return m_list.Find((x) => ((AnvilScriptableObject)(object)x).ID == id);
+			return m_list.Find((x) => ((IIdentifiable)x).ID == id);
 		}
 
 		/// <summary>
@@ -107,13 +107,13 @@ namespace Anvil3D {
 		/// <returns></returns>
 		public List<T> GetAllByID(int id)
 		{
-			if (!(this is AnvilScriptableObject))
+			if (!(this is IIdentifiable))
 			{
 				Debug.LogError($"Cannot 'GetAllByID' on '{this.name}' of type '{this.GetType()}' is not an AnvilScriptableObject, failsafed to default", this);
 				return default;
 			}
 
-			return m_list.FindAll((x) => ((AnvilScriptableObject)(object)x).ID == id);
+			return m_list.FindAll((x) => ((IIdentifiable)x).ID == id);
 		}
 
 		public T GetRandomItem()

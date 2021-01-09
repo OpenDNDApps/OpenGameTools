@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-    // http://msdn.microsoft.com/en-us/library/01escwtf%28v=vs.110%29.aspx
+// http://msdn.microsoft.com/en-us/library/01escwtf%28v=vs.110%29.aspx
 
 /// <summary>
 /// Handles validating an email
@@ -12,7 +12,7 @@ internal class EmailValidator
     /// <summary>
     /// True if the address is invalid
     /// </summary>
-    private bool invalid;
+    private bool m_invalid;
 
     /// <summary>
     /// True if email is valid
@@ -21,14 +21,14 @@ internal class EmailValidator
     /// <returns></returns>
     public bool IsValidEmail(string strIn)
     {
-        invalid = false;
+        m_invalid = false;
         if (String.IsNullOrEmpty(strIn))
             return false;
 
         // Use IdnMapping class to convert Unicode domain names. 
         strIn = Regex.Replace(strIn, @"(@)(.+)$", this.DomainMapper, RegexOptions.None);
 
-        if (invalid)
+        if (m_invalid)
             return false;
 
         // Return true if strIn is in valid e-mail format. 
@@ -55,7 +55,7 @@ internal class EmailValidator
         }
         catch (ArgumentException)
         {
-            invalid = true;
+            m_invalid = true;
         }
         return match.Groups[1].Value + domainName;
     }

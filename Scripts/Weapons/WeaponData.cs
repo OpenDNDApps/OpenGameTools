@@ -48,7 +48,7 @@ namespace Anvil3D
 		{
 			get
 			{
-				return UnityEngine.Random.Range(min, max)  *  Anvil.Settings.damageModifiers.GetModByType(type);
+				return UnityEngine.Random.Range(min, max)  *  Anvil3D.Settings.DamageModifiers.GetModByType(type);
 			}
 		}
 	}

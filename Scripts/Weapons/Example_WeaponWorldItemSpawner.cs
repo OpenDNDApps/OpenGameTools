@@ -7,29 +7,31 @@ namespace Anvil3D {
 	public class Example_WeaponWorldItemSpawner : MonoBehaviour
 	{
 		// This is an example of the "Access" usage.
-		[ShowInInspector]
-		public WeaponWorldItem Prefab => Anvil.Prefabs.weaponWorldItem;
+		[SerializeField] private WeaponWorldItem m_prefab => Anvil3D.Prefabs.WeaponWorldItem;
 
 		// This is an example of a direct reference usage, see this is scene independent.
-		public WeaponWorldItemCollection storedCollectionOfBuiltItems;
+		[SerializeField] private WeaponWorldItemCollection m_storedCollectionOfBuiltItems;
 
 		// just a container for the instantiating.
-		public Transform holder;
+		[SerializeField] private Transform m_holder;
 
 		public void Start()
 		{
-			//runtimeCollectionOfBuiltItems = Instantiate(new ScriptableCollection<CardWorldItem>());
+			BuildDemoItems();
+		}
 
+		private void BuildDemoItems()
+		{
 			for(int x = -2; x < 2; x++)
 			{
 				for (int z = -2; z < 2; z++)
 				{
-					WeaponWorldItem _newItem = Instantiate(Prefab, new Vector3(x * 1.5f, 0, z * 1.5f), Quaternion.identity, holder);
+					WeaponWorldItem newItem = Instantiate(m_prefab, new Vector3(x * 1.5f, 0, z * 1.5f), Quaternion.identity, m_holder);
 
-					_newItem.data = Anvil.Database.allWeaponDatasInProject.GetRandomItem();
-					_newItem.Build();
+					newItem.data = Anvil3D.Database.AllWeaponDatasInProject.GetRandomItem();
+					newItem.Build();
 
-					storedCollectionOfBuiltItems.List.Add(_newItem);
+					m_storedCollectionOfBuiltItems.List.Add(newItem);
 				}
 			}
 		}

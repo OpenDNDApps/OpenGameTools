@@ -1,6 +1,5 @@
 ﻿using Sirenix.OdinInspector;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace Anvil3D
@@ -9,33 +8,28 @@ namespace Anvil3D
 	public class AnvilPrefabDatabase : ScriptableObject
 	{
 		/// <summary>
+		/// 
 		/// Usage 1: Direct usage
 		///  
 		///		public void MyCustomMethod() {
-		///			Debug.Log(AnvilPrefabDatabase.Instance.version);
+		///			Instantiate(Anvil3D.Prefabs.PrefabVariableName);
 		///		}
 		///		
 		/// Usage 2: Add the instance as a private variable
 		///  
-		///		private AnvilPrefabDatabase Settings => AnvilPrefabDatabase.Instance;
+		///		[SerializeField] private WeaponUIItem m_prefab => Anvil3D.Prefabs.PrefabVariableName;
 		/// 
 		///		public void MyCustomMethod() {
-		///			Debug.Log(Settings.version);
+		///			Instantiate(m_prefab);
 		///		}
-		///		
-		/// Usage 2: Use Anvil shortcut
-		///  
-		///		public void MyCustomMethod() {
-		///			Debug.Log(Anvil.Prefabs.version);
-		///		}
+		/// 
 		/// </summary>
 
-		public Player player;
-
+		public Player Player;
 
 		// EXAMPLES
 		[PropertySpace(10), Title("Examples")]
-		public WeaponUIItem weaponUIItem;
-		public WeaponWorldItem weaponWorldItem;
+		public WeaponUIItem WeaponUIItem;
+		public WeaponWorldItem WeaponWorldItem;
 	}
 }
