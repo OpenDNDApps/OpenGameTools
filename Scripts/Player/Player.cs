@@ -5,16 +5,26 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	public class Player : AnvilMonoBehaviour, IDataBuildable
+	public class Player : AnvilMonoBehaviour, IDataBuildable<PlayerData>
 	{
-		public PlayerData data;
+		public PlayerData m_data;
 
-		public void Build()
+		public void Build(PlayerData newData = null)
 		{
-			data.owner = this;
-
-			Debug.Log($"NotImplementedException: {data.name}");
-			throw new System.NotImplementedException();
+			if (newData != null)
+			{
+				m_data = newData;
+			}
+			
+			if (m_data == null)
+			{
+				Debug.LogError($"Data '{this.name}' not found - Build()", this);
+				return;
+			}
+			
+			m_data.owner = this;
+			
+			// Build
 		}
 	}
 }

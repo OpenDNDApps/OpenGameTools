@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(menuName = "Anvil3D/Example/Collection/WeaponWorldItems")]
+	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Game/Collection/WeaponWorldItems")]
 	public class WeaponWorldItemCollection : BaseCollection<WeaponWorldItem>
 	{
-		
 	}
 }

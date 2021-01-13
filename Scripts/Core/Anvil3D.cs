@@ -13,7 +13,7 @@
 		/// Used by EventsManager.
 		/// </summary>
 
-		public const string kCreateMenuPrefixName = "Anvil3D/";
+		public const string kCreateMenuPrefixName = "Data/";
 		
 		public const string kGameEventPrefix = "Anvil_";
 

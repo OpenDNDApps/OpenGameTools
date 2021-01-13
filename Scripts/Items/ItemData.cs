@@ -6,17 +6,16 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(menuName = "Anvil3D/Example/ItemData")]
+	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Game/Item")]
 	public class ItemData : AnvilScriptableObject
 	{
-		public string title;
-		[BoxGroup]
-		[PreviewField(100, ObjectFieldAlignment.Center)]
-		public Sprite art;
-		public Transform body;
-		public ItemType type;
-		public ItemSize size;
-		public ItemFlags flags;
+		public string Title;
+		[BoxGroup, PreviewField(100, ObjectFieldAlignment.Center)]
+		public Sprite Art;
+		public Transform Body;
+		public ItemType Type;
+		public ItemSize Size;
+		public ItemFlags Flags;
 	}
 
 	public enum ItemSize
@@ -27,7 +26,7 @@ namespace Anvil3D
 	[System.Flags]
 	public enum ItemType
 	{
-		None = 0, Consumable = 1, Equipable = 2, Weapon = 4, Container = 8
+		None = 0, Consumable = 1, Equippable = 2, Weapon = 4, Container = 8
 	}
 
 	[System.Flags]

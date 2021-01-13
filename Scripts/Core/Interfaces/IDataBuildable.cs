@@ -1,7 +1,9 @@
-﻿namespace Anvil3D
+﻿using UnityEngine;
+
+namespace Anvil3D
 {
-	public interface IDataBuildable
+	public interface IDataBuildable<TData>
 	{
-		void Build();
+		void Build(TData data);
 	}
 }

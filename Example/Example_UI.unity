@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1548,7 +1548,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3201,16 +3201,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1744840929}
     m_Modifications:
-    - target: {fileID: 586490548413833465, guid: 77f19c85d8818f14fb5138714e485a35,
-        type: 3}
-      propertyPath: m_Spacing
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 586490548413833465, guid: 77f19c85d8818f14fb5138714e485a35,
-        type: 3}
-      propertyPath: m_Padding.m_Right
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 866170541782520385, guid: 77f19c85d8818f14fb5138714e485a35,
         type: 3}
       propertyPath: m_IsActive

@@ -6,49 +6,42 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu( menuName = "Anvil3D/Example/WeaponData")]
-	public class WeaponData : AnvilScriptableObject
+	[CreateAssetMenu( menuName = Anvil3D.kCreateMenuPrefixName + "Game/Item - Weapon")]
+	public class WeaponData : ItemData
 	{
-		public string title;
 		[BoxGroup]
-		public Damage damage;
-		public List<Damage> modDamages;
-		public int durability;
-		[PreviewField(100, ObjectFieldAlignment.Center)]
-		public Sprite art;
-		public Transform body;
-		public WeaponType type;
-		public WeaponSize size;
-		public WeaponUsage usage;
+		public Damage Damage;
+		public List<Damage> ExtraDamages;
+		public int Durability;
+		
+		public WeaponType WeaponType;
+		public WeaponFlags WeaponFlags;
 	}
 
-	public enum WeaponSize
-	{
-		Tiny, Small, Medium, Big, Huge
-	}
-
+	[System.Flags]
 	public enum WeaponType
 	{
 		Melee, Ranged, Siege
 	}
 
-	public enum WeaponUsage
+	[System.Flags]
+	public enum WeaponFlags
 	{
-		Mainhand, Offhand, Onehand, Twohanded,
+		MainHand, Offhand, OneHand, TwoHanded,
 	}
 
 	[Serializable]
 	public class Damage
 	{
-		public int min;
-		public int max;
-		public DamageType type;
+		public int Min;
+		public int Max;
+		public DamageType Type;
 
 		public int Value
 		{
 			get
 			{
-				return UnityEngine.Random.Range(min, max)  *  Anvil3D.Settings.DamageModifiers.GetModByType(type);
+				return UnityEngine.Random.Range(Min, Max)  *  Anvil3D.Settings.DamageModifiers.GetModByType(Type);
 			}
 		}
 	}
@@ -56,19 +49,19 @@ namespace Anvil3D
 	[Serializable]
 	public class DamageModifiers
 	{
-		public List<DamageModifier> modifiers;
+		public List<DamageModifier> Modifiers;
 
-		public int GetModByType( DamageType _type )
+		public int GetModByType( DamageType type )
 		{
-			return modifiers.Find((mod) => mod.type == _type).modifier;
+			return Modifiers.Find((mod) => mod.Type == type).Modifier;
 		}
 	}
 	
 	[Serializable]
 	public struct DamageModifier
 	{
-		public DamageType type;
-		public int modifier;
+		public DamageType Type;
+		public int Modifier;
 	}
 
 	[Serializable]

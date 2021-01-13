@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(menuName = "Anvil3D/Example/Collection/WeaponDatas")]
+	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Game/Collection/WeaponCollection")]
 	public class WeaponDataCollection : BaseCollection<WeaponData>
 	{
-		[Button()]
+		[Button]
 		public void TestGetById(int id)
 		{
 			var a = GetByID(id);
@@ -17,7 +17,7 @@ namespace Anvil3D
 				return;
 			}
 
-			Debug.Log(a.title);
+			Debug.Log(a.Title);
 		}
 	}
 }

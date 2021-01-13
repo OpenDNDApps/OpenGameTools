@@ -64,12 +64,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: 20
+    m_Right: 20
     m_Top: 10
     m_Bottom: 10
-  m_ChildAlignment: 0
-  m_Spacing: 0
+  m_ChildAlignment: 1
+  m_Spacing: 12
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -549,7 +549,7 @@ PrefabInstance:
     - target: {fileID: 6281142065867683979, guid: da4819c63f1cfa84abc51ac3480efc0f,
         type: 3}
       propertyPath: m_Name
-      value: UI Window - Scrollview Content
+      value: UI Window - Scrollview Content - Vertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da4819c63f1cfa84abc51ac3480efc0f, type: 3}

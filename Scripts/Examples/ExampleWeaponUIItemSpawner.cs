@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	public class Example_WeaponUIItemSpawner : MonoBehaviour
+	public class ExampleWeaponUIItemSpawner : MonoBehaviour
 	{
 		// This is an example of the "Access" usage.
 		[SerializeField] private WeaponUIItem m_prefab => Anvil3D.Prefabs.WeaponUIItem;
@@ -28,8 +28,8 @@ namespace Anvil3D
 				{
 					WeaponUIItem newItem = Instantiate(m_prefab, new Vector3(x, y, 0f), Quaternion.identity, m_holder);
 
-					newItem.data = Anvil3D.Database.AllWeaponDatasInProject.GetRandomItem();
-					newItem.Build();
+					WeaponData randomItemData = Anvil3D.Database.AllWeaponDatasInProject.GetRandomItem();
+					newItem.Build(randomItemData);
 
 					m_storedCollectionOfBuiltItems.List.Add(newItem);
 				}

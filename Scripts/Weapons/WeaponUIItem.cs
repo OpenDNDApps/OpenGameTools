@@ -7,29 +7,41 @@ using UnityEngine.UI;
 
 namespace Anvil3D
 {
-	public class WeaponUIItem : AnvilMonoBehaviour
+	public class WeaponUIItem : AnvilMonoBehaviour, IDataBuildable<WeaponData>
 	{
-		public WeaponData data;
+		// UI
+		[Header("UI")]
+		[SerializeField] private CanvasGroup m_rootPivot;
+		[SerializeField] private TextMeshProUGUI m_title;
+		[SerializeField] private Image m_icon;
+		[SerializeField] private TextMeshProUGUI m_damage;
+		[SerializeField] private TextMeshProUGUI m_durability;
+		
+		// Data
+		[Header("Data")]
+		[SerializeField] private WeaponData m_data;
+		public WeaponData Data => m_data;
+		
 
-		public TextMeshProUGUI title;
-		public Image icon;
-		public TextMeshProUGUI damage;
-		public TextMeshProUGUI durability;
-
-		[Button]
-		public void Build()
+		[PropertySpace, Button]
+		public void Build(WeaponData newData = null)
 		{
-			if (data == null)
+			if (newData != null)
+			{
+				m_data = newData;
+			}
+			
+			if (m_data == null)
 			{
 				Debug.LogError($"Data '{this.name}' not found - Build()", this);
 				return;
 			}
 
-			title.text = $"{data.title}";
-			damage.text = $"{data.damage.Value}";
-			durability.text = $"{data.durability}";
+			m_title.text = $"{m_data.Title}";
+			m_damage.text = $"{m_data.Damage.Value}";
+			m_durability.text = $"{m_data.Durability}";
 
-			icon.overrideSprite = data.art;
+			m_icon.overrideSprite = m_data.Art;
 		}
 	}
 }
