@@ -4,23 +4,21 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	//[CreateAssetMenu(menuName = "Anvil3D/Variables/BaseVariable")]
+	//[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Variables/BaseVariable")]
 	public abstract class BaseVariable<T> : AnvilScriptableObject, ISerializationCallbackReceiver
 	{
-		[SerializeField]
-		protected T _value = default;
-		[System.NonSerialized]
-		protected T initValue = default;
+		[SerializeField] protected T m_value = default;
+		[System.NonSerialized] protected T m_initValue = default;
 
 		public virtual T Value
 		{
 			get
 			{
-				return _value;
+				return m_value;
 			}
 			set
 			{
-				_value = value;
+				m_value = value;
 				OnChange();
 			}
 		}
@@ -28,7 +26,7 @@ namespace Anvil3D
 		public void OnAfterDeserialize()
 		{
 			if(m_resetInRuntime)
-				_value = initValue;
+				m_value = m_initValue;
 		}
 
 		public void OnBeforeSerialize()	{}

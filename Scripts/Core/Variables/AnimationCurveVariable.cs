@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(menuName = "Anvil3D/Variables/AnimationCurve")]
+	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Variables/AnimationCurve")]
 	public class AnimationCurveVariable : BaseVariable<AnimationCurve>
 	{
 	}

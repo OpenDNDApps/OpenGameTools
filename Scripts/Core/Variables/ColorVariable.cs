@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(menuName = "Anvil3D/Variables/Color")]
+	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Variables/Color")]
 	public class ColorVariable : BaseVariable<Color>
 	{
 	}

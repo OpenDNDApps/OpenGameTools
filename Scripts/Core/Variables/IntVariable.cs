@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(menuName = "Anvil3D/Variables/Int")]
+	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Variables/Int")]
 	public class IntVariable : BaseVariable<int>
 	{
 	}

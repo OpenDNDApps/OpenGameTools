@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(fileName = "New GameEvent", menuName = "Anvil3D/Events/GameEvent")]
+	[CreateAssetMenu(fileName = "New GameEvent", menuName = Anvil3D.kCreateMenuPrefixName + "Events/GameEvent")]
 	public class GameEvent : ScriptableObject
 	{
 		protected List<GameEventListener> m_baseListeners = new List<GameEventListener>();

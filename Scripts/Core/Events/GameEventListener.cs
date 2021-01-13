@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Anvil3D
 {
-	[AddComponentMenu("Anvil3D/Events/GameEventListener")]
+	[AddComponentMenu(Anvil3D.kCreateMenuPrefixName + "Events/GameEventListener")]
 	public class GameEventListener : MonoBehaviour
 	{
 		[SerializeField] private GameEvent m_event;
