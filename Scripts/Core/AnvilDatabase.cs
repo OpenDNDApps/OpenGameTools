@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(fileName = Anvil3D.kMainDatabaseFileName, menuName = Anvil3D.kMainDatabaseMenuName)]
+	[CreateAssetMenu(fileName = Anvil3D.kMainDatabaseFileName, menuName = Anvil3D.kCreateMenuPrefixName + "Base/Database")]
 	public class AnvilDatabase : AnvilScriptableObject
 	{
 		public PlayerData PlayerData;

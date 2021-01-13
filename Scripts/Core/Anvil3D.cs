@@ -7,20 +7,20 @@
 	
 	public static class Anvil3D
 	{
-		#region Constants
+		#region Script settings
+
 		/// <summary>
 		/// Used by EventsManager.
 		/// </summary>
+
+		public const string kCreateMenuPrefixName = "Anvil3D/";
+		
 		public const string kGameEventPrefix = "Anvil_";
 
 		public const string kAPIBaseURL = "https://castle.myl.cl/";
 
-		public const string kGamePropertiesFileName = "AnvilGameSettings";
-		public const string kGamePropertiesMenuName = "Anvil3D/Base/GameSettings";
-		
+		public const string kGameSettingsFileName = "AnvilGameSettings";
 		public const string kMainDatabaseFileName = "AnvilDatabase";
-		public const string kMainDatabaseMenuName = "Anvil3D/Base/Database";
-		
 		public const string kPrefabsAccessFileName = "AnvilPrefabDatabase";
 		
 		#endregion
@@ -49,9 +49,9 @@
 			get
 			{
 				if (m_gameSettings == null)
-					m_gameSettings = (AnvilGameSettings)Resources.Load(Anvil3D.kGamePropertiesFileName, typeof(AnvilGameSettings));
+					m_gameSettings = (AnvilGameSettings)Resources.Load(Anvil3D.kGameSettingsFileName, typeof(AnvilGameSettings));
 				if (m_gameSettings == null)
-					Debug.LogError($"Asset '{Anvil3D.kGamePropertiesFileName}' not found.");
+					Debug.LogError($"Asset '{Anvil3D.kGameSettingsFileName}' not found.");
 				return m_gameSettings;
 			}
 		}

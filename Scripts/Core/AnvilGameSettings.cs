@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(fileName = Anvil3D.kGamePropertiesFileName, menuName = Anvil3D.kGamePropertiesMenuName)]
+	[CreateAssetMenu(fileName = Anvil3D.kGameSettingsFileName, menuName = Anvil3D.kCreateMenuPrefixName + "Base/GameSettings")]
 	public class AnvilGameSettings : ScriptableObject
 	{
 		/// <summary>

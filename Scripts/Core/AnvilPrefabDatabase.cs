@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(menuName = "Anvil3D/Base/PrefabDatabase")]
+	[CreateAssetMenu(fileName = Anvil3D.kPrefabsAccessFileName, menuName = Anvil3D.kCreateMenuPrefixName + "Base/PrefabDatabase")]
 	public class AnvilPrefabDatabase : ScriptableObject
 	{
 		/// <summary>
@@ -15,7 +15,7 @@ namespace Anvil3D
 		///			Instantiate(Anvil3D.Prefabs.PrefabVariableName);
 		///		}
 		///		
-		/// Usage 2: Add the instance as a private variable
+		/// Usage 2 (recommended): Add the instance as a private variable
 		///  
 		///		[SerializeField] private WeaponUIItem m_prefab => Anvil3D.Prefabs.PrefabVariableName;
 		/// 
@@ -27,7 +27,7 @@ namespace Anvil3D
 
 		public Player Player;
 
-		// EXAMPLES
+		// Usage Example
 		[PropertySpace(10), Title("Examples")]
 		public WeaponUIItem WeaponUIItem;
 		public WeaponWorldItem WeaponWorldItem;
