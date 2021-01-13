@@ -9,7 +9,7 @@ namespace Anvil3D
 	public class GameEvent : ScriptableObject
 	{
 		protected List<GameEventListener> m_baseListeners = new List<GameEventListener>();
-		protected List<GameBehaviour> m_gameBehaviours = new List<GameBehaviour>();
+		protected List<BaseBehaviour> m_gameBehaviours = new List<BaseBehaviour>();
 		protected bool m_hasBeenRaised = false;
 
 		public void Raise()
@@ -22,7 +22,7 @@ namespace Anvil3D
 				}
 			}
 
-			foreach (GameBehaviour behaviour in m_gameBehaviours)
+			foreach (BaseBehaviour behaviour in m_gameBehaviours)
 			{
 				if (behaviour != null)
 				{
@@ -52,7 +52,7 @@ namespace Anvil3D
 			}
 		}
 
-		public void RegisterListener(GameBehaviour eventToAdd)
+		public void RegisterListener(BaseBehaviour eventToAdd)
 		{
 			if (!m_gameBehaviours.Contains(eventToAdd))
 			{
@@ -68,7 +68,7 @@ namespace Anvil3D
 			}
 		}
 
-		public void UnregisterListener(GameBehaviour eventToRemove)
+		public void UnregisterListener(BaseBehaviour eventToRemove)
 		{
 			if (m_gameBehaviours.Contains(eventToRemove))
 			{

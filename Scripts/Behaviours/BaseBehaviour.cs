@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// WIP
 namespace Anvil3D
 {
-	[CreateAssetMenu(menuName = "Anvil3D/Behaviours/GameBehaviour")]
-	public class GameBehaviour : AnvilScriptableObject
+	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "/Behaviours/BaseBehaviour")]
+	public class BaseBehaviour : AnvilScriptableObject
 	{
-		[PropertySpace(50), ToggleGroup("onChangeToggle", "On Change Events", Order = 9900)]
+		[PropertySpace(50), ToggleGroup("onBehavedToggle", "On Change Events", Order = 9900)]
 		public bool onBehavedToggle = false;
-		[ToggleGroup("onChangeToggle", Order = 9901)]
+		[ToggleGroup("onBehavedToggle", Order = 9901)]
 		public GameEvent OnBehavedScriptableObject;
-		[ToggleGroup("onChangeToggle", Order = 9902)]
+		[ToggleGroup("onBehavedToggle", Order = 9902)]
 		public UnityEvent OnBehavedEvent;
 
 		public void Behave()
