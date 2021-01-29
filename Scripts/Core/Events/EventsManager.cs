@@ -10,75 +10,76 @@ namespace Anvil3D
 	[AddComponentMenu("")]
 	public class EventsManager : MonoBehaviour
 	{
-		private Dictionary<string, UnityAction> actions;
+		private Dictionary<string, UnityAction> m_actions;
 
-		private static EventsManager eventsManager;
+		private static EventsManager m_eventsManager;
 
-		public static EventsManager instance
+		public static EventsManager Instance
 		{
 			get
 			{
-				if (!eventsManager)
-				{
-					eventsManager = FindObjectOfType(typeof(EventsManager)) as EventsManager;
+				if (m_eventsManager) 
+					return m_eventsManager;
+				
+				m_eventsManager = FindObjectOfType(typeof(EventsManager)) as EventsManager;
 
-					if (!eventsManager)
-					{
-						Debug.LogError("There needs to be one active EventsManager script on a GameObject in your scene.");
-					}
-					else
-					{
-						eventsManager.Init();
-					}
+				if (!m_eventsManager)
+				{
+					Debug.LogError("There needs to be one active EventsManager script on a GameObject in your scene.");
 				}
-				return eventsManager;
+				else
+				{
+					m_eventsManager.Init();
+				}
+				return m_eventsManager;
 			}
 		}
 
-		void Init()
+		private void Init()
 		{
-			if (actions == null)
+			if (m_actions == null)
 			{
-				actions = new Dictionary<string, UnityAction>();
+				m_actions = new Dictionary<string, UnityAction>();
 			}
+			DontDestroyOnLoad(this);
 		}
 
 		public static void StartListening(string eventName, UnityAction listener)
 		{
-			if (instance.actions.TryGetValue(eventName, out UnityAction thisEvent))
+			if (Instance.m_actions.TryGetValue(eventName, out UnityAction thisEvent))
 			{
 				//Add more event to the existing one
 				thisEvent += listener;
 
 				//Update the Dictionary
-				instance.actions[eventName] = thisEvent;
+				Instance.m_actions[eventName] = thisEvent;
 			}
 			else
 			{
 				//Add event to the Dictionary for the first time
 				thisEvent += listener;
-				instance.actions.Add(eventName, thisEvent);
+				Instance.m_actions.Add(eventName, thisEvent);
 			}
 		}
 
 		public static void StopListening(string eventName, UnityAction listener)
 		{
-			if (eventsManager == null)
+			if (m_eventsManager == null)
 				return;
 
-			if (instance.actions.TryGetValue(eventName, out UnityAction thisEvent))
+			if (Instance.m_actions.TryGetValue(eventName, out UnityAction thisEvent))
 			{
 				//Remove event from the existing one
 				thisEvent -= listener;
 
 				//Update the Dictionary
-				instance.actions[eventName] = thisEvent;
+				Instance.m_actions[eventName] = thisEvent;
 			}
 		}
 
 		public static void TriggerEvent(string eventName)
 		{
-			if (instance.actions.TryGetValue(eventName, out UnityAction thisEvent))
+			if (Instance.m_actions.TryGetValue(eventName, out UnityAction thisEvent))
 			{
 				thisEvent.Invoke();
 				// OR USE instance.eventDictionary[eventName]();

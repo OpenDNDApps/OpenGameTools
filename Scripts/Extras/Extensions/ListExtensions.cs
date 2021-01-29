@@ -72,4 +72,15 @@ public static class ListExtensions
 	{
 		return ((data == null) || (data.Count == 0));
 	}
+
+	/// <summary>
+	/// Returns a random element from the list, using UnityEngine.Random
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="list"></param>
+	/// <returns></returns>
+	public static T GetRandom<T>(this List<T> list)
+	{
+		return list[UnityEngine.Random.Range(0, list.Count-1)];
+	}
 }
