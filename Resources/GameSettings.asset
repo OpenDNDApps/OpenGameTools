@@ -10,19 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5262d8aa7abead448a1c9e602af946d, type: 3}
-  m_Name: AnvilGameSettings
+  m_Name: GameSettings
   m_EditorClassIdentifier: 
-  version: v0.0.1a
-  versionPref: game_version
-  build: 10
-  buildPref: game_build
-  damageModifiers:
-    modifiers:
-    - type: 1
-      modifier: 1
-    - type: 2
-      modifier: 1
-    - type: 3
-      modifier: 1
-    - type: 4
-      modifier: 1
+  Version: v0.0.1a
+  VersionPref: game_version
+  Build: 10
+  BuildPref: game_build
+  DamageModifiers:
+    Modifiers: []

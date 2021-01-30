@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	public class Player : AnvilMonoBehaviour, IDataBuildable<PlayerData>
+	public class PlayerController : AnvilMonoBehaviour, IDataBuildable<PlayerData>
 	{
 		public PlayerData m_data;
 

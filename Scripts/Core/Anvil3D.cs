@@ -15,13 +15,13 @@
 
 		public const string kCreateMenuPrefixName = "Data/";
 		
-		public const string kGameEventPrefix = "Anvil_";
+		public const string kGameEventPrefix = "MyGameEvent_";
 
 		public const string kAPIBaseURL = "https://castle.myl.cl/";
 
-		public const string kGameSettingsFileName = "AnvilGameSettings";
-		public const string kMainDatabaseFileName = "AnvilDatabase";
-		public const string kPrefabsAccessFileName = "AnvilPrefabDatabase";
+		public const string kGameSettingsFileName = "GameSettings";
+		public const string kMainDatabaseFileName = "ScritableDatabase_Main";
+		public const string kPrefabsAccessFileName = "ScritableDatabase_GamePrefabs";
 		
 		#endregion
 		

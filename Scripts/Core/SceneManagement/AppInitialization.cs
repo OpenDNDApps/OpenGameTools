@@ -57,8 +57,12 @@ namespace  Anvil3D
         {
             //LoadRequirements();
 
-            // This is for DEMO purposes, it delays the call for 2 seconds, delete if you want, just use the method right away.
-            DOVirtual.DelayedCall(2f, LoadRequirements);
+            // This is for DEMO purposes, it delays the call for 3 seconds, delete if you want, just use the method right away.
+            m_loadingMessage.text = $"Fake Loading... for shows :D";
+            DOVirtual.Float(0f, 1f, 3f, (value) =>
+            {
+                m_loadingSlider.value = value;
+            }).SetEase(Ease.OutSine).OnComplete(LoadRequirements);
         }
 
         private void LoadRequirements()
