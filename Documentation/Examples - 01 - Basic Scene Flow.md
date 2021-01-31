@@ -24,7 +24,7 @@ If you think you don't need this I still invite you to have it like this in your
 
 The [AppInitialization](https://github.com/Anvil3D/Anvil3D-Toolset/blob/master/Scripts/Core/SceneManagement/AppInitialization.cs) script handles the scene loading using the [SceneManager](https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadSceneAsync.html) provided by Unity.
 
-![AppInitialization Config](https://lh3.googleusercontent.com/7AXLe4Y8fCdOSrehU_DEexrqclRIGFGEEcxv8p8_gMVOyYT_SxIexTpY0VjlG-JwUrrFCidrTqOkv9AuzDXE "AppInitialization Config")
+![AppInitialization Config](https://user-images.githubusercontent.com/1507317/106372469-add5c900-634e-11eb-9b56-94447988d400.png "AppInitialization Config")
 
 Remember to update the "Requirement Scene Name" and the "First Game Scene Name" variables on the script. 
 You may also want to add those scenes to the Build Settings.
