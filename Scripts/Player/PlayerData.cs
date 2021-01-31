@@ -8,33 +8,33 @@ namespace Anvil3D
 	[CreateAssetMenu(fileName = "New PlayerData", menuName = Anvil3D.kCreateMenuPrefixName + "Game/PlayerData")]
 	public class PlayerData : AnvilScriptableObject
 	{
-		public MonoBehaviour owner;
+		public MonoBehaviour Owner;
 
-		public StringVariable nickname;
-
-		[BoxGroup]
-		public PlayerStats stats;
-
-		public IntVariable level;
-		public IntVariable experience;
+		public StringVariable Nickname;
 
 		[BoxGroup]
-		public PlayerWallet wallet;
+		public PlayerStats Stats;
+
+		public IntVariable Level;
+		public IntVariable Experience;
+
+		[BoxGroup]
+		public PlayerWallet Wallet;
 	}
 
 	[System.Serializable]
-	public class PlayerStats
+	public struct PlayerStats
 	{
-		public IntVariable agility;
-		public IntVariable strength;
-		public IntVariable intelligence;
-		public IntVariable stamina;
+		public IntVariable Agility;
+		public IntVariable Strength;
+		public IntVariable Intelligence;
+		public IntVariable Stamina;
 	}
 
 	[System.Serializable]
-	public class PlayerWallet
+	public struct PlayerWallet
 	{
-		public IntVariable currency;
-		public IntVariable credits;
+		public IntVariable Currency;
+		public IntVariable Credits;
 	}
 }

@@ -10,12 +10,9 @@ namespace Anvil3D
 		[SerializeField] protected T m_value = default;
 		[System.NonSerialized] protected T m_initValue = default;
 
-		public virtual T Value
+		protected virtual T Value
 		{
-			get
-			{
-				return m_value;
-			}
+			get => m_value;
 			set
 			{
 				m_value = value;

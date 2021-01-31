@@ -22,7 +22,7 @@ namespace Anvil3D
 				return;
 			}
 			
-			m_data.owner = this;
+			m_data.Owner = this;
 			
 			// Build
 		}
