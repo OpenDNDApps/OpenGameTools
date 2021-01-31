@@ -58,10 +58,12 @@ namespace  Anvil3D
             //LoadRequirements();
 
             // This is for DEMO purposes, it delays the call for 3 seconds, delete if you want, just use the method right away.
-            m_loadingMessage.text = $"Fake Loading... for shows :D";
+            string fakeMessage = "Fake Loading... for shows :D";
+            m_loadingMessage.text = fakeMessage;
             DOVirtual.Float(0f, 1f, 3f, (value) =>
             {
                 m_loadingSlider.value = value;
+                m_loadingMessage.text = $"{fakeMessage} - ({ (int)value*100f }%)";
             }).SetEase(Ease.OutSine).OnComplete(LoadRequirements);
         }
 
@@ -106,6 +108,7 @@ namespace  Anvil3D
                 if (!(progressSlider is null))
                 {
                     progressSlider.value = operation.progress;
+                    loadingTMP.text = $"{loadingMessage} - ({ (int)operation.progress*100f }%)";
                 }
                 yield return new WaitForEndOfFrame();
             }
