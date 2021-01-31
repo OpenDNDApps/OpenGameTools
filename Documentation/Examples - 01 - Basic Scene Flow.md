@@ -1,6 +1,8 @@
 
 # Basic scene flow
 
+[Doc link 😄](https://github.com/Anvil3D/Anvil3D-Toolset/blob/master/Documentation/Examples%20-%2001%20-%20Basic%20Scene%20Flow.md)
+
 ## What?
 
 This is a basic or initial way to handle scenes in your project, an example on how to start the app or game so everything is organized and loaded correctly.
@@ -20,7 +22,12 @@ If you think you don't need this I still invite you to have it like this in your
 
 ## How?
 
-The "AppInitialization" script handles the scene loading using the [SceneManager](https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadSceneAsync.html) provided by Unity.
+The [AppInitialization](https://github.com/Anvil3D/Anvil3D-Toolset/blob/master/Scripts/Core/SceneManagement/AppInitialization.cs) script handles the scene loading using the [SceneManager](https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadSceneAsync.html) provided by Unity.
+
+![AppInitialization Config](https://lh3.googleusercontent.com/7AXLe4Y8fCdOSrehU_DEexrqclRIGFGEEcxv8p8_gMVOyYT_SxIexTpY0VjlG-JwUrrFCidrTqOkv9AuzDXE "AppInitialization Config")
+
+Remember to update the "Requirement Scene Name" and the "First Game Scene Name" variables on the script. 
+You may also want to add those scenes to the Build Settings.
 
 **Init Scene:**
 > This is the first scene that should be loaded, it should be kept super lightweight, it should ONLY care about loading the next required stuff while presenting the player with something so they know the app is actually doing something and it is not frozen. like a ⌛
