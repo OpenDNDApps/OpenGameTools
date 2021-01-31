@@ -63,7 +63,7 @@ namespace  Anvil3D
             DOVirtual.Float(0f, 1f, 3f, (value) =>
             {
                 m_loadingSlider.value = value;
-                m_loadingMessage.text = $"{fakeMessage} - ({ (int)value*100f }%)";
+                m_loadingMessage.text = $"{fakeMessage} - ({ (int)(value*100f) }%)";
             }).SetEase(Ease.OutSine).OnComplete(LoadRequirements);
         }
 
@@ -108,7 +108,7 @@ namespace  Anvil3D
                 if (!(progressSlider is null))
                 {
                     progressSlider.value = operation.progress;
-                    loadingTMP.text = $"{loadingMessage} - ({ (int)operation.progress*100f }%)";
+                    loadingTMP.text = $"{loadingMessage} - ({ (int)(operation.progress*100f) }%)";
                 }
                 yield return new WaitForEndOfFrame();
             }
