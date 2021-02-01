@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Anvil3D
@@ -28,12 +30,17 @@ namespace Anvil3D
 		///		}
 		/// </summary>
 
-		public string Version = "v0.0.1a";
+		[ValueDropdown("@Anvil3D.EnvironmentDropdownValues")]
+		public string Environment = "Dev1";
+		
+		[NonSerialized][ShowInInspector]
+		public string AssignmentID = "Unknown";
+		
+		public string Version = "Unknown";
 		public string VersionPref = "game_version";
+		
 
 		public int Build = 0010;
 		public string BuildPref = "game_build";
-
-		public DamageModifiers DamageModifiers;
 	}
 }

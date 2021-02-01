@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Anvil3D
 {
 	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Game/Item")]
-	public class ItemData : AnvilScriptableObject
+	public class BaseItemData : AnvilScriptableObject
 	{
 		public string Title;
 		[BoxGroup, PreviewField(100, ObjectFieldAlignment.Center)]

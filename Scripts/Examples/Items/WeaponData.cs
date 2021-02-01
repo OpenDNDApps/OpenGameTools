@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Anvil3D
 {
 	[CreateAssetMenu( menuName = Anvil3D.kCreateMenuPrefixName + "Game/Item - Weapon")]
-	public class WeaponData : ItemData
+	public class WeaponData : BaseItemData
 	{
 		[BoxGroup]
 		public Damage Damage;
@@ -41,7 +41,7 @@ namespace Anvil3D
 		{
 			get
 			{
-				return UnityEngine.Random.Range(Min, Max)  *  Anvil3D.Settings.DamageModifiers.GetModByType(Type);
+				return UnityEngine.Random.Range(Min, Max)  *  Anvil3D.Database.DamageModifiers.GetModByType(Type);
 			}
 		}
 	}

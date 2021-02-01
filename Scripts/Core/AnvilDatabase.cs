@@ -7,7 +7,9 @@ namespace Anvil3D
 	[CreateAssetMenu(fileName = Anvil3D.kMainDatabaseFileName, menuName = Anvil3D.kCreateMenuPrefixName + "Base/Database")]
 	public class AnvilDatabase : AnvilScriptableObject
 	{
-		public PlayerData PlayerData;
+		public DamageModifiers DamageModifiers;
+		
+		public ExamplePlayerData m_examplePlayerData;
 
 		public WeaponDataCollection AllWeaponDatasInProject;
 

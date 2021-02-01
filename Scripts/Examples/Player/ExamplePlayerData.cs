@@ -5,8 +5,8 @@ using Sirenix.OdinInspector;
 
 namespace Anvil3D
 {
-	[CreateAssetMenu(fileName = "New PlayerData", menuName = Anvil3D.kCreateMenuPrefixName + "Game/PlayerData")]
-	public class PlayerData : AnvilScriptableObject
+	[CreateAssetMenu(fileName = "New ExamplePlayerData", menuName = Anvil3D.kCreateMenuPrefixName + "Game/ExamplePlayerData")]
+	public class ExamplePlayerData : AnvilScriptableObject
 	{
 		public MonoBehaviour Owner;
 

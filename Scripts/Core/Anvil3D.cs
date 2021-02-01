@@ -1,10 +1,12 @@
-﻿namespace Anvil3D
+﻿using Sirenix.OdinInspector;
+
+namespace Anvil3D
 {
 	using System;
 	using System.Linq;
 	using System.Collections.Generic;
 	using UnityEngine;
-	
+
 	public static class Anvil3D
 	{
 		#region Script settings
@@ -14,10 +16,8 @@
 		/// </summary>
 
 		public const string kCreateMenuPrefixName = "Data/";
-		
-		public const string kGameEventPrefix = "MyGameEvent_";
 
-		public const string kAPIBaseURL = "https://castle.myl.cl/";
+		public const string kGameEventPrefix = "MyGameEvent_";
 
 		public const string kGameSettingsFileName = "GameSettings";
 		public const string kMainDatabaseFileName = "ScritableDatabase_Main";
@@ -40,6 +40,26 @@
 
 		#endregion
 
+		#region RemoteConfig Settings
+
+		public static ValueDropdownList<string> EnvironmentDropdownValues = new ValueDropdownList<string>()
+		{
+			"Production", "Staging", "Dev1", "Dev2", "Testing", "QA"
+		};
+        
+		public struct UserAttributes {
+			public string UserID => PlayerPrefs.GetString("UserID", "Unknown");
+			public string DeviceID => SystemInfo.deviceUniqueIdentifier;
+		}
+
+		public struct AppAttributes {
+			public int Build => Anvil3D.Settings.Build;
+			public string Version => Anvil3D.Settings.Version;
+			public string Env => Anvil3D.Settings.Environment;
+		}
+		
+		#endregion
+		
 
 		#region Static References
 

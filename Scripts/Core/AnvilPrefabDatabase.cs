@@ -25,7 +25,7 @@ namespace Anvil3D
 		/// 
 		/// </summary>
 
-		public PlayerController m_playerController;
+		public ExamplePlayerController m_examplePlayerController;
 
 		// Usage Example
 		[PropertySpace(10), Title("Examples")]

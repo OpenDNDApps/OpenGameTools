@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	public class PlayerController : AnvilMonoBehaviour, IDataBuildable<PlayerData>
+	public class ExamplePlayerController : AnvilMonoBehaviour, IDataBuildable<ExamplePlayerData>
 	{
-		public PlayerData m_data;
+		public ExamplePlayerData m_data;
 
-		public void Build(PlayerData newData = null)
+		public void Build(ExamplePlayerData newData = null)
 		{
 			if (newData != null)
 			{
