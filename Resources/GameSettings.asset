@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5262d8aa7abead448a1c9e602af946d, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  Version: v0.0.1a
+  Environment: Dev1
+  Version: v0.0.1
   VersionPref: game_version
   Build: 10
   BuildPref: game_build
-  DamageModifiers:
-    Modifiers: []

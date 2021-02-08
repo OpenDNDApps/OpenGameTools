@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed1d0ea513ce79d4c8f0413ed54862cb, type: 3}
-  m_Name: Sword_Long
+  m_Script: {fileID: 11500000, guid: 2dd293ed877f9ac42ae95e8345266e5d, type: 3}
+  m_Name: ItemDefinitions_AllInProject
   m_EditorClassIdentifier: 
   m_hasID: 0
   m_id: 0
@@ -20,18 +20,4 @@ MonoBehaviour:
   m_onChangeEvent:
     m_PersistentCalls:
       m_Calls: []
-  Title: 
-  Art: {fileID: 0}
-  Body: {fileID: 0}
-  Type: 4
-  Size: 0
-  Flags: 0
-  Damage:
-    Min: 0
-    Max: 0
-    Type: 0
-  ExtraDamages: []
-  Durability: 0
-  AttackSpeed: 0
-  WeaponType: 0
-  WeaponFlags: 0
+  m_list: []

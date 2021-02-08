@@ -12,26 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1d0ea513ce79d4c8f0413ed54862cb, type: 3}
   m_Name: Wand
   m_EditorClassIdentifier: 
-  hasID: 0
-  id: 0
-  resetInRuntime: 1
-  onChangeToggle: 0
-  OnChangeScriptableObject: {fileID: 0}
-  OnChangeEvent:
+  m_hasID: 0
+  m_id: 0
+  m_resetInRuntime: 1
+  m_onChangeToggle: 0
+  m_onChangeScriptableObject: {fileID: 0}
+  m_onChangeEvent:
     m_PersistentCalls:
       m_Calls: []
-  title: Wand
-  damage:
-    min: 1
-    max: 4
-    type: 2
-  modDamages:
-  - min: 1
-    max: 4
-    type: 3
-  durability: 100
-  art: {fileID: 21300000, guid: 70c402a9026952c4980befd7658919a8, type: 3}
-  body: {fileID: 389144285175892687, guid: 181047e3c468123478183163cef8ed2a, type: 3}
-  type: 1
-  size: 0
-  usage: 2
+  Title: 
+  Art: {fileID: 0}
+  Body: {fileID: 0}
+  Type: 4
+  Size: 0
+  Flags: 0
+  Damage:
+    Min: 0
+    Max: 0
+    Type: 0
+  ExtraDamages: []
+  Durability: 0
+  AttackSpeed: 0
+  WeaponType: 0
+  WeaponFlags: 0

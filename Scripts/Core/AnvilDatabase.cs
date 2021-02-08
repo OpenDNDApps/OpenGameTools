@@ -11,7 +11,7 @@ namespace Anvil3D
 		
 		public ExamplePlayerData m_examplePlayerData;
 
-		public WeaponDataCollection AllWeaponDatasInProject;
+		public ItemDataCollection m_allItemDefinitionsInProject;
 
 		public WeaponWorldItemCollection AllWeaponWorldItemsInGameBuilt;
 		public WeaponUIItemCollection AllWeaponUIItemsInGameBuilt;

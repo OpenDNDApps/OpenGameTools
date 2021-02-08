@@ -10,7 +10,7 @@ namespace Anvil3D
 	public class BaseItemData : AnvilScriptableObject
 	{
 		public string Title;
-		[BoxGroup, PreviewField(100, ObjectFieldAlignment.Center)]
+		[PreviewField(100, ObjectFieldAlignment.Center)]
 		public Sprite Art;
 		public Transform Body;
 		public ItemType Type;

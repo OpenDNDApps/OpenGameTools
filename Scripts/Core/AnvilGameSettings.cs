@@ -34,9 +34,9 @@ namespace Anvil3D
 		public string Environment = "Dev1";
 		
 		[NonSerialized][ShowInInspector]
-		public string AssignmentID = "Unknown";
+		public string AssignmentID = "";
 		
-		public string Version = "Unknown";
+		public string Version = "v0.0.1";
 		public string VersionPref = "game_version";
 		
 

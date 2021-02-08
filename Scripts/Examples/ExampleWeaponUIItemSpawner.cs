@@ -28,7 +28,7 @@ namespace Anvil3D
 				{
 					WeaponUIItem newItem = Instantiate(m_prefab, new Vector3(x, y, 0f), Quaternion.identity, m_holder);
 
-					WeaponData randomItemData = Anvil3D.Database.AllWeaponDatasInProject.GetRandomItem();
+					WeaponData randomItemData = Anvil3D.Database.m_allItemDefinitionsInProject.GetRandom() as WeaponData;
 					newItem.Build(randomItemData);
 
 					m_storedCollectionOfBuiltItems.List.Add(newItem);

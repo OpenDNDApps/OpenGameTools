@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ad27e40019ff64399e55eb3abd4ac7, type: 3}
   m_Name: Potion Flask
   m_EditorClassIdentifier: 
-  hasID: 0
-  id: 0
-  resetInRuntime: 1
-  onChangeToggle: 0
-  OnChangeScriptableObject: {fileID: 0}
-  OnChangeEvent:
+  m_hasID: 0
+  m_id: 0
+  m_resetInRuntime: 1
+  m_onChangeToggle: 0
+  m_onChangeScriptableObject: {fileID: 0}
+  m_onChangeEvent:
     m_PersistentCalls:
       m_Calls: []
-  title: Potion Flask
-  art: {fileID: 0}
-  body: {fileID: 0}
-  type: 1
-  size: 0
-  flags: 0
+  Title: Empty Flask
+  Art: {fileID: 0}
+  Body: {fileID: 0}
+  Type: 9
+  Size: 0
+  Flags: 0

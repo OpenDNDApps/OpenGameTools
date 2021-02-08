@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Anvil3D
 {
-	public class PrefabUtilities : MonoBehaviour
+	public static class PrefabUtilities 
 	{
 	}
 }

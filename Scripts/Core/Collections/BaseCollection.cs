@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Anvil3D {
-	public abstract class BaseCollection<T> : AnvilScriptableObject, IOnChangeHandler, ISerializationCallbackReceiver, IEnumerable<T>, IList<T>
+	public abstract class BaseCollection<T> : AnvilScriptableObject, IOnChangeHandler, ISerializationCallbackReceiver, IList<T>
 	{
 		[SerializeField] protected List<T> m_list = new List<T>();
 		[NonSerialized] private List<T> m_initList = new List<T>();
@@ -73,52 +73,32 @@ namespace Anvil3D {
 		/// <returns></returns>
 		public bool ContainsByID(int id)
 		{
-			if (!(this is IIdentifiable))
-			{
-				Debug.LogError($"Cannot 'ContainsByID' on '{this.name}' of type '{this.GetType()}' is not an IIdentifiable, failsafed to false", this);
-				return false;
-			}
-
 			return m_list.Exists((x) => ((IIdentifiable)x).ID == id);
 		}
 
 		/// <summary>
-		/// Get the Item by ID, required type AnvilScriptableObject.
-		/// This has a lot of casts, use with caution.
+		/// Get the Item by ID.
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
 		public T GetByID(int id)
 		{
-			if (!(this is IIdentifiable))
-			{
-				Debug.LogError($"Cannot 'GetByID' on '{this.name}' of type '{this.GetType()}' is not an IIdentifiable, failsafed to default", this);
-				return default;
-			}
-
 			return m_list.Find((x) => ((IIdentifiable)x).ID == id);
 		}
 
 		/// <summary>
-		/// Get the Item by ID, required type AnvilScriptableObject.
-		/// This has a lot of casts, use with caution.
+		/// Get the Item by ID.
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
 		public List<T> GetAllByID(int id)
 		{
-			if (!(this is IIdentifiable))
-			{
-				Debug.LogError($"Cannot 'GetAllByID' on '{this.name}' of type '{this.GetType()}' is not an AnvilScriptableObject, failsafed to default", this);
-				return default;
-			}
-
 			return m_list.FindAll((x) => ((IIdentifiable)x).ID == id);
 		}
 
-		public T GetRandomItem()
+		public T GetRandom()
 		{
-			return m_list[UnityEngine.Random.Range(0, m_list.Count - 1)];
+			return m_list.GetRandom();
 		}
 
 		public int IndexOf(T value)
@@ -167,6 +147,5 @@ namespace Anvil3D {
 
 	public class ScriptableCollection<T> : BaseCollection<T>
 	{
-
 	}
 }

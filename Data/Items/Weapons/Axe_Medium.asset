@@ -12,23 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1d0ea513ce79d4c8f0413ed54862cb, type: 3}
   m_Name: Axe_Medium
   m_EditorClassIdentifier: 
-  hasID: 0
-  id: 0
-  resetInRuntime: 1
-  onChangeToggle: 0
-  OnChangeScriptableObject: {fileID: 0}
-  OnChangeEvent:
+  m_hasID: 0
+  m_id: 0
+  m_resetInRuntime: 1
+  m_onChangeToggle: 0
+  m_onChangeScriptableObject: {fileID: 0}
+  m_onChangeEvent:
     m_PersistentCalls:
       m_Calls: []
-  title: Small Axe
-  damage:
-    min: 2
-    max: 6
-    type: 1
-  modDamages: []
-  durability: 10
-  art: {fileID: 21300000, guid: c2d295920ce7ffa4e85357f4e4a94eec, type: 3}
-  body: {fileID: 2870583075998751539, guid: 263e0aa48c87d334095087b264c359f1, type: 3}
-  type: 0
-  size: 2
-  usage: 2
+  Title: 
+  Art: {fileID: 0}
+  Body: {fileID: 0}
+  Type: 4
+  Size: 2
+  Flags: 0
+  Damage:
+    Min: 0
+    Max: 0
+    Type: 0
+  ExtraDamages: []
+  Durability: 0
+  AttackSpeed: 0
+  WeaponType: 0
+  WeaponFlags: 0

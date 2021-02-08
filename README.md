@@ -20,7 +20,7 @@ We, as a team, use this asset every day on production apps and games.
 • Event System compatible with ScriptableObjects and MonoBehaviours on runtime  
 • Hundreds of C# Extensions  
 • Many Scripts and Components to use and "extend" Unity.  
-• Base UI to use as a starting point. Focused on performance, maintainability and scalability.
+• Base UI to use as a starting point. Focused on performance, maintainability and scalability.  
 
 &nbsp;
 

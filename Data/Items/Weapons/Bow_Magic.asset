@@ -12,23 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1d0ea513ce79d4c8f0413ed54862cb, type: 3}
   m_Name: Bow_Magic
   m_EditorClassIdentifier: 
-  hasID: 0
-  id: 0
-  resetInRuntime: 1
-  onChangeToggle: 0
-  OnChangeScriptableObject: {fileID: 0}
-  OnChangeEvent:
+  m_hasID: 0
+  m_id: 0
+  m_resetInRuntime: 1
+  m_onChangeToggle: 0
+  m_onChangeScriptableObject: {fileID: 0}
+  m_onChangeEvent:
     m_PersistentCalls:
       m_Calls: []
-  title: Magic Bow
-  damage:
-    min: 5
-    max: 10
-    type: 2
-  modDamages: []
-  durability: 100
-  art: {fileID: 21300000, guid: 11adbbdda7e8f634fbdd542fba1596f5, type: 3}
-  body: {fileID: 2138598336242245304, guid: e3041a2fd51ebf745b58a5629b720044, type: 3}
-  type: 1
-  size: 2
-  usage: 3
+  Title: 
+  Art: {fileID: 0}
+  Body: {fileID: 0}
+  Type: 4
+  Size: 0
+  Flags: 0
+  Damage:
+    Min: 0
+    Max: 0
+    Type: 0
+  ExtraDamages: []
+  Durability: 0
+  AttackSpeed: 0
+  WeaponType: 0
+  WeaponFlags: 0

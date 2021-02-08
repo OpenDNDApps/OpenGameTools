@@ -9,10 +9,13 @@ namespace Anvil3D
 	[CreateAssetMenu( menuName = Anvil3D.kCreateMenuPrefixName + "Game/Item - Weapon")]
 	public class WeaponData : BaseItemData
 	{
-		[BoxGroup]
+		[Header("Weapon Config")]
 		public Damage Damage;
 		public List<Damage> ExtraDamages;
 		public int Durability;
+		
+		[Tooltip("How many attacks PER SECOND")]
+		public float AttackSpeed;
 		
 		public WeaponType WeaponType;
 		public WeaponFlags WeaponFlags;
@@ -37,12 +40,11 @@ namespace Anvil3D
 		public int Max;
 		public DamageType Type;
 
-		public int Value
+		public int Value => GetCalculatedDamage();
+
+		private int GetCalculatedDamage()
 		{
-			get
-			{
-				return UnityEngine.Random.Range(Min, Max)  *  Anvil3D.Database.DamageModifiers.GetModByType(Type);
-			}
+			return UnityEngine.Random.Range(Min, Max)  *  Anvil3D.Database.DamageModifiers.GetModByType(Type);
 		}
 	}
 
