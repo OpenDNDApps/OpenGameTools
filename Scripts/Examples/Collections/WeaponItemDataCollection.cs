@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-    [CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Game/Collection/WeaponItemDataCollection")]
+    [CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Game/Collection/WeaponItemDataCollection")]
     public class WeaponItemDataCollection : ItemDataCollectionDefinition<WeaponData>
     {
         /// <summary>

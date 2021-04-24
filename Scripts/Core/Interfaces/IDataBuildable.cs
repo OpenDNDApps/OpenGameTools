@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
 	public interface IDataBuildable<TData>
 	{

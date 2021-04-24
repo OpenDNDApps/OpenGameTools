@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(fileName = Anvil3D.kMainDatabaseFileName, menuName = Anvil3D.kCreateMenuPrefixName + "Base/Database")]
-	public class AnvilDatabase : AnvilScriptableObject
+	[CreateAssetMenu(fileName = VGDevs.kMainDatabaseFileName, menuName = VGDevs.kCreateMenuPrefixName + "Base/Database")]
+	public class VGDevsDatabase : VGDevsScriptableObject
 	{
 		public DamageModifiers DamageModifiers;
 		

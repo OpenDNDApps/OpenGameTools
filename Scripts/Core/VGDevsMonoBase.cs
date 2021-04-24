@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	public class AnvilMonoBase : MonoBehaviour
+	public class VGDevsMonoBase : MonoBehaviour
 	{
 	}
 }

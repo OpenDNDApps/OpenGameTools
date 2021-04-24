@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// WIP
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "/Behaviours/BaseBehaviour")]
-	public class BaseBehaviour : AnvilScriptableObject
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "/Behaviours/BaseBehaviour")]
+	public class BaseBehaviour : VGDevsScriptableObject
 	{
 		[PropertySpace(50), ToggleGroup("onBehavedToggle", "On Change Events", Order = 9900)]
 		public bool onBehavedToggle = false;

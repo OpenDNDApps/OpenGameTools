@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 /// Should I put these on StringExtensions? I don't know...
 /// 
-namespace Anvil3D
+namespace VGDevs
 {
 	public static class NumericExtensions
 	{

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Game/Collection/WeaponWorldItems")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Game/Collection/WeaponWorldItems")]
 	public class WeaponWorldItemCollection : BaseCollection<WeaponWorldItem>
 	{
 	}

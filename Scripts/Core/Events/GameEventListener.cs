@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[AddComponentMenu(Anvil3D.kCreateMenuPrefixName + "Events/GameEventListener")]
+	[AddComponentMenu(VGDevs.kCreateMenuPrefixName + "Events/GameEventListener")]
 	public class GameEventListener : MonoBehaviour
 	{
 		[SerializeField] private GameEvent m_event;

@@ -1,4 +1,4 @@
-namespace Anvil3D
+namespace VGDevs
 {
     public interface IIdentifiable
     {

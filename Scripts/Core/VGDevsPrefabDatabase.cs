@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(fileName = Anvil3D.kPrefabsAccessFileName, menuName = Anvil3D.kCreateMenuPrefixName + "Base/PrefabDatabase")]
-	public class AnvilPrefabDatabase : ScriptableObject
+	[CreateAssetMenu(fileName = VGDevs.kPrefabsAccessFileName, menuName = VGDevs.kCreateMenuPrefixName + "Base/PrefabDatabase")]
+	public class VGDevsPrefabDatabase : ScriptableObject
 	{
 		/// <summary>
 		/// 
 		/// Usage 1: Direct usage
 		///  
 		///		public void MyCustomMethod() {
-		///			Instantiate(Anvil3D.Prefabs.PrefabVariableName);
+		///			Instantiate(VGDevs.Prefabs.PrefabVariableName);
 		///		}
 		///		
 		/// Usage 2 (recommended): Add the instance as a private variable
 		///  
-		///		[SerializeField] private WeaponUIItem m_prefab => Anvil3D.Prefabs.PrefabVariableName;
+		///		[SerializeField] private WeaponUIItem m_prefab => VGDevs.Prefabs.PrefabVariableName;
 		/// 
 		///		public void MyCustomMethod() {
 		///			Instantiate(m_prefab);

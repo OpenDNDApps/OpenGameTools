@@ -6,9 +6,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace Anvil3D
+namespace VGDevs
 {
-    public class BaseUIScript : AnvilMonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+    public class BaseUIScript : VgDevsMonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
 
         #region Base Config

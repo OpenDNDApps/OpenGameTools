@@ -2,9 +2,9 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Game/Collection/ItemDataCollection")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Game/Collection/ItemDataCollection")]
 	public class ItemDataCollection : ItemDataCollectionDefinition<BaseItemData>
 	{
 		

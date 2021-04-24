@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(fileName = "New ExamplePlayerData", menuName = Anvil3D.kCreateMenuPrefixName + "Game/ExamplePlayerData")]
-	public class ExamplePlayerData : AnvilScriptableObject
+	[CreateAssetMenu(fileName = "New ExamplePlayerData", menuName = VGDevs.kCreateMenuPrefixName + "Game/ExamplePlayerData")]
+	public class ExamplePlayerData : VGDevsScriptableObject
 	{
 		public MonoBehaviour Owner;
 

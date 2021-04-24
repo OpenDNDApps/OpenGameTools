@@ -4,9 +4,9 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using TMPro;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	public class WeaponWorldItem : AnvilMonoBehaviour, IDataBuildable<WeaponData>
+	public class WeaponWorldItem : VgDevsMonoBehaviour, IDataBuildable<WeaponData>
 	{
 		[Header("3D Elements")]
 		[SerializeField] private GameObject m_root;

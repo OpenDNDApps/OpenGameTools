@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Variables/AnimationCurve")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/AnimationCurve")]
 	public class AnimationCurveVariable : BaseVariable<AnimationCurve>
 	{
 	}

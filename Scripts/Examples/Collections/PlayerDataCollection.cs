@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-    [CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Game/Collection/PlayerDataCollection")]
+    [CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Game/Collection/PlayerDataCollection")]
     public class PlayerDataCollection : BaseCollection<ExamplePlayerData>
     {
         

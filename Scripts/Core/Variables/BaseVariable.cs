@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	//[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Variables/BaseVariable")]
-	public abstract class BaseVariable<T> : AnvilScriptableObject, ISerializationCallbackReceiver
+	//[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/BaseVariable")]
+	public abstract class BaseVariable<T> : VGDevsScriptableObject, ISerializationCallbackReceiver
 	{
 		[SerializeField] protected T m_value = default;
 		[System.NonSerialized] protected T m_initValue = default;

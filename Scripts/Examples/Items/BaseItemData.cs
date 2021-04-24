@@ -4,10 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Game/Item")]
-	public class BaseItemData : AnvilScriptableObject
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Game/Item")]
+	public class BaseItemData : VGDevsScriptableObject
 	{
 		public string Title;
 		[PreviewField(100, ObjectFieldAlignment.Center)]

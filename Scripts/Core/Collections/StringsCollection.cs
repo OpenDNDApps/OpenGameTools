@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Collection/Strings")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Collection/Strings")]
 	public class StringsCollection : BaseCollection<string>
 	{
 	}

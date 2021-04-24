@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
     public class ItemDataCollectionDefinition<T> : BaseCollection<T> where T : BaseItemData
     {

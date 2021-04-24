@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Variables/Color")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/Color")]
 	public class ColorVariable : BaseVariable<Color>
 	{
 	}

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Variables/GameObject")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/GameObject")]
 	public class GameObjectVariable : BaseVariable<GameObject>
 	{
 	}

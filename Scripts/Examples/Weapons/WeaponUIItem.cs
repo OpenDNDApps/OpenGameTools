@@ -5,9 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	public class WeaponUIItem : AnvilMonoBehaviour, IDataBuildable<WeaponData>
+	public class WeaponUIItem : VgDevsMonoBehaviour, IDataBuildable<WeaponData>
 	{
 		// UI
 		[Header("UI")]

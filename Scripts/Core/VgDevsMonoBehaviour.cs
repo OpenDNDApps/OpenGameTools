@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Anvil3D
+namespace VGDevs
 {
 	[AddComponentMenu("")]
-	public class AnvilMonoBehaviour : AnvilMonoBase, IOnChangeHandler, IIdentifiable
+	public class VgDevsMonoBehaviour : VGDevsMonoBase, IOnChangeHandler, IIdentifiable
 	{
 		#region ID / IIdentifiable Section
 		
-		[ToggleGroup(Anvil3D.kIDGroupKeyVariable, Anvil3D.kIDSortValue, Anvil3D.kIDGroupTitle)]
+		[ToggleGroup(VGDevs.kIDGroupKeyVariable, VGDevs.kIDSortValue, VGDevs.kIDGroupTitle)]
 		[SerializeField] protected bool m_hasID = false;
-		[ToggleGroup(Anvil3D.kIDGroupKeyVariable, Anvil3D.kIDSortValue)]
+		[ToggleGroup(VGDevs.kIDGroupKeyVariable, VGDevs.kIDSortValue)]
 		[SerializeField] protected int m_id;
 		
 		public int ID => m_id;
@@ -24,19 +24,19 @@ namespace Anvil3D
 		
 		#region OnChange Section
 		
-		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder, Anvil3D.kOnChangeGroupTitle)]
+		[ToggleGroup(VGDevs.kOnChangeGroupKeyVariable, VGDevs.kOnChangeOrder, VGDevs.kOnChangeGroupTitle)]
 		[SerializeField] protected bool m_onChangeToggle = false;
 
-		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder)]
+		[ToggleGroup(VGDevs.kOnChangeGroupKeyVariable, VGDevs.kOnChangeOrder)]
 		[SerializeField] protected GameEvent m_onChangeGameEvent;
 
-		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder)]
+		[ToggleGroup(VGDevs.kOnChangeGroupKeyVariable, VGDevs.kOnChangeOrder)]
 		[SerializeField] protected UnityEvent m_onChangeUnityEvent;
 
-		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder)]
+		[ToggleGroup(VGDevs.kOnChangeGroupKeyVariable, VGDevs.kOnChangeOrder)]
 		[SerializeField] protected UnityAction m_onChangeUnityAction;
 		
-		[ToggleGroup(Anvil3D.kOnChangeGroupKeyVariable, Anvil3D.kOnChangeOrder), Button(Anvil3D.kOnChangeButtonTitle), GUIColor(0.3f, 0.8f, 0.8f, 1f)]
+		[ToggleGroup(VGDevs.kOnChangeGroupKeyVariable, VGDevs.kOnChangeOrder), Button(VGDevs.kOnChangeButtonTitle), GUIColor(0.3f, 0.8f, 0.8f, 1f)]
 		public virtual void OnChange()
 		{
 			if (m_onChangeGameEvent != null)

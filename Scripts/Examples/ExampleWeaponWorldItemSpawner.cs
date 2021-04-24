@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D {
+namespace VGDevs {
 	public class ExampleWeaponWorldItemSpawner : MonoBehaviour
 	{
 		// This is an example of the "Access" usage.
-		[SerializeField] private WeaponWorldItem Prefab => Anvil3D.Prefabs.WeaponWorldItem;
+		[SerializeField] private WeaponWorldItem Prefab => VGDevs.Prefabs.WeaponWorldItem;
 
 		// This is an example of a direct reference usage, see this is scene independent.
 		[SerializeField] private WeaponWorldItemCollection m_storedCollectionOfBuiltItems;
@@ -28,7 +28,7 @@ namespace Anvil3D {
 				{
 					WeaponWorldItem newItem = Instantiate(Prefab, new Vector3(x * 1.5f, 0, z * 1.5f), Quaternion.identity, m_holder);
 
-					var randomItemData = Anvil3D.Database.m_allItemDefinitionsInProject.GetRandom() as WeaponData;
+					var randomItemData = VGDevs.Database.m_allItemDefinitionsInProject.GetRandom() as WeaponData;
 					newItem.Build(randomItemData);
 
 					m_storedCollectionOfBuiltItems.List.Add(newItem);

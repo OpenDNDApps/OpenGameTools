@@ -4,8 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D {
-	public abstract class BaseCollection<T> : AnvilScriptableObject, IOnChangeHandler, ISerializationCallbackReceiver, IList<T>
+namespace VGDevs {
+	public abstract class BaseCollection<T> : VGDevsScriptableObject, IOnChangeHandler, ISerializationCallbackReceiver, IList<T>
 	{
 		[SerializeField] protected List<T> m_list = new List<T>();
 		[NonSerialized] private List<T> m_initList = new List<T>();
@@ -66,7 +66,7 @@ namespace Anvil3D {
 		}
 
 		/// <summary>
-		/// Returns if the list contains an item of ID. It required a type of AnvilScriptableObject
+		/// Returns if the list contains an item of ID. It required a type of VGDevsScriptableObject
 		/// This has a lot of casts, use with caution.
 		/// </summary>
 		/// <param name="id"></param>

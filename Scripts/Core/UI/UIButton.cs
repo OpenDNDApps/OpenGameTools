@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Anvil3D
+namespace VGDevs
 {
     public class UIButton : BaseUIScript
     {

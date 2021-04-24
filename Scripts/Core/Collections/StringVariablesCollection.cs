@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Collection/StringVariables")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Collection/StringVariables")]
 	public class StringVariablesCollection : BaseCollection<StringVariable>
 	{
 	}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
     public class MonoSingletonSelfGenerated<T> : MonoBehaviour where T : MonoBehaviour
     {

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	public class ExamplePlayerController : AnvilMonoBehaviour, IDataBuildable<ExamplePlayerData>
+	public class ExamplePlayerController : VgDevsMonoBehaviour, IDataBuildable<ExamplePlayerData>
 	{
 		public ExamplePlayerData m_data;
 

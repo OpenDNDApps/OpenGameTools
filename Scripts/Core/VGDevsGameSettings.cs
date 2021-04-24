@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu(fileName = Anvil3D.kGameSettingsFileName, menuName = Anvil3D.kCreateMenuPrefixName + "Base/GameSettings")]
-	public class AnvilGameSettings : ScriptableObject
+	[CreateAssetMenu(fileName = VGDevs.kGameSettingsFileName, menuName = VGDevs.kCreateMenuPrefixName + "Base/GameSettings")]
+	public class VGDevsGameSettings : ScriptableObject
 	{
 		/// <summary>
 		/// Usage 1: Direct usage
 		///  
 		///		public void MyCustomMethod() {
-		///			Debug.Log(AnvilGameSettings.Instance.version);
+		///			Debug.Log(VGDevsGameSettings.Instance.version);
 		///		}
 		///		
 		/// Usage 2: Add the instance as a private variable
 		///  
-		///		private AnvilGameSettings Settings => AnvilGameSettings.Instance;
+		///		private VGDevsGameSettings Settings => VGDevsGameSettings.Instance;
 		/// 
 		///		public void MyCustomMethod() {
 		///			Debug.Log(Settings.version);
@@ -30,7 +30,7 @@ namespace Anvil3D
 		///		}
 		/// </summary>
 
-		[ValueDropdown("@Anvil3D.EnvironmentDropdownValues")]
+		[ValueDropdown("@VGDevs.EnvironmentDropdownValues")]
 		public string Environment = "Dev1";
 		
 		[NonSerialized][ShowInInspector]

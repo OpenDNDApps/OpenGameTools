@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-	[CreateAssetMenu( menuName = Anvil3D.kCreateMenuPrefixName + "Game/Item - Weapon")]
+	[CreateAssetMenu( menuName = VGDevs.kCreateMenuPrefixName + "Game/Item - Weapon")]
 	public class WeaponData : BaseItemData
 	{
 		[Header("Weapon Config")]
@@ -44,7 +44,7 @@ namespace Anvil3D
 
 		private int GetCalculatedDamage()
 		{
-			return UnityEngine.Random.Range(Min, Max)  *  Anvil3D.Database.DamageModifiers.GetModByType(Type);
+			return UnityEngine.Random.Range(Min, Max)  *  VGDevs.Database.DamageModifiers.GetModByType(Type);
 		}
 	}
 

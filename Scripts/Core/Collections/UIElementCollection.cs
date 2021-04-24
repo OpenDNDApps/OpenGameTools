@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Anvil3D
+namespace VGDevs
 {
-    [CreateAssetMenu(menuName = Anvil3D.kCreateMenuPrefixName + "Collection/UIElements")]
+    [CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Collection/UIElements")]
     public class UIElementCollection : BaseCollection<BaseUIScript>
     {
     }

@@ -31,7 +31,7 @@ using UnityEngine.UI;
 //    +--------------+        +-------------+
 //   
 
-namespace  Anvil3D
+namespace  VGDevs
 {
     public class AppInitialization : MonoBehaviour
     {

@@ -1,13 +1,13 @@
 ﻿using Sirenix.OdinInspector;
 
-namespace Anvil3D
+namespace VGDevs
 {
 	using System;
 	using System.Linq;
 	using System.Collections.Generic;
 	using UnityEngine;
 
-	public static class Anvil3D
+	public static class VGDevs
 	{
 		#region Script settings
 
@@ -53,9 +53,9 @@ namespace Anvil3D
 		}
 
 		public struct AppAttributes {
-			public int Build => Anvil3D.Settings.Build;
-			public string Version => Anvil3D.Settings.Version;
-			public string Env => Anvil3D.Settings.Environment;
+			public int Build => VGDevs.Settings.Build;
+			public string Version => VGDevs.Settings.Version;
+			public string Env => VGDevs.Settings.Environment;
 		}
 		
 		#endregion
@@ -63,41 +63,41 @@ namespace Anvil3D
 
 		#region Static References
 
-		private static AnvilGameSettings m_gameSettings;
-		public static AnvilGameSettings Settings
+		private static VGDevsGameSettings m_gameSettings;
+		public static VGDevsGameSettings Settings
 		{
 			get
 			{
 				if (m_gameSettings == null)
-					m_gameSettings = (AnvilGameSettings)Resources.Load(Anvil3D.kGameSettingsFileName, typeof(AnvilGameSettings));
+					m_gameSettings = (VGDevsGameSettings)Resources.Load(VGDevs.kGameSettingsFileName, typeof(VGDevsGameSettings));
 				if (m_gameSettings == null)
-					Debug.LogError($"Asset '{Anvil3D.kGameSettingsFileName}' not found.");
+					Debug.LogError($"Asset '{VGDevs.kGameSettingsFileName}' not found.");
 				return m_gameSettings;
 			}
 		}
 
-		private static AnvilDatabase m_dataBase;
-		public static AnvilDatabase Database
+		private static VGDevsDatabase m_dataBase;
+		public static VGDevsDatabase Database
 		{
 			get
 			{
 				if (m_dataBase == null)
-					m_dataBase = (AnvilDatabase)Resources.Load(Anvil3D.kMainDatabaseFileName, typeof(AnvilDatabase));
+					m_dataBase = (VGDevsDatabase)Resources.Load(VGDevs.kMainDatabaseFileName, typeof(VGDevsDatabase));
 				if (m_dataBase == null)
-					Debug.LogError($"Asset '{Anvil3D.kMainDatabaseFileName}' not found.");
+					Debug.LogError($"Asset '{VGDevs.kMainDatabaseFileName}' not found.");
 				return m_dataBase;
 			}
 		}
 
-		private static AnvilPrefabDatabase m_prefabDatabase;
-		public static AnvilPrefabDatabase Prefabs
+		private static VGDevsPrefabDatabase m_prefabDatabase;
+		public static VGDevsPrefabDatabase Prefabs
 		{
 			get
 			{
 				if (m_prefabDatabase == null)
-					m_prefabDatabase = (AnvilPrefabDatabase)Resources.Load(Anvil3D.kPrefabsAccessFileName, typeof(AnvilPrefabDatabase));
+					m_prefabDatabase = (VGDevsPrefabDatabase)Resources.Load(VGDevs.kPrefabsAccessFileName, typeof(VGDevsPrefabDatabase));
 				if (m_prefabDatabase == null)
-					Debug.LogError($"Asset '{Anvil3D.kPrefabsAccessFileName}' not found.");
+					Debug.LogError($"Asset '{VGDevs.kPrefabsAccessFileName}' not found.");
 				return m_prefabDatabase;
 			}
 		}
@@ -107,30 +107,30 @@ namespace Anvil3D
 }
 #if UNITY_EDITOR
 #region Editor top menu methods
-namespace Anvil3D
+namespace VGDevs
 {
 	using UnityEditor;
-	public static class AnvilEditor
+	public static class VGDevsEditor
 	{
-		private const string kMenuPath = "Tools/Anvil3D/";
+		private const string kMenuPath = "Tools/VGDevs/";
 		
 		[MenuItem(kMenuPath + "Select Game Settings")]
 		private static void SelectGameProperties()
 		{
-			Selection.activeObject = Anvil3D.Settings;
+			Selection.activeObject = VGDevs.Settings;
 			EditorGUIUtility.PingObject(Selection.activeObject);
 		}
 
 		[MenuItem(kMenuPath + "Select Database Access")]
 		private static void SelectDataAccess()
 		{
-			Selection.activeObject = Anvil3D.Database;
+			Selection.activeObject = VGDevs.Database;
 			EditorGUIUtility.PingObject(UnityEditor.Selection.activeObject);
 		}
 		[MenuItem(kMenuPath + "Select Prefabs Access")]
 		private static void SelectPrefabsAccess()
 		{
-			Selection.activeObject = Anvil3D.Prefabs;
+			Selection.activeObject = VGDevs.Prefabs;
 			EditorGUIUtility.PingObject(Selection.activeObject);
 		}
 	}

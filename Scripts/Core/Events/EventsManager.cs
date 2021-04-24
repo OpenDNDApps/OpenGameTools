@@ -2,15 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Anvil3D;
+using VGDevs;
 using UnityEngine.Events;
 
-namespace Anvil3D
+namespace VGDevs
 {
 	public class EventsManager : MonoSingletonSelfGenerated<EventsManager>
 	{
 		private Dictionary<string, UnityAction> m_actions;
-		private static string EventPrefix => Anvil3D.kGameEventPrefix;
+		private static string EventPrefix => VGDevs.kGameEventPrefix;
 
 		protected override void OnAwake()
 		{
