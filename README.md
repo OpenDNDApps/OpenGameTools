@@ -1,15 +1,15 @@
 
 
-[![Build Status](https://travis-ci.org/Anvil3D/Anvil3D-Toolset.svg?branch=master)](https://travis-ci.org/Anvil3D/Anvil-Toolset) 
-[![Download](https://img.shields.io/github/downloads/anvil3d/anvil3d-toolset/total)](https://github.com/Anvil3D/Anvil3D-Toolset/releases) 
-[![GitHub Issues](https://img.shields.io/github/issues/anvil3d/anvil3d-toolset)](https://github.com/Anvil3D/Anvil3D-Toolset/issues) 
-![GitHub last commit](https://img.shields.io/github/last-commit/anvil3d/anvil3d-toolset) 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/anvil3d/anvil3d-toolset)](https://github.com/Anvil3D/Anvil3D-Toolset/releases) 
-![GitHub repo size](https://img.shields.io/github/repo-size/anvil3d/anvil3d-toolset) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/anvil3d/anvil3d-toolset)
+[![Build Status](https://travis-ci.org/VGDevs/VGDevs-UnityTools.svg?branch=master)](https://travis-ci.org/VGDevs/VGDevs-UnityTools) 
+[![Download](https://img.shields.io/github/downloads/VGDevs/VGDevs-UnityTools/total)](https://github.com/VGDevs/VGDevs-UnityTools/releases) 
+[![GitHub Issues](https://img.shields.io/github/issues/VGDevs/VGDevs-UnityTools)](https://github.com/VGDevs/VGDevs-UnityTools/issues) 
+![GitHub last commit](https://img.shields.io/github/last-commit/VGDevs/VGDevs-UnityTools) 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/VGDevs/VGDevs-UnityTools)](https://github.com/VGDevs/VGDevs-UnityTools/releases) 
+![GitHub repo size](https://img.shields.io/github/repo-size/VGDevs/VGDevs-UnityTools) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/VGDevs/VGDevs-UnityTools)
 
-# Anvil3D-Toolset
+# VGDevs-UnityTools
 
-**Anvil3D Toolset** is a compilation of several systems, scripts and extensions made by us and found on the internet over the years. The 3rd party scripts included are still maintained by us and, provably, heavily modified.  
+**VGDevs-UnityTools** is a compilation of several systems, scripts and extensions made by us and found on the internet over the years. The 3rd party scripts included are still maintained by us and, provably, heavily modified.  
 Hence, this aims to be a lightweight 'framework'.  
 We, as a team, use this asset every day on production apps and games.
 
@@ -31,7 +31,7 @@ Need something to fast prototype a feature or system? this is for you.
 &nbsp;
 
 ## **Do you like this asset?**  
-Consider supporting us on [Patreon](https://www.patreon.com/anvil3d)  
+Consider supporting us on [Patreon](https://www.patreon.com/vgdevs)  
 
 &nbsp;
 
@@ -40,7 +40,7 @@ Consider supporting us on [Patreon](https://www.patreon.com/anvil3d)
 &nbsp;
 
 ## **IMPORTANT**  
-We are not reinventing the wheel, because of this, **Anvil3D Toolset** uses other assets that are available on the store, and we **really** recommend all of them:  
+We are not reinventing the wheel, because of this, **VGDevs-UnityTools** uses other assets that are available on the store, and we **really** recommend all of them:  
 • [Odin Inspector](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041) (paid) - Odin is not required, but its used to organize the editor inspector and the test tools, so its heavily recommended.
 
 • [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) (free) - DoTween because DoTween should be used in all projects.
@@ -50,11 +50,11 @@ We are not reinventing the wheel, because of this, **Anvil3D Toolset** uses othe
 
 ### Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Anvil3D/Anvil3D-Toolset/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/VGDevs/VGDevs-UnityTools/tags). 
 
 ### Licenses & Attributions 
 
-- Anvil3D Toolset CC BY 4.0 ![License: CC BY 4.0](https://img.shields.io/github/license/anvil3d/anvil3d-toolset)
+- VGDevs-UnityTools CC BY 4.0 ![License: CC BY 4.0](https://img.shields.io/github/license/VGDevs/VGDevs-UnityTools)
 - Game-Icons.net: check individual licenses within the icons folders 
 
 
