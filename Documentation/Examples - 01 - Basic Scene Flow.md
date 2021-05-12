@@ -1,7 +1,7 @@
 
 # Basic scene flow
 
-[Doc link 😄](https://github.com/Anvil3D/Anvil3D-Toolset/blob/master/Documentation/Examples%20-%2001%20-%20Basic%20Scene%20Flow.md)
+[Doc link 😄](https://github.com/VGDevs/VGDevs-UnityTools/blob/master/Documentation/Examples%20-%2001%20-%20Basic%20Scene%20Flow.md)
 
 ## What?
 
@@ -22,7 +22,7 @@ If you think you don't need this I still invite you to have it like this in your
 
 ## How?
 
-The [AppInitialization](https://github.com/Anvil3D/Anvil3D-Toolset/blob/master/Scripts/Core/SceneManagement/AppInitialization.cs) script handles the scene loading using the [SceneManager](https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadSceneAsync.html) provided by Unity.
+The [AppInitialization](https://github.com/VGDevs/VGDevs-UnityTools/blob/master/Scripts/Core/SceneManagement/AppInitialization.cs) script handles the scene loading using the [SceneManager](https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadSceneAsync.html) provided by Unity.
 
 ![AppInitialization Config](https://user-images.githubusercontent.com/1507317/106372469-add5c900-634e-11eb-9b56-94447988d400.png "AppInitialization Config")
 

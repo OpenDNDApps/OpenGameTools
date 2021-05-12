@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 namespace VGDevs
 {
-    public class BaseUIScript : VgDevsMonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+    public class BaseUIScript : VGDevsMonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
 
         #region Base Config

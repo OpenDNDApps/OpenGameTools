@@ -6,6 +6,7 @@ namespace VGDevs
 {
     public class MonoSingletonUnmanaged<T> : MonoBehaviour where T : MonoBehaviour
     {
+        [SerializeField] private bool m_isPersistentThroughScenes;
         private static T m_instance;
         public static T Instance
         {
@@ -39,6 +40,18 @@ namespace VGDevs
             {
                 m_instance = this as T;
             }
+
+            if (m_isPersistentThroughScenes)
+            {
+                DontDestroyOnLoad(this);
+            }
+
+            OnSingletonAwake();
+        }
+
+        protected virtual void OnSingletonAwake()
+        {
+            
         }
     }
 }

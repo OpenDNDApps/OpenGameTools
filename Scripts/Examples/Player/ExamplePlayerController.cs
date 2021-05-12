@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace VGDevs
 {
-	public class ExamplePlayerController : VgDevsMonoBehaviour, IDataBuildable<ExamplePlayerData>
+	public class ExamplePlayerController : VGDevsMonoBehaviour, IDataBuildable<ExamplePlayerData>
 	{
 		public ExamplePlayerData m_data;
 

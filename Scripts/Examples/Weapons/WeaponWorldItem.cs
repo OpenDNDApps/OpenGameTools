@@ -6,7 +6,7 @@ using TMPro;
 
 namespace VGDevs
 {
-	public class WeaponWorldItem : VgDevsMonoBehaviour, IDataBuildable<WeaponData>
+	public class WeaponWorldItem : VGDevsMonoBehaviour, IDataBuildable<WeaponData>
 	{
 		[Header("3D Elements")]
 		[SerializeField] private GameObject m_root;

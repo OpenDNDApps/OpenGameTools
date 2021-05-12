@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace VGDevs
 {
-	public class WeaponUIItem : VgDevsMonoBehaviour, IDataBuildable<WeaponData>
+	public class WeaponUIItem : VGDevsMonoBehaviour, IDataBuildable<WeaponData>
 	{
 		// UI
 		[Header("UI")]

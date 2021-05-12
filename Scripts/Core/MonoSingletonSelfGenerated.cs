@@ -49,9 +49,11 @@ namespace VGDevs
             {
                 DontDestroyOnLoad(this);
             }
+
+            OnSingletonAwake();
         }
 
-        protected virtual void OnAwake()
+        protected virtual void OnSingletonAwake()
         {
             
         }

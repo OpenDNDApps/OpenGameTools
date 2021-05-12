@@ -12,7 +12,7 @@ namespace VGDevs
 		private Dictionary<string, UnityAction> m_actions;
 		private static string EventPrefix => VGDevs.kGameEventPrefix;
 
-		protected override void OnAwake()
+		protected override void OnSingletonAwake()
 		{
 			m_actions ??= new Dictionary<string, UnityAction>();
 		}

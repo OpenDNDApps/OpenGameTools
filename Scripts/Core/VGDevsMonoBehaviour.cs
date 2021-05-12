@@ -8,7 +8,7 @@ using UnityEngine.Events;
 namespace VGDevs
 {
 	[AddComponentMenu("")]
-	public class VgDevsMonoBehaviour : VGDevsMonoBase, IOnChangeHandler, IIdentifiable
+	public class VGDevsMonoBehaviour : VGDevsMonoBase, IOnChangeHandler, IIdentifiable
 	{
 		#region ID / IIdentifiable Section
 		
