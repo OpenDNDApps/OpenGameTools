@@ -20,13 +20,11 @@ We, as a team, use this asset every day on production apps and games.
 • Event System compatible with ScriptableObjects and MonoBehaviours on runtime  
 • Hundreds of C# Extensions  
 • Many Scripts and Components to use and "extend" Unity.  
-• Base UI to use as a starting point. Focused on performance, maintainability and scalability.  
 
 &nbsp;
 
 ## **Why would I want to use this?**  
 We use this asset as a framework and as a base on every project, feel free to try it, its free.  
-Need something to fast prototype a feature or system? this is for you.
 
 &nbsp;
 
@@ -40,25 +38,11 @@ Consider supporting us on [Patreon](https://www.patreon.com/vgdevs)
 &nbsp;
 
 ## **IMPORTANT**  
-We are not reinventing the wheel, because of this, **VGDevs-UnityTools** uses other assets that are available on the store, and we **really** recommend all of them:  
-• [Odin Inspector](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041) (paid) - Odin is not required, but its used to organize the editor inspector and the test tools, so its heavily recommended.
-
-• [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) (free) - DoTween because DoTween should be used in all projects.
+We are not reinventing the wheel, because of this, **VGDevs-UnityTools** uses [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) because DoTween should be used in all projects and unity should integrate it natively, but thats just an opinion.
 
 &nbsp;
-
-
-### Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/VGDevs/VGDevs-UnityTools/tags). 
 
 ### Licenses & Attributions 
 
 - VGDevs-UnityTools CC BY 4.0 ![License: CC BY 4.0](https://img.shields.io/github/license/VGDevs/VGDevs-UnityTools)
 - Game-Icons.net: check individual licenses within the icons folders 
-
-
-### Thanks to:
-
-Travis CI and Neogeek for the integration
-- https://github.com/neogeek/unity-ci-tools
