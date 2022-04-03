@@ -27,12 +27,6 @@ Consider supporting us on [Patreon](https://www.patreon.com/vgdevs)
 
 ---
 
-## **IMPORTANT**  
-We are not reinventing the wheel, because of this, **VGDevs-UnityTools** uses [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) because DoTween should be used in all projects and unity should integrate it natively, but thats just an opinion.
-
-&nbsp;
-
 ### Licenses & Attributions 
 
-- VGDevs-UnityTools CC BY 4.0 ![License: CC BY 4.0](https://img.shields.io/github/license/VGDevs/VGDevs-UnityTools)
-- Game-Icons.net: check individual licenses within the icons folders 
+- VGDevs-UnityTools [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), Use and modify as you like just mentions us on the credits 😊
