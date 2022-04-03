@@ -13,29 +13,19 @@
 Hence, this aims to be a lightweight 'framework'.  
 We, as a team, use this asset every day on production apps and games.
 
-&nbsp;
-
 ## **Features**  
 • An ScriptableObject architecture and event system, the core of the asset. Based on [Ryan Hipple's 2017 Unite talk](https://www.youtube.com/watch?v=raQ3iHhE_Kk) and [Richard Fine's 2016 Unite talk](https://www.youtube.com/watch?v=6vmRwLYWNRo)  
 • Event System compatible with ScriptableObjects and MonoBehaviours on runtime  
 • Hundreds of C# Extensions  
 • Many Scripts and Components to use and "extend" Unity.  
 
-&nbsp;
-
 ## **Why would I want to use this?**  
 We use this asset as a framework and as a base on every project, feel free to try it, its free.  
-
-&nbsp;
 
 ## **Do you like this asset?**  
 Consider supporting us on [Patreon](https://www.patreon.com/vgdevs)  
 
-&nbsp;
-
 ---
-
-&nbsp;
 
 ## **IMPORTANT**  
 We are not reinventing the wheel, because of this, **VGDevs-UnityTools** uses [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676) because DoTween should be used in all projects and unity should integrate it natively, but thats just an opinion.
