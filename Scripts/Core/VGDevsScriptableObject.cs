@@ -3,10 +3,10 @@ using UnityEngine.Events;
 
 namespace VGDevs
 {
-	public class VGDevsScriptableObject : ScriptableObject
+	public class VGDevsScriptableObject : ScriptableObject, ISerializationCallbackReceiver
 	{
 		[Header("Settings")]
-		[SerializeField] protected bool m_resetInRuntime = true;
+		[SerializeField] protected bool m_resetAfterRuntime = true;
 		
 		#region ID / IIdentifiable Section
 		
@@ -36,5 +36,15 @@ namespace VGDevs
 		}
 		
 		#endregion
+
+		public void OnBeforeSerialize() { }
+
+		public void OnAfterDeserialize()
+		{
+			if(m_resetAfterRuntime)
+				OnResetAfterRuntime();
+		}
+
+		public virtual void OnResetAfterRuntime() { }
 	}
 }

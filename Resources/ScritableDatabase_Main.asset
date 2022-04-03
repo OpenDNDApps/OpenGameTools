@@ -12,15 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea0a35fc717ae1b418c0b24dc031f91b, type: 3}
   m_Name: ScritableDatabase_Main
   m_EditorClassIdentifier: 
-  m_hasID: 0
-  m_id: 0
-  m_resetInRuntime: 1
-  m_onChangeToggle: 0
-  m_onChangeScriptableObject: {fileID: 0}
-  m_onChangeEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  PlayerData: {fileID: 0}
-  AllWeaponDatasInProject: {fileID: 0}
-  AllWeaponWorldItemsInGameBuilt: {fileID: 0}
-  AllWeaponUIItemsInGameBuilt: {fileID: 0}
+  m_playerData: {fileID: 11400000, guid: 1c3f9f32396c3f34483d36745cf85f6a, type: 2}
+  m_players:
+  - {fileID: 11400000, guid: 1c3f9f32396c3f34483d36745cf85f6a, type: 2}

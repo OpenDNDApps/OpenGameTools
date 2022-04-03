@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace VGDevs {
-	public abstract class BaseCollection<T> : VGDevsScriptableObject, ISerializationCallbackReceiver, IList<T>
+	public abstract class BaseCollection<T> : VGDevsScriptableObject, IList<T>
 	{
 		[Header("Data")]
 		[SerializeField] protected List<T> m_list = new List<T>();
@@ -127,12 +126,10 @@ namespace VGDevs {
 			return m_list.ToArray();
 		}
 
-		public void OnBeforeSerialize() {}
-
-		public void OnAfterDeserialize()
+		public override void OnResetAfterRuntime()
 		{
-			if(m_resetInRuntime)
-				m_list = m_initList;
+			base.OnResetAfterRuntime();
+			m_list = m_initList;
 		}
 
 		public void CopyTo(T[] array, int arrayIndex)

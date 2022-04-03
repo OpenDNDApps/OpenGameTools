@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2558ff7d66cd749999e4e493d37003, type: 3}
   m_Name: PlayerData Acc Level
   m_EditorClassIdentifier: 
-  onChangeToggle: 0
-  OnChangeScriptableObject: {fileID: 0}
-  OnChangeEvent:
+  m_resetAfterRuntime: 1
+  m_hasId: 0
+  m_id: 0
+  m_changeable: 1
+  m_onChangeScriptableObject: {fileID: 11400000, guid: 927b3fd393e6b9c46b20876fe398bce4, type: 2}
+  m_onChangeEvent:
     m_PersistentCalls:
       m_Calls: []
-  _value: 0
+  m_value: 0

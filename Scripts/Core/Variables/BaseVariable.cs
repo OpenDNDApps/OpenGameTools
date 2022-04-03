@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 namespace VGDevs
 {
 	//[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "BaseVariable")]
-	public abstract class BaseVariable<T> : VGDevsScriptableObject, ISerializationCallbackReceiver
+	public abstract class BaseVariable<T> : VGDevsScriptableObject
 	{
 		[Header("Data")]
 		[SerializeField] protected T m_value = default;
-		[System.NonSerialized] protected T m_initValue = default;
+		[NonSerialized] protected T m_initValue = default;
 
 		protected virtual T Value
 		{
@@ -20,13 +19,10 @@ namespace VGDevs
 				OnChange();
 			}
 		}
-
-		public void OnAfterDeserialize()
+		
+		public override void OnResetAfterRuntime()
 		{
-			if(m_resetInRuntime)
-				m_value = m_initValue;
+			m_value = m_initValue;
 		}
-
-		public void OnBeforeSerialize()	{}
 	}
 }

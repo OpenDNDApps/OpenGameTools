@@ -4,7 +4,7 @@ using UnityEngine;
 namespace VGDevs
 {
 	[CreateAssetMenu(fileName = VGDevs.kPrefabsAccessFileName, menuName = VGDevs.kCreateMenuPrefixName + "Base/PrefabDatabase")]
-	public class VGDevsPrefabDatabase : VGDevsScriptableObject
+	public class VGDevsPrefabDatabase : ScriptableObject
 	{
 		// Definition Example
 		
