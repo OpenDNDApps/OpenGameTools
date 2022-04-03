@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VGDevs
 {
-	//[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/BaseVariable")]
+	//[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "BaseVariable")]
 	public abstract class BaseVariable<T> : VGDevsScriptableObject, ISerializationCallbackReceiver
 	{
 		[SerializeField] protected T m_value = default;

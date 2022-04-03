@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VGDevs
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/String")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "String")]
 	public class StringVariable : BaseVariable<string>
 	{
 	}

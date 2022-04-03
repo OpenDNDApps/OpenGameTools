@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace VGDevs
 {
@@ -23,22 +20,17 @@ namespace VGDevs
 		///			Debug.Log(Settings.version);
 		///		}
 		///		
-		/// Usage 2: Use Anvil shortcut
+		/// Usage 2: Use VGDevs shortcut
 		///  
 		///		public void MyCustomMethod() {
-		///			Debug.Log(Anvil.Settings.version);
+		///			Debug.Log(VGDevs.Settings.version);
 		///		}
 		/// </summary>
 
-		[ValueDropdown("@VGDevs.EnvironmentDropdownValues")]
-		public string Environment = "Dev1";
-		
-		[NonSerialized][ShowInInspector]
-		public string AssignmentID = "";
+		public string Environment = "Dev";
 		
 		public string Version = "v0.0.1";
 		public string VersionPref = "game_version";
-		
 
 		public int Build = 0010;
 		public string BuildPref = "game_build";

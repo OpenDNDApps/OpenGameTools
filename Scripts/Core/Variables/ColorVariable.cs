@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VGDevs
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/Color")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "Color")]
 	public class ColorVariable : BaseVariable<Color>
 	{
 	}

@@ -7,13 +7,8 @@ namespace VGDevs
 	[CreateAssetMenu(fileName = VGDevs.kMainDatabaseFileName, menuName = VGDevs.kCreateMenuPrefixName + "Base/Database")]
 	public class VGDevsDatabase : VGDevsScriptableObject
 	{
-		public DamageModifiers DamageModifiers;
-		
-		public ExamplePlayerData m_examplePlayerData;
-
-		public ItemDataCollection m_allItemDefinitionsInProject;
-
-		public WeaponWorldItemCollection AllWeaponWorldItemsInGameBuilt;
-		public WeaponUIItemCollection AllWeaponUIItemsInGameBuilt;
+		// Add your data/scriptableObjects/prefabs/etc here.
+		public PlayerData m_playerData;
+		public List<PlayerData> m_players = new List<PlayerData>();
 	}
 }

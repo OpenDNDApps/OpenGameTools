@@ -1,6 +1,4 @@
-﻿using Sirenix.OdinInspector;
-
-namespace VGDevs
+﻿namespace VGDevs
 {
 	using System;
 	using System.Linq;
@@ -15,9 +13,14 @@ namespace VGDevs
 		/// Used by EventsManager.
 		/// </summary>
 
-		public const string kCreateMenuPrefixName = "Data/";
+		public const string kPluginName = "VGDevs";
 
-		public const string kGameEventPrefix = "MyGameEvent_";
+		public const string kCreateMenuPrefixName = kPluginName + "/Data/";
+		public const string kCreateMenuPrefixNameVariables = kCreateMenuPrefixName + "Variables/";
+		public const string kCreateMenuPrefixNameGame = kCreateMenuPrefixName + "Game/";
+		public const string kCreateMenuPrefixNameEvents = kCreateMenuPrefixName + "Events/";
+
+		public const string kGameEventPrefix = "GE_";
 
 		public const string kGameSettingsFileName = "GameSettings";
 		public const string kMainDatabaseFileName = "ScritableDatabase_Main";
@@ -25,42 +28,6 @@ namespace VGDevs
 		
 		#endregion
 		
-		#region Base scripts editor settings
-
-		/// Has ID Editor Settings.
-		public const int kIDSortValue = -99;
-		public const string kIDGroupKeyVariable = "m_hasID";
-		public const string kIDGroupTitle = "Has ID";
-
-		/// On Change Editor Settings.
-		public const int kOnChangeOrder = 999;
-		public const string kOnChangeGroupKeyVariable = "m_onChangeToggle";
-		public const string kOnChangeGroupTitle = "On Change Events";
-		public const string kOnChangeButtonTitle = "Trigger OnChange";
-
-		#endregion
-
-		#region RemoteConfig Settings
-
-		public static ValueDropdownList<string> EnvironmentDropdownValues = new ValueDropdownList<string>()
-		{
-			"Production", "Staging", "Dev1", "Dev2", "Testing", "QA"
-		};
-        
-		public struct UserAttributes {
-			public string UserID => PlayerPrefs.GetString("UserID", "Unknown");
-			public string DeviceID => SystemInfo.deviceUniqueIdentifier;
-		}
-
-		public struct AppAttributes {
-			public int Build => VGDevs.Settings.Build;
-			public string Version => VGDevs.Settings.Version;
-			public string Env => VGDevs.Settings.Environment;
-		}
-		
-		#endregion
-		
-
 		#region Static References
 
 		private static VGDevsGameSettings m_gameSettings;
@@ -112,7 +79,7 @@ namespace VGDevs
 	using UnityEditor;
 	public static class VGDevsEditor
 	{
-		private const string kMenuPath = "Tools/VGDevs/";
+		private const string kMenuPath = "Tools/" + VGDevs.kPluginName + "/";
 		
 		[MenuItem(kMenuPath + "Select Game Settings")]
 		private static void SelectGameProperties()
@@ -127,6 +94,7 @@ namespace VGDevs
 			Selection.activeObject = VGDevs.Database;
 			EditorGUIUtility.PingObject(UnityEditor.Selection.activeObject);
 		}
+		
 		[MenuItem(kMenuPath + "Select Prefabs Access")]
 		private static void SelectPrefabsAccess()
 		{

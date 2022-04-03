@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VGDevs
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/AudioClip")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "AudioClip")]
 	public class AudioClipVariable : BaseVariable<AudioClip>
 	{
 	}

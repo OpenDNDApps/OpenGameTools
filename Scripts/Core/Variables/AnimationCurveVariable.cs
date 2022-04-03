@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VGDevs
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/AnimationCurve")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "AnimationCurve")]
 	public class AnimationCurveVariable : BaseVariable<AnimationCurve>
 	{
 	}

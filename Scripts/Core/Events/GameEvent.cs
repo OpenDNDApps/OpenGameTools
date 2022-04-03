@@ -5,11 +5,10 @@ using UnityEngine.Events;
 
 namespace VGDevs
 {
-	[CreateAssetMenu(fileName = "New GameEvent", menuName = VGDevs.kCreateMenuPrefixName + "Events/GameEvent")]
+	[CreateAssetMenu(fileName = "New_GameEvent", menuName = VGDevs.kCreateMenuPrefixNameEvents + "GameEvent")]
 	public class GameEvent : ScriptableObject
 	{
 		protected List<GameEventListener> m_baseListeners = new List<GameEventListener>();
-		protected List<BaseBehaviour> m_gameBehaviours = new List<BaseBehaviour>();
 		protected bool m_hasBeenRaised = false;
 
 		public void Raise()
@@ -19,14 +18,6 @@ namespace VGDevs
 				if (listener != null)
 				{
 					listener.OnEventRaised();	
-				}
-			}
-
-			foreach (BaseBehaviour behaviour in m_gameBehaviours)
-			{
-				if (behaviour != null)
-				{
-					behaviour.Behave();
 				}
 			}
 
@@ -52,14 +43,6 @@ namespace VGDevs
 			}
 		}
 
-		public void RegisterListener(BaseBehaviour eventToAdd)
-		{
-			if (!m_gameBehaviours.Contains(eventToAdd))
-			{
-				m_gameBehaviours.Add(eventToAdd);
-			}
-		}
-
 		public void UnregisterListener(GameEventListener eventToRemove)
 		{
 			if (m_baseListeners.Contains(eventToRemove))
@@ -68,19 +51,10 @@ namespace VGDevs
 			}
 		}
 
-		public void UnregisterListener(BaseBehaviour eventToRemove)
-		{
-			if (m_gameBehaviours.Contains(eventToRemove))
-			{
-				m_gameBehaviours.Remove(eventToRemove);
-			}
-		}
-
 		#if UNITY_EDITOR
 		public void OnEnable()
 		{
 			m_baseListeners.Clear();
-			m_gameBehaviours.Clear();
 			m_hasBeenRaised = false;
 			UnityEditor.EditorUtility.SetDirty(this);
 		}

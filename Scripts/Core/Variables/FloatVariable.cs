@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VGDevs
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Variables/Float")]
+	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "Float")]
 	public class FloatVariable : BaseVariable<float>
 	{
 	}

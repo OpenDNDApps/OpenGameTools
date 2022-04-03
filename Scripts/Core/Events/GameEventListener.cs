@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace VGDevs
 {
-	[AddComponentMenu(VGDevs.kCreateMenuPrefixName + "Events/GameEventListener")]
+	[AddComponentMenu(VGDevs.kCreateMenuPrefixNameEvents + "GameEventListener")]
 	public class GameEventListener : MonoBehaviour
 	{
 		[SerializeField] private GameEvent m_event;

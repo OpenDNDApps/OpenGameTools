@@ -23,7 +23,7 @@ namespace VGDevs
                 if (m_instance != null)
                     return m_instance;
 
-                var newObject = new GameObject($@"{typeof(T).Name} (SelfGenerated)");
+                var newObject = new GameObject($@"{typeof(T).Name}");
                 newObject.hideFlags = HideFlags.HideAndDontSave;
                 m_instance = newObject.AddComponent<T>();
                 m_instance.transform.SetAsFirstSibling();
