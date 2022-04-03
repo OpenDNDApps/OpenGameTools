@@ -6,6 +6,7 @@ namespace VGDevs
 	[CreateAssetMenu(fileName = "New PlayerData", menuName = VGDevs.kCreateMenuPrefixNameGame + "PlayerData")]
 	public class PlayerData : VGDevsScriptableObject
 	{
+		[Header("Data")]
 		public MonoBehaviour Instance;
 
 		public AccountStats Account;

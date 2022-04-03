@@ -7,6 +7,7 @@ namespace VGDevs
 	//[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "BaseVariable")]
 	public abstract class BaseVariable<T> : VGDevsScriptableObject, ISerializationCallbackReceiver
 	{
+		[Header("Data")]
 		[SerializeField] protected T m_value = default;
 		[System.NonSerialized] protected T m_initValue = default;
 

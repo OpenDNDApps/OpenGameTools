@@ -5,21 +5,25 @@ namespace VGDevs
 {
 	public class VGDevsScriptableObject : ScriptableObject
 	{
+		[Header("Settings")]
+		[SerializeField] protected bool m_resetInRuntime = true;
+		
 		#region ID / IIdentifiable Section
 		
-		[SerializeField] protected int m_id;
+		[SerializeField] protected bool m_hasId = false;
+		[ConditionalHide("m_hasId", true), SerializeField] protected int m_id;
 		
 		public int ID => m_id;
 		
 		#endregion
 		
 		#region OnChange Section
-
-		[SerializeField] protected bool m_resetInRuntime = true;
-
-		[SerializeField] protected GameEvent m_onChangeScriptableObject;
-		[SerializeField] protected UnityEvent m_onChangeEvent;
-		[SerializeField] protected UnityAction m_onChangeAction;
+		
+		[Header("OnChange")]
+		[SerializeField] protected bool m_changeable = false;
+		[ConditionalHide("m_changeable", true), SerializeField] protected GameEvent m_onChangeScriptableObject;
+		[ConditionalHide("m_changeable", true), SerializeField] protected UnityEvent m_onChangeEvent;
+		[ConditionalHide("m_changeable", true), SerializeField] protected UnityAction m_onChangeAction;
 
 		public virtual void OnChange()
 		{

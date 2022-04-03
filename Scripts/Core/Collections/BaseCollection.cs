@@ -7,6 +7,7 @@ using UnityEngine;
 namespace VGDevs {
 	public abstract class BaseCollection<T> : VGDevsScriptableObject, ISerializationCallbackReceiver, IList<T>
 	{
+		[Header("Data")]
 		[SerializeField] protected List<T> m_list = new List<T>();
 		[NonSerialized] private List<T> m_initList = new List<T>();
 		
