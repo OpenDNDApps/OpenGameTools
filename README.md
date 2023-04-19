@@ -1,15 +1,15 @@
 
 
-[![Build Status](https://travis-ci.org/VGDevs/VGDevs-UnityTools.svg?branch=master)](https://travis-ci.org/VGDevs/VGDevs-UnityTools) 
-[![Download](https://img.shields.io/github/downloads/VGDevs/VGDevs-UnityTools/total)](https://github.com/VGDevs/VGDevs-UnityTools/releases) 
-[![GitHub Issues](https://img.shields.io/github/issues/VGDevs/VGDevs-UnityTools)](https://github.com/VGDevs/VGDevs-UnityTools/issues) 
-![GitHub last commit](https://img.shields.io/github/last-commit/VGDevs/VGDevs-UnityTools) 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/VGDevs/VGDevs-UnityTools)](https://github.com/VGDevs/VGDevs-UnityTools/releases) 
-![GitHub repo size](https://img.shields.io/github/repo-size/VGDevs/VGDevs-UnityTools) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/VGDevs/VGDevs-UnityTools)
+[![Build Status](https://travis-ci.org/OpenDNDApps/OpenGameTools.svg?branch=master)](https://travis-ci.org/OpenDNDApps/OpenGameTools) 
+[![Download](https://img.shields.io/github/downloads/OpenDNDApps/OpenGameTools/total)](https://github.com/OpenDNDApps/OpenGameTools/releases) 
+[![GitHub Issues](https://img.shields.io/github/issues/OpenDNDApps/OpenGameTools)](https://github.com/OpenDNDApps/OpenGameTools/issues) 
+![GitHub last commit](https://img.shields.io/github/last-commit/OpenDNDApps/OpenGameTools) 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/OpenDNDApps/OpenGameTools)](https://github.com/OpenDNDApps/OpenGameTools/releases) 
+![GitHub repo size](https://img.shields.io/github/repo-size/OpenDNDApps/OpenGameTools) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/OpenDNDApps/OpenGameTools)
 
-# VGDevs-UnityTools
+# OpenGameTools
 
-**VGDevs-UnityTools** is a compilation of several systems, scripts and extensions made by us and found on the internet over the years. The 3rd party scripts included are still maintained by us and, provably, heavily modified.  
+**OpenGameTools** is a compilation of several systems, scripts and extensions made by us and found on the internet over the years. The 3rd party scripts included are still maintained by us and, provably, heavily modified.  
 Hence, this aims to be a lightweight 'framework'.  
 We, as a team, use this asset every day on production apps and games.
 
@@ -29,4 +29,4 @@ Consider supporting us on [Patreon](https://www.patreon.com/vgdevs)
 
 ### Licenses & Attributions 
 
-- VGDevs-UnityTools [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), Use and modify as you like just mentions us on the credits 😊
+- OpenDNDApps/OpenGameTools [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), Use and modify as you like just mentions us on the credits 😊
