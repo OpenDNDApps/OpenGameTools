@@ -1,7 +1,3 @@
-
-
-[![Build Status](https://travis-ci.org/OpenDNDApps/OpenGameTools.svg?branch=master)](https://travis-ci.org/OpenDNDApps/OpenGameTools) 
-[![Download](https://img.shields.io/github/downloads/OpenDNDApps/OpenGameTools/total)](https://github.com/OpenDNDApps/OpenGameTools/releases) 
 [![GitHub Issues](https://img.shields.io/github/issues/OpenDNDApps/OpenGameTools)](https://github.com/OpenDNDApps/OpenGameTools/issues) 
 ![GitHub last commit](https://img.shields.io/github/last-commit/OpenDNDApps/OpenGameTools) 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/OpenDNDApps/OpenGameTools)](https://github.com/OpenDNDApps/OpenGameTools/releases) 
