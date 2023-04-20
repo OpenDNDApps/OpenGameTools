@@ -8,6 +8,7 @@
 **OpenGameTools** is a compilation of several systems, scripts and extensions made by us and found on the internet over the years. The 3rd party scripts included are still maintained by us and, provably, heavily modified.  
 Hence, this aims to be a lightweight 'framework'.  
 We, as a team, use this asset every day on production apps and games.
+The UI system alone has -collectively- being used for more than 800k users on those apps and games.
 
 ## **Features**  
 • An ScriptableObject architecture and event system, the core of the asset. Based on [Ryan Hipple's 2017 Unite talk](https://www.youtube.com/watch?v=raQ3iHhE_Kk) and [Richard Fine's 2016 Unite talk](https://www.youtube.com/watch?v=6vmRwLYWNRo)  
