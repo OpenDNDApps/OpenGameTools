@@ -2,36 +2,36 @@
 
 namespace OGT
 {
-	public class BaseBehaviour : MonoBehaviour
-	{
-		protected bool m_initialized = false;
+    public class BaseBehaviour : MonoBehaviour
+    {
+        protected bool m_initialized = false;
             
-		protected virtual void Awake()
-		{
-			Initialize();
-		}
+        protected virtual void Awake()
+        {
+            Initialize();
+        }
 
-		protected virtual void Initialize()
-		{
-			if (m_initialized)
-				return;
+        protected virtual void Initialize()
+        {
+            if (m_initialized)
+                return;
 
-			m_initialized = true;
-			OnInit();
-		}
+            m_initialized = true;
+            OnInit();
+        }
 
-		public virtual void Disable(bool softDisable = false)
-		{
-			gameObject.SetActive(false);
-		}
+        public virtual void Disable(bool softDisable = false)
+        {
+            gameObject.SetActive(false);
+        }
 
-		public virtual void Enable()
-		{
-			gameObject.SetActive(true);
-		}
+        public virtual void Enable()
+        {
+            gameObject.SetActive(true);
+        }
 
-		protected virtual void OnInit() { }
-		protected virtual void OnEnable() { }
-		protected virtual void OnDisable() { }
-	}
+        protected virtual void OnInit() { }
+        protected virtual void OnEnable() { }
+        protected virtual void OnDisable() { }
+    }
 }
