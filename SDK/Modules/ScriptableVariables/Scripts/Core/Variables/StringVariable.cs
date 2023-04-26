@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "String")]
+	[CreateAssetMenu(menuName = GameResources.kCreateMenuPrefixNameVariables + "String")]
 	public class StringVariable : BaseVariable<string>
 	{
 	}

@@ -1,0 +1,17 @@
+using System;
+using UnityEngine;
+
+namespace OGT
+{
+    public partial class GameSettingsCollection
+    {
+        [Header("#MODULE_NAME# Settings")]
+        public #MODULE_NAME#Settings #MODULE_NAME#;
+
+        [Serializable]
+        public struct #MODULE_NAME#Settings
+        {
+            public string ChangeMe;
+        }
+    }
+}

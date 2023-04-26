@@ -1,9 +1,9 @@
 ﻿
 using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
-	public class PlayerController : VGDevsMonoBehaviour
+	public class PlayerController : ScriptableVariableBaseMono
 	{
 		public PlayerData m_data;
 

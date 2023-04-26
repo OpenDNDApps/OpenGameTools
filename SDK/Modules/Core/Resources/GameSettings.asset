@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578d5c5de123be54ab7ffcc557453402, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  UI:
+    DisabledAlpha: 0.7
+    EnabledAlpha: 1
+    Sorting:
+    - SortOrder: 0
+      PlaneDistance: 100
+      Type: 0
+    - SortOrder: 100
+      PlaneDistance: 10
+      Type: 1
+    - SortOrder: 500
+      PlaneDistance: 4
+      Type: 2
+    - SortOrder: 1000
+      PlaneDistance: 0
+      Type: 3
+    Default:
+      DelayedTimeOnUIInputOnValueChanged: 0.6
+      PositionBasedAnimationDelay: 0.05
+      Transition: {fileID: 0}
+      InputBlocker: {fileID: 6316150423643922361, guid: bd9ff69435161af47aeff112199cb1c8, type: 3}
+      ShowAnimation: {fileID: 11400000, guid: 16662b2e47cbd3d44918d0e981a3f475, type: 2}
+      HideAnimation: {fileID: 11400000, guid: c6a2c1a39dbbf504bbcc8af49274e715, type: 2}
+      EmptyAnimation: {fileID: 11400000, guid: 986fff21acaa8b1478f0ebdad7acca0b, type: 2}
+      TransparentSprite: {fileID: 21300000, guid: b898ea2ed1706fa41921ad318f0cfdd9, type: 3}
+  User:
+    DebugDeviceOverrideID: 
+    UsernameLengthMinMax: {x: 3, y: 20}
+    PasswordLengthMinMax: {x: 6, y: 100}
+    EmailLengthMinMax: {x: 6, y: 100}
+    DisplayNameLengthMinMax: {x: 0, y: 0}
+    ShowDebugWindow: 1
+    ForceLink: 0
+    SoftCoinID: GC
+    HardCoinID: AE
+    InfoRequestParams:
+      GetCharacterInventories: 1
+      GetCharacterList: 0
+      GetPlayerProfile: 1
+      GetPlayerStatistics: 1
+      GetTitleData: 0
+      GetUserAccountInfo: 1
+      GetUserData: 1
+      GetUserInventory: 1
+      GetUserReadOnlyData: 0
+      GetUserVirtualCurrency: 1
+      PlayerStatisticNames:
+      - Campaigns
+      - TimePlayed
+      ProfileConstraints:
+        ShowAvatarUrl: 1
+        ShowBannedUntil: 0
+        ShowCampaignAttributions: 0
+        ShowContactEmailAddresses: 0
+        ShowCreated: 0
+        ShowDisplayName: 1
+        ShowExperimentVariants: 0
+        ShowLastLogin: 1
+        ShowLinkedAccounts: 0
+        ShowLocations: 0
+        ShowMemberships: 0
+        ShowOrigination: 0
+        ShowPushNotificationRegistrations: 0
+        ShowStatistics: 1
+        ShowTags: 0
+        ShowTotalValueToDateInUsd: 1
+        ShowValuesToDate: 1
+      TitleDataKeys: []
+      UserDataKeys:
+      - Level
+      - Level
+      UserReadOnlyDataKeys: []

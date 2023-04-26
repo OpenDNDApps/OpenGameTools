@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "Color")]
+	[CreateAssetMenu(menuName = GameResources.kCreateMenuPrefixNameVariables + "Color")]
 	public class ColorVariable : BaseVariable<Color>
 	{
 	}

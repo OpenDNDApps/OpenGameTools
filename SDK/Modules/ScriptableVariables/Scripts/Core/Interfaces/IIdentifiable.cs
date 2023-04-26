@@ -1,4 +1,4 @@
-namespace VGDevs
+namespace OGT
 {
     public interface IIdentifiable
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "Float")]
+	[CreateAssetMenu(menuName = GameResources.kCreateMenuPrefixNameVariables + "Float")]
 	public class FloatVariable : BaseVariable<float>
 	{
 	}

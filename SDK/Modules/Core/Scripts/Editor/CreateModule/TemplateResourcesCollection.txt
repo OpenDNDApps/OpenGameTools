@@ -1,0 +1,24 @@
+using UnityEngine;
+
+namespace OGT
+{
+    [CreateAssetMenu(fileName = GameResources.k#MODULE_NAME#FileName, menuName = GameResources.kCreateMenuPrefixNameResources + GameResources.k#MODULE_NAME#FileName)]
+    public class #MODULE_NAME#ResourcesCollection : BaseResourcesCollection
+    {
+        [SerializeField] private #MODULE_NAME#Runtime m_#MODULE_NAME_LOWER#Runtime;
+        
+        public #MODULE_NAME#Runtime #MODULE_NAME#Runtime => m_#MODULE_NAME_LOWER#Runtime;
+        
+        private void OnValidate()
+        {
+            if (m_#MODULE_NAME_LOWER#Runtime != null)
+            {
+                AddLoadablePrefabs(m_#MODULE_NAME_LOWER#Runtime.gameObject);
+            }
+            else
+            {
+                Debug.LogError($"#MODULE_NAME#Runtime is null, check '#MODULE_NAME#ResourcesCollection'");
+            }
+        }
+    }
+}

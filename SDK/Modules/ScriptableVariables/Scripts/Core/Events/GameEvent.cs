@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace VGDevs
+namespace OGT
 {
-	[CreateAssetMenu(fileName = "New_GameEvent", menuName = VGDevs.kCreateMenuPrefixNameEvents + "GameEvent")]
+	[CreateAssetMenu(fileName = "New_GameEvent", menuName = GameResources.kCreateMenuPrefixNameEvents + "GameEvent")]
 	public class GameEvent : ScriptableObject
 	{
 		protected List<GameEventListener> m_baseListeners = new List<GameEventListener>();

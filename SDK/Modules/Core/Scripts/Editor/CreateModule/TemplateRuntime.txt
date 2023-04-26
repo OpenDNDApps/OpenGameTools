@@ -1,0 +1,22 @@
+namespace OGT
+{
+    public partial class #MODULE_NAME#Runtime : MonoSingletonSelfGenerated<#MODULE_NAME#Runtime>, IGameDependency
+    {
+        public bool IsReady { get; set; }
+        
+        protected override void OnSingletonAwake()
+        {
+            base.OnSingletonAwake();
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            IsReady = true;
+        }
+    }
+
+    public static class #MODULE_NAME#RuntimeExtensions
+    {
+    }
+}

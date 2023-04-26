@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "AudioClip")]
+	[CreateAssetMenu(menuName = GameResources.kCreateMenuPrefixNameVariables + "AudioClip")]
 	public class AudioClipVariable : BaseVariable<AudioClip>
 	{
 	}

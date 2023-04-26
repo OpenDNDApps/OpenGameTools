@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f5227bf9babbf4b8fbe9c1f75733a3, type: 3}
+  m_Name: UIGameResources
+  m_EditorClassIdentifier: 
+  m_loadablePrefabs:
+  - {fileID: 4981522841658000767, guid: f8959b806c7b7c8438ed06594b1e2ce7, type: 3}
+  m_uiRuntime: {fileID: 6809938705032059769, guid: f8959b806c7b7c8438ed06594b1e2ce7, type: 3}
+  m_uiItems: []
+  m_uiItemsInEditor:
+  - {fileID: 5746457185310195630, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+  - {fileID: 842538473452319449, guid: 844837ffd08cae941b460e9aa3340c59, type: 3}
+  - {fileID: 842538473452319449, guid: b4c2399efdee32b4782057cbf751b43d, type: 3}
+  - {fileID: 842538473452319449, guid: f16e00c3523ca6f4ca33af9e5cf9b202, type: 3}
+  - {fileID: 842538473452319449, guid: 236542316158e69429f6faa104dcf6d2, type: 3}
+  m_uiWindows:
+  - {fileID: 3565620742487813416, guid: f224f846c6029e444b4082bd74b1c2d4, type: 3}
+  - {fileID: 2376852173644213509, guid: c7b1f9ee1ed58c542bdf4e96fcc3c5d8, type: 3}
+  - {fileID: 7621962829325918069, guid: fbbf3887795f6a54890ff72ab48df62e, type: 3}
+  - {fileID: 7621962829325918069, guid: 9e9946d1a36b44649bd11a847eb2c5df, type: 3}
+  - {fileID: 4747236739156647421, guid: c86d4f4fde8b29c42b937ee25e83ef66, type: 3}
+  - {fileID: 5016009735770741335, guid: 4d26e49e2d5b14d41b4001c99c8faf52, type: 3}
+  - {fileID: 1401064877110066562, guid: 9648703889cc2cf4eb910ef2ca0a6535, type: 3}
+  - {fileID: 4316897491617527078, guid: 3d592a0375e62b74c9afb1762991447b, type: 3}
+  m_uiAnimations:
+  - {fileID: 11400000, guid: 5612cdccd2a124240ac3d693e289c6a0, type: 2}
+  - {fileID: 11400000, guid: 5612cdccd2a124240ac3d693e289c6a0, type: 2}
+  - {fileID: 11400000, guid: 16662b2e47cbd3d44918d0e981a3f475, type: 2}
+  - {fileID: 11400000, guid: 020946f89effb894880e1b603a9445bb, type: 2}
+  - {fileID: 11400000, guid: c6a2c1a39dbbf504bbcc8af49274e715, type: 2}
+  - {fileID: 11400000, guid: 986fff21acaa8b1478f0ebdad7acca0b, type: 2}
+  m_orcUIWindows: []
+  DefaultPageStyle: {fileID: 0}
+  PageStyles: []

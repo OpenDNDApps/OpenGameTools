@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
 	//[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "BaseVariable")]
-	public abstract class BaseVariable<T> : VGDevsScriptableObject
+	public abstract class BaseVariable<T> : ScriptableVariableBase
 	{
 		[Header("Data")]
 		[SerializeField] protected T m_value = default;

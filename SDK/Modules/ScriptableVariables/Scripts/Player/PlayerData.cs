@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
-	[CreateAssetMenu(fileName = "New PlayerData", menuName = VGDevs.kCreateMenuPrefixNameGame + "PlayerData")]
-	public class PlayerData : VGDevsScriptableObject
+	[CreateAssetMenu(fileName = "New PlayerData", menuName = GameResources.kCreateMenuPrefixNameGame + "PlayerData")]
+	public class PlayerData : ScriptableVariableBase
 	{
 		[Header("Data")]
 		public MonoBehaviour Instance;

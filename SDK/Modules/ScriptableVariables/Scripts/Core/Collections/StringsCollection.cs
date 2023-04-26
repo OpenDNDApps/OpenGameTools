@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Collection/Strings")]
+	[CreateAssetMenu(menuName = GameResources.kCreateMenuPrefixName + "Collection/Strings")]
 	public class StringsCollection : BaseCollection<string>
 	{
 	}

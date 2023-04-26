@@ -1,0 +1,30 @@
+namespace OGT
+{
+    public static partial class GameResources
+    {
+        public const string k#MODULE_NAME#FileName = "#MODULE_NAME#Resources";
+
+        public static #MODULE_NAME#Runtime #MODULE_NAME#Runtime => #MODULE_NAME#Runtime.Instance;
+        
+        private static #MODULE_NAME#ResourcesCollection m_#MODULE_NAME_LOWER#;
+        public static #MODULE_NAME#ResourcesCollection #MODULE_NAME# => GetGameResource(ref m_#MODULE_NAME_LOWER#, k#MODULE_NAME#FileName);
+    }
+}
+
+#if UNITY_EDITOR
+#region Editor top menu methods
+namespace OGT
+{
+    using UnityEditor;
+    public static partial class CoreEditor
+    {
+        [MenuItem(kModuleMenuPath + "Select #MODULE_NAME#")]
+        private static void Select#MODULE_NAME#Resources()
+        {
+            Selection.activeObject = GameResources.#MODULE_NAME#;
+            EditorGUIUtility.PingObject(Selection.activeObject);
+        }
+    }
+}
+#endregion
+#endif

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixNameVariables + "AnimationCurve")]
+	[CreateAssetMenu(menuName = GameResources.kCreateMenuPrefixNameVariables + "AnimationCurve")]
 	public class AnimationCurveVariable : BaseVariable<AnimationCurve>
 	{
 	}

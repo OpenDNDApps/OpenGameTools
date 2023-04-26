@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace VGDevs
+namespace OGT
 {
-	[CreateAssetMenu(menuName = VGDevs.kCreateMenuPrefixName + "Collection/AudioClips")]
+	[CreateAssetMenu(menuName = GameResources.kCreateMenuPrefixName + "Collection/AudioClips")]
 	public class AudioClipsCollection : BaseCollection<AudioClip>
 	{
 	}

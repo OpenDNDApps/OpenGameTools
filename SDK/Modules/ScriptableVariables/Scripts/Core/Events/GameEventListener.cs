@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace VGDevs
+namespace OGT
 {
-	[AddComponentMenu(VGDevs.kCreateMenuPrefixNameEvents + "GameEventListener")]
+	[AddComponentMenu(GameResources.kCreateMenuPrefixNameEvents + "GameEventListener")]
 	public class GameEventListener : MonoBehaviour
 	{
 		[SerializeField] private GameEvent m_event;

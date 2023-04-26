@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VGDevs {
-	public abstract class BaseCollection<T> : VGDevsScriptableObject, IList<T>
+namespace OGT {
+	public abstract class BaseCollection<T> : ScriptableVariableBase, IList<T>
 	{
 		[Header("Data")]
 		[SerializeField] protected List<T> m_list = new List<T>();
