@@ -15,5 +15,4 @@ MonoBehaviour:
   m_loadablePrefabs:
   - {fileID: 4740204495558604044, guid: 394982bcd2f98474bbe4afbb03b5e5f2, type: 3}
   - {fileID: 4981522841658000767, guid: f8959b806c7b7c8438ed06594b1e2ce7, type: 3}
-  - {fileID: 922537413404716316, guid: 1f90c9dfc3ba5c64ca62128ff820126a, type: 3}
   m_generalPrefabs: []
