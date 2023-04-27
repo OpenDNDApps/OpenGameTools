@@ -1,0 +1,3 @@
+﻿Documentation/*.meta
+!Documentation/Images.meta
+Documentation/Images/*.meta
