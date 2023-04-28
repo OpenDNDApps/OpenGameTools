@@ -24,7 +24,6 @@ namespace OGT
         public UISectionType SectionType => m_uiSectionType;
         public NotchBehaviour NotchBehaviour => m_notchBehaviour;
         public InputBlockClickBehaviour InputBlockerBehaviour => m_inputBlockClickBehaviour;
-        public bool IsTopLevelWindow => this.Canvas.transform == transform.parent;
 
         public event Action OnCloseTrigger;
         
@@ -32,12 +31,12 @@ namespace OGT
         {
             base.OnInit();
             
-            if (m_closeButton != null)
+            if (m_closeButton != default)
             {
                 m_closeButton.OnClick = OnCloseButtonClick;
             }
 
-            if (m_autoGenerateInputBlocker && m_inputBlocker == null)
+            if (m_autoGenerateInputBlocker && m_inputBlocker == default)
             {
                 m_inputBlocker = AddInputBlocker(this);
             }
@@ -84,7 +83,7 @@ namespace OGT
         public override void AnimatedHide()
         {
             base.AnimatedHide();
-            if (m_inputBlocker != null)
+            if (m_inputBlocker != default)
             {
                 m_inputBlocker.AnimatedHide();
             }

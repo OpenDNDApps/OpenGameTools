@@ -15,7 +15,8 @@ namespace OGT
         
         private Dictionary<UISectionType, List<UIWindow>> m_windowHistory = new Dictionary<UISectionType, List<UIWindow>>();
         private Camera m_camera;
-        
+
+        public List<UIScreenPanelContainer> Canvases => m_canvases;
 		public Camera WorldCamera
         {
             get => GameRuntime.WorldCamera;
@@ -26,7 +27,7 @@ namespace OGT
         {
             get
             {
-                if (Instance.m_camera == null)
+                if (Instance.m_camera == default)
                     Instance.m_camera = Camera.main;
                 return Instance.m_camera;
             }
@@ -68,7 +69,7 @@ namespace OGT
             }
 
             m_windowHistory.Clear();
-            foreach (var sectionType in (UISectionType[]) Enum.GetValues(typeof(UISectionType)))
+            foreach (UISectionType sectionType in Enum.GetValues(typeof(UISectionType)))
             {
                 m_windowHistory.Add(sectionType, new List<UIWindow>());
             }
@@ -79,7 +80,7 @@ namespace OGT
         public static Canvas GetCanvasOfType(UISectionType type)
         {
             var found = GameResources.UIRuntime.m_canvases.Find(canvas => canvas.Type == type);
-            if (found.Canvas == null)
+            if (found.Canvas == default)
             {
                 Debug.LogError($"Canvas of type '{type}' does not exist in UI Controller.");
             }
@@ -106,7 +107,7 @@ namespace OGT
 
 		public void ShowTransition(UIItem transitionPrefab, Action callback = null, bool addToList = false)
         {
-            if (transitionPrefab == null)
+            if (transitionPrefab == default)
             {
                 Debug.LogError($"[UIRuntime] Missing Transition prefab, defaulting to OnComplete");
                 callback?.Invoke();
@@ -117,17 +118,19 @@ namespace OGT
             transitionItem.AnimatedShow();
 		}
 
-        private T InstantiateUI<T>(T prefab, bool addToList = false) where T : MonoBehaviour
+        public bool TryGetUISectionByType(UISectionType type, out UIScreenPanelContainer container) => m_canvases.TryGetUISectionByType(type, out container);
+
+        public T InstantiateUI<T>(T prefab, bool addToList = false) where T : MonoBehaviour
         {
             UISectionType sectionType = UISectionType.Undefined;
             if (prefab is UIWindow window)
                 sectionType = window.SectionType;
 
             if (sectionType == UISectionType.Undefined)
-                return null;
+                return default;
             
-            var isContained = m_canvases.TryGetUISectionByType(sectionType, out var rootContainer);
-            var newItem = Instantiate(prefab, isContained ? rootContainer.Canvas.transform : null);
+            bool isContained = m_canvases.TryGetUISectionByType(sectionType, out UIScreenPanelContainer rootContainer);
+            T newItem = Instantiate(prefab, isContained ? rootContainer.Canvas.transform : null);
 
             if (newItem is UIWindow newWindow && addToList)
                 m_windowHistory[newWindow.SectionType].Add(newWindow);
@@ -149,7 +152,7 @@ namespace OGT
             if (!GameResources.UIRuntime.m_windowHistory.ContainsKey(sectionType))
                 return;
             
-            for (var i = GameResources.UIRuntime.m_windowHistory[sectionType].Count - 1; i >= 0; i--)
+            for (int i = GameResources.UIRuntime.m_windowHistory[sectionType].Count - 1; i >= 0; i--)
             {
                 RemoveWindow(GameResources.UIRuntime.m_windowHistory[sectionType][i]);
             }
@@ -165,9 +168,9 @@ namespace OGT
             window.Hide();
         }
 
-        public static bool TryShowWindow<T>(string windowName, out T spawnedWindow, bool addToList = false, Action onFailed = null) where T : UIWindow
+        public static bool TryCreateWindow<T>(string windowName, out T spawnedWindow, bool addToList = false, Action onFailed = null) where T : UIWindow
         {
-            spawnedWindow = null;
+            spawnedWindow = default;
             var found = UI.TryGetUIWindow(windowName, out UIWindow window);
             if (!found)
             {
@@ -186,7 +189,7 @@ namespace OGT
 
         public static bool TryShowGenericError(string errorMessage)
         {
-            var valid = TryShowWindow("UIAlert - Error", out UIAlertPopup alertPopup);
+            bool valid = TryCreateWindow("UIAlert - Error", out UIAlertPopup alertPopup);
             alertPopup.Build(errorMessage);
             alertPopup.AnimatedShow();
             
@@ -201,7 +204,7 @@ namespace OGT
 
         public bool TryShowGenericMessagePopup(out UIGenericTextMessagePopup messagePopup)
         {
-            return TryShowWindow("UIGenericTextMessagePopup", out messagePopup);
+            return TryCreateWindow("UIGenericTextMessagePopup", out messagePopup);
         }
 
         public bool IsReady { get; set; }

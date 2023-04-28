@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class UIInputEditor : MonoBehaviour
+namespace OGT.Editor
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using UnityEditor;
 
-    // Update is called once per frame
-    void Update()
+    public class UIInputEditor : Editor
     {
+        private const int kCreateUIInputBaseIndex = 50;
+        private const string kCreateItemEditorPath = GameResources.kCreateUIGameObjectMenuPath + "/";
         
+        [MenuItem(kCreateItemEditorPath + "UIInput", priority = kCreateUIInputBaseIndex)]
+        private static void CreateUIButtonGeneric()
+        {
+            UIResourcesCollection.TryCreateEditorUIItem("UIInput", out UIInput input);
+        }
     }
 }

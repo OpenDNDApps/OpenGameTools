@@ -17,7 +17,7 @@ namespace OGT
                 return;
             }
             
-            if (target == null)
+            if (target == default)
             {
                 Debug.LogWarning($"[UIAnimation] Warning: target or visualRoot are missing on '{name}', defaulting to OnComplete.");
                 onComplete?.Invoke();
@@ -25,21 +25,21 @@ namespace OGT
             }
             
             target.DOKill(true);
-            var sequence = DOTween.Sequence(target);
+            Sequence sequence = DOTween.Sequence(target);
 
-            foreach (var step in Steps)
+            foreach (UIAnimationStep step in Steps)
             {
                 switch (step.Type)
                 {
                     case UIAnimationStepType.Animation:
                         Animator animator = targetAnimator;
-                        if (animator == null)
+                        if (animator == default)
                             animator = target.GetOrAddComponent<Animator>();
                         
                         animator.runtimeAnimatorController = step.Animation.Animator;
                         animator.enabled = true;
                         sequence.JoinByStepType(step.JoinType, DOVirtual.Float(0f, 1f, step.Animation.Params.Duration, currentValue => {
-                            if (animator == null)
+                            if (animator == default)
                                 return;
                             animator.SetFloat(step.Animation.MotionKey, currentValue);
                         }).SetDelay(step.Animation.Params.Delay).SetEase(step.Animation.Params.Ease));

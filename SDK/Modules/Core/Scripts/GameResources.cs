@@ -21,9 +21,9 @@ namespace OGT
 
         private static T GetGameResource<T>(ref T localVariable, string filePath) where T : ScriptableObject
         {
-            if (localVariable == null)
+            if (localVariable == default)
                 localVariable = (T)Resources.Load(filePath, typeof(T));
-            if (localVariable == null)
+            if (localVariable == default)
                 Debug.LogError($"Asset '{filePath}' not found.");
             return localVariable as T;
         }

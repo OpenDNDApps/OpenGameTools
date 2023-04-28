@@ -2,8 +2,8 @@
 
 namespace OGT
 {
-	[CreateAssetMenu(menuName = GameResources.kCreateMenuPrefixName + "Collection/StringVariables")]
-	public class StringVariablesCollection : BaseCollection<StringVariable>
-	{
-	}
+    [CreateAssetMenu(menuName = GameResources.kCreateMenuPrefixName + "Collection/StringVariables")]
+    public class StringVariablesCollection : BaseCollection<StringVariable>
+    {
+    }
 }

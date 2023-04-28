@@ -12,11 +12,12 @@ namespace OGT
 
         protected override void OnInit()
         {
+            base.OnInit();
             if (m_contentSectionBehaviours.HasFlag(UIContentSectionBehaviours.DisableOnAwake))
             {
+                m_itemBehaviours.RemoveFlag(UIItemBehaviours.PlayOnShowAnimationOnEnable);
                 m_visualRoots.Disable();
             }
-            base.OnInit();
         }
     }
 

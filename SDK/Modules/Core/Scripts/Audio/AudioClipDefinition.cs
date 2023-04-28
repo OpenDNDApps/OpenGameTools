@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace OGT
 {
-    [CreateAssetMenu(fileName = "AudioClipDefinition", menuName = GameResources.kGameAudioFileName + "AudioClip Definition")]
+    [CreateAssetMenu(fileName = "AudioClipDefinition", menuName = GameResources.kGameAudioMenuPath + "AudioClip Definition")]
     public class AudioClipDefinition : BaseScriptableObject
     {
         public AudioClip Clip;

@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using OGT;
 using UnityEngine;
-using Object = System.Object;
+using OGT;
 
 public static class MonoBehaviourExtensions
 {

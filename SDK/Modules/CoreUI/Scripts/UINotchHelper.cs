@@ -37,11 +37,11 @@ namespace OGT
 
         public static void ApplySafeArea(this RectTransform rectTransform, Canvas canvas, NotchBehaviour notchBehaviour)
         {
-            var safeArea = Screen.safeArea;
+            Rect safeArea = Screen.safeArea;
             
-            var inverseSize = new Vector2(1f, 1f) / canvas.pixelRect.size; 
-            var min = Vector2.Scale(safeArea.position, inverseSize);
-            var max = Vector2.Scale(safeArea.position + safeArea.size, inverseSize);
+            Vector2 inverseSize = new Vector2(1f, 1f) / canvas.pixelRect.size; 
+            Vector2 min = Vector2.Scale(safeArea.position, inverseSize);
+            Vector2 max = Vector2.Scale(safeArea.position + safeArea.size, inverseSize);
             
             if(notchBehaviour.HasFlag(NotchBehaviour.Inverted))
             {
@@ -78,7 +78,7 @@ namespace OGT
 
         private static void FillNotchArea(this RectTransform rectTransform, Canvas canvas, NotchBehaviour notchBehaviour)
         {
-            var totalCut = Screen.cutouts.Length;
+            int totalCut = Screen.cutouts.Length;
 
             if (totalCut <= 0)
                 return;
@@ -87,7 +87,7 @@ namespace OGT
             Vector2 anchorMin;
 
             Rect[] cutouts = Screen.cutouts;
-            for (var i = 0; i < totalCut; i++)
+            for (int i = 0; i < totalCut; i++)
             {
                 anchorMin = cutouts[i].position;
                 anchorMax = cutouts[i].position + cutouts[i].size;

@@ -8,11 +8,12 @@ namespace OGT
 {
     public static class UIVisualRootExtensions
     {
-        public static void Init(this List<UIVisualRoot> visualRootPairs)
+        public static void Init(this List<UIVisualRoot> visualRootPairs, UIItem item)
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)
             {
                 visualRoot.Init();
+                visualRoot.SetOwner(item);
             }
         }
         
@@ -38,6 +39,9 @@ namespace OGT
         {
             float largestDuration = 0f;
             List<UIVisualRoot> toStartAnimation = visualRoots.GetVisualRootsByTriggerType(trigger);
+            if (toStartAnimation.Count == 0)
+                return new List<UIVisualRoot>();
+            
             foreach (UIVisualRoot visualRoot in visualRoots)
             {
                 if (!visualRoot.AnimationsInfo.Exists(pair => pair.TriggerType.HasFlag(trigger)))

@@ -16,27 +16,27 @@ namespace OGT
 
         protected override void OnInit()
         {
-            if (m_closeButton != null)
+            if (m_closeButton != default)
             {
                 m_closeButton.Deactivate(true);
             }
 
-            if (m_primaryButton != null)
+            if (m_primaryButton != default)
             {
                 m_primaryButton.Deactivate(true);
             }
 
-            if (m_secondaryButton != null)
+            if (m_secondaryButton != default)
             {
                 m_secondaryButton.Deactivate(true);
             }
 
-            if (m_title != null)
+            if (m_title != default)
             {
                 m_title.Disable();
             }
 
-            if (m_message != null)
+            if (m_message != default)
             {
                 m_message.Disable();
             }
@@ -44,12 +44,12 @@ namespace OGT
 
         public override void AnimatedHide()
         {
-            if (m_primaryButton != null)
+            if (m_primaryButton != default)
             {
                 m_primaryButton.Disable();
             }
 
-            if (m_secondaryButton != null)
+            if (m_secondaryButton != default)
             {
                 m_secondaryButton.Disable();
             }
@@ -85,9 +85,9 @@ namespace OGT
 
         private void SetupButton(UIButton button, string labelKey, Action onClick, bool cleanCallback = false)
         {
-            if (button == null || onClick == null) return;
+            if (button == default || onClick == default) return;
             
-            if (m_closeButton != null)
+            if (m_closeButton != default)
             {
                 m_closeButton.Deactivate(true);
             }

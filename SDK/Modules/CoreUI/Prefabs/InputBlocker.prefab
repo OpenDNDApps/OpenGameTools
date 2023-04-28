@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5348677371361673537}
   - component: {fileID: 7475258995172460357}
   m_Layer: 0
-  m_Name: InputBlocker - Transparent
+  m_Name: InputBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,6 +16,8 @@ namespace OGT
         
         [Header("UIAnimation Settings")] 
         [SerializeField] private List<WhenAnimationPair> m_animationsInfo = new List<WhenAnimationPair>();
+
+        private UIItem m_owner;
         
         private VisualRootAnimTriggerType m_currentTriggerType = VisualRootAnimTriggerType.None;
         
@@ -25,7 +27,8 @@ namespace OGT
 
         protected override void OnInit()
         {
-            m_canvasGroup = GetComponent<CanvasGroup>();
+            if (m_canvasGroup == default)
+                m_canvasGroup = GetComponent<CanvasGroup>();
 
             if (!m_visualRootBehaviours.HasFlag(UIVisualRootBehaviours.IgnoreDefaultSelfGeneration))
             {
@@ -48,6 +51,11 @@ namespace OGT
                 }
             }
             base.OnInit();
+        }
+
+        public void SetOwner(UIItem item)
+        {
+            m_owner = item;
         }
         
         private bool HasAnyAnimationsOfType(VisualRootAnimTriggerType trigger)
@@ -79,16 +87,16 @@ namespace OGT
                     continue;
 
                 UIAnimation theAnimation = null;
-                if (pair.TriggerType.HasFlag(VisualRootAnimTriggerType.AnimatedShow))
+                if (pair.TriggerType.HasFlag(VisualRootAnimTriggerType.AnimatedShow) || pair.TriggerType.HasFlag(VisualRootAnimTriggerType.OnShowOrEnable))
                 {
-                    theAnimation = theAnimation != null ? theAnimation : pair.Animation != null ? pair.Animation : GameResources.Settings.UI.Default.ShowAnimation;
+                    theAnimation = theAnimation != default ? theAnimation : pair.Animation != default ? pair.Animation : GameResources.Settings.UI.Default.ShowAnimation;
                     Disable();
                 }
                 if (pair.TriggerType.HasFlag(VisualRootAnimTriggerType.AnimatedHide))
                 {
-                    theAnimation = theAnimation != null ? theAnimation : pair.Animation != null ? pair.Animation : GameResources.Settings.UI.Default.HideAnimation;
+                    theAnimation = theAnimation != default ? theAnimation : pair.Animation != default ? pair.Animation : GameResources.Settings.UI.Default.HideAnimation;
                 }
-                theAnimation = theAnimation != null ? theAnimation : pair.Animation != null ? pair.Animation : GameResources.Settings.UI.Default.EmptyAnimation;
+                theAnimation = theAnimation != default ? theAnimation : pair.Animation != default ? pair.Animation : GameResources.Settings.UI.Default.EmptyAnimation;
             
                 UIAnimation animClone = Instantiate(theAnimation);
                 if (TryInsertDynamicDelay(pair, out float delay))
@@ -154,14 +162,7 @@ namespace OGT
 
         public void Enable()
         {
-            if (HasAnyAnimationsOfType(VisualRootAnimTriggerType.OnShowOrEnable))
-            {
-                StartAnimation(VisualRootAnimTriggerType.OnShowOrEnable);
-            }
-            else
-            {
-                m_canvasGroup.Enable();
-            }
+            m_canvasGroup.Enable();
         }
 
         public override void Activate()
@@ -198,7 +199,6 @@ namespace OGT
 
         public void AnimatedShow()
         {
-            Activate();
             StartAnimation(VisualRootAnimTriggerType.AnimatedShow);
         }
 

@@ -18,16 +18,11 @@ namespace OGT
         public event Action OnAnimatedHideStart;
         public event Action OnHide;
 
-        private VisualRootAnimTriggerType m_currentAnimationState = VisualRootAnimTriggerType.None;
+        protected VisualRootAnimTriggerType m_currentAnimationState = VisualRootAnimTriggerType.None;
 
         protected override void OnInit()
         {
-            m_visualRoots.Init();
-            if (m_itemBehaviours.HasFlag(UIItemBehaviours.PlayOnShowAnimationOnEnable))
-            {
-                m_visualRoots.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.AnimatedShow).Deactivate();
-            }
-            m_visualRoots.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.OnShowOrEnable).Disable();
+            m_visualRoots.Init(this);
             base.OnInit();
         }
 
@@ -41,15 +36,18 @@ namespace OGT
 
         public virtual void AnimatedShow()
         {
-            if(m_currentAnimationState.Equals(VisualRootAnimTriggerType.AnimatedShow))
+            if((VisualRootAnimTriggerType.AnimatedShow | VisualRootAnimTriggerType.OnShowOrEnable).HasFlag(m_currentAnimationState))
                 return;
 
-            m_currentAnimationState = VisualRootAnimTriggerType.AnimatedShow;
-            
             OnAnimatedShowStart?.Invoke();
             
-            List<UIVisualRoot> byTriggerType = m_visualRoots.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.AnimatedShow); 
-            byTriggerType.AnimatedShow(Show);
+            List<UIVisualRoot> byTriggerType = m_visualRoots.StartAnimation(VisualRootAnimTriggerType.OnShowOrEnable, Show);
+            m_currentAnimationState = VisualRootAnimTriggerType.OnShowOrEnable;
+            if (byTriggerType.Count == 0)
+            {
+                byTriggerType = m_visualRoots.StartAnimation(VisualRootAnimTriggerType.AnimatedShow, Show);
+                m_currentAnimationState = VisualRootAnimTriggerType.AnimatedShow;
+            }
             if (byTriggerType.Count == 0)
             {
                 Show();
@@ -82,8 +80,7 @@ namespace OGT
             
             OnAnimatedHideStart?.Invoke();
             
-            List<UIVisualRoot> byTriggerType = m_visualRoots.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.AnimatedHide); 
-            byTriggerType.AnimatedHide(Hide);
+            List<UIVisualRoot> byTriggerType = m_visualRoots.StartAnimation(VisualRootAnimTriggerType.AnimatedHide, Hide); 
             if (byTriggerType.Count == 0)
             {
                 Hide();
@@ -102,7 +99,10 @@ namespace OGT
         
         public virtual void Hide()
         {
-            m_visualRoots.Deactivate();
+            foreach (UIVisualRoot visualRoot in m_visualRoots)
+            {
+                visualRoot.Deactivate();
+            }
 
             if (m_itemBehaviours.HasFlag(UIItemBehaviours.DestroyOnHide))
             {
@@ -115,6 +115,8 @@ namespace OGT
 
         public virtual void Disable(bool softDisable = false)
         {
+            Init();
+            
             m_visualRoots.Disable(softDisable);
         }
 
@@ -129,6 +131,8 @@ namespace OGT
 
         public virtual void Enable(bool includeRoot = false)
         {
+            Init();
+            
             if (includeRoot)
             {
                 Activate();

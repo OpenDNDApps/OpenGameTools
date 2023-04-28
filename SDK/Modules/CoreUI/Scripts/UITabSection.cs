@@ -36,6 +36,8 @@ namespace OGT
                 return;
             m_initialized = true;
             
+            m_visualRoots.Init(null);
+            
             m_tabWindow = owner;
             foreach (UIButton button in m_tabButtons)
             {
@@ -45,8 +47,7 @@ namespace OGT
 
         public void AnimatedShow()
         {
-            m_visualRoots.Activate();
-            m_visualRoots.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.AnimatedShow).StartAnimation(VisualRootAnimTriggerType.AnimatedShow, Show);
+            m_visualRoots.StartAnimation(VisualRootAnimTriggerType.AnimatedShow, Show);
             
             foreach (UIButton button in m_tabButtons)
             {
@@ -60,8 +61,6 @@ namespace OGT
 
         public void Show()
         {
-            m_visualRoots.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.OnShowOrEnable).StartAnimation(VisualRootAnimTriggerType.OnShowOrEnable);
-
             foreach (UIButton button in m_tabButtons)
             {
                 button.IsHighlighted = true;

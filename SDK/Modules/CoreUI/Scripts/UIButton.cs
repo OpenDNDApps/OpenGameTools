@@ -8,9 +8,9 @@ using UnityEngine.UI;
 
 namespace OGT
 {
-    public class UIButton : UIItem, IConditionableUIItem
+    public class UIButton : UIItem, IConditionableUIItem, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        [Header("UI Button")] 
+        [Header("UI Button")]
         [SerializeField] private Button m_button;
         [SerializeField] private TMP_Text m_label;
         [SerializeField] private Sprite m_icon;
@@ -44,19 +44,22 @@ namespace OGT
 
         protected override void OnInit()
         {
-            if (m_button == null)
-            {
+            base.OnInit();
+            
+            if (m_button == default)
                 m_button = GetComponent<Button>();
-            }
 
-            if (m_button != null)
-            {
-                m_button.onClick.AddListener(TryDoClickBehaviour);
-            }
+            m_button.onClick.AddListener(TryDoClickBehaviour);
 
             if (!string.IsNullOrEmpty(m_localizationKey))
             {
                 SetLabel(m_localizationKey);
+            }
+
+            if (m_label != default)
+            {
+                m_defaultFontSize = m_label.fontSize;
+                m_originalText = m_label.text;
             }
         }
 
@@ -73,6 +76,7 @@ namespace OGT
         public virtual void ClickBehaviour()
         {
             OnClick?.Invoke();
+            OnTabButtonClick?.Invoke(m_tabSection);
         }
 
         public void SetupAsTabButton(UITabSection owner, Action<UITabSection> onTabButtonClick)
@@ -85,16 +89,11 @@ namespace OGT
         {
             m_button.onClick.Invoke();
         }
-        
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            m_visualRoots.StartAnimation(VisualRootAnimTriggerType.PointerClick);
-        }
 
         protected virtual void SetStyleAsHighlighted()
         {
             SetLabel($"<b>{m_originalText}</b>");
-            if (m_label != null)
+            if (m_label != default)
             {
                 m_label.fontSize = m_highlightFontSize;
             }
@@ -103,10 +102,34 @@ namespace OGT
         protected virtual void SetStyleAsDefault()
         {
             SetLabel(m_originalText);
-            if (m_label != null)
+            if (m_label != default)
             {
                 m_label.fontSize = m_defaultFontSize;
             }
+        }
+        
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (m_currentAnimationState != VisualRootAnimTriggerType.None)
+                return;
+            
+            m_visualRoots.HandleOnPointerClick(eventData);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (m_currentAnimationState != VisualRootAnimTriggerType.None)
+                return;
+            
+            m_visualRoots.HandleOnPointerEnter(eventData);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (m_currentAnimationState != VisualRootAnimTriggerType.None)
+                return;
+            
+            m_visualRoots.HandleOnPointerExit(eventData);
         }
     }
 

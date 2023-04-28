@@ -9,14 +9,13 @@ namespace OGT
         [SerializeField] private AudioLayer m_audioLayer;
         [SerializeField] private AudioSource m_source;
         
-        public event Action<int> OnPlayComplete;
-        
-        public AudioLayer AudioLayer => m_audioLayer;
-
-        public AudioSource Source => m_source;
-        
         private bool m_properSetup = false;
         private bool m_checkPlaying = false;
+        
+        public AudioLayer AudioLayer => m_audioLayer;
+        public AudioSource Source => m_source;
+        
+        public event Action<int> OnPlayComplete;
 
         private void Awake()
         {
@@ -24,10 +23,10 @@ namespace OGT
             gameObject.name = $"SmartAudioSource_{m_audioLayer}_{GetInstanceID()}";
         }
 
-        public void Setup(AudioClip p_clip, AudioLayer p_layer)
+        public void Setup(AudioClip clip, AudioLayer layer)
         {
-            m_source.clip = p_clip;
-            m_audioLayer = p_layer;
+            m_source.clip = clip;
+            m_audioLayer = layer;
             m_source.outputAudioMixerGroup = AudioRuntime.GetMixerGroupByLayer(m_audioLayer);
             m_source.enabled = true;
             m_properSetup = true;
@@ -56,7 +55,7 @@ namespace OGT
 
         public bool IsValidSetup()
         {
-            if (!m_properSetup && (m_source == null || m_source.clip == null || m_source.outputAudioMixerGroup == null))
+            if (!m_properSetup && (m_source == default || m_source.clip == default || m_source.outputAudioMixerGroup == default))
             {
                 Debug.LogError($"This AudioSource failed to setup properly: '{gameObject.name}', Check previous callstack caller.");
                 return false;

@@ -8,14 +8,15 @@ namespace OGT
     {
         protected RectTransform m_rectTransform;
         protected UIWindow m_window;        
+        protected UIContentSection m_contentSection;        
         protected Canvas m_canvas;
-        protected bool m_initialized = false;
-        
+        private bool m_initialized = false;
+
         public RectTransform RectTransform
         {
             get
             {
-                if (m_rectTransform == null)
+                if (m_rectTransform == default)
                 {
                     m_rectTransform = (RectTransform) transform;
                 }
@@ -27,15 +28,31 @@ namespace OGT
         {
             get
             {
-                if (m_window == null)
+                if (m_window == default)
                     m_window = GetComponent<UIWindow>();
-                if (m_window == null)
+                if (m_window == default)
                     m_window = GetComponentInParent<UIWindow>();
                 
-                if (m_window == null)
-                    Debug.LogError($"Window not found on '{this.name}' gameObject");
+                if (m_window == default)
+                    Debug.LogError($"Window not found on '{this.name}'");
                 
                 return m_window;
+            }
+        }
+
+        public UIContentSection ContentSection
+        {
+            get
+            {
+                if (m_contentSection == default)
+                    m_contentSection = GetComponent<UIContentSection>();
+                if (m_contentSection == default)
+                    m_contentSection = GetComponentInParent<UIContentSection>();
+                
+                if (m_contentSection == default)
+                    Debug.LogError($"ContentSection not found on '{this.name}'");
+                
+                return m_contentSection;
             }
         }
 
@@ -43,10 +60,20 @@ namespace OGT
         {
             get
             {
-                if (m_canvas == null)
+                if (m_canvas == default)
                     m_canvas = UIRuntime.GetCanvasOfType(Window.SectionType);
 
                 return m_canvas;
+            }
+        }
+        
+        public bool IsTopLevelWindow
+        {
+            get
+            {
+                if (!(this is UIWindow))
+                    return false;
+                return Canvas.transform == transform.parent;
             }
         }
         
@@ -59,10 +86,10 @@ namespace OGT
         {
             if (m_initialized) 
                 return false;
+            m_initialized = true;
 
             OnInit();
 
-            m_initialized = true;
             return m_initialized;
         }
 
@@ -81,5 +108,12 @@ namespace OGT
         protected virtual void OnDisable() { }
 
         protected virtual void OnDestroy() { }
+
+        public enum UIItemVisibilityState
+        {
+            Undefined,
+            Visible,
+            Hidden,
+        }
     }
 }

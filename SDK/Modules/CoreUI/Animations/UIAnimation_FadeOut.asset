@@ -83,7 +83,7 @@ MonoBehaviour:
       StartValue: 0
       EndValue: 0
       TargetValue: 0
-      Ease: 17
+      Ease: 18
     Scaling:
       Duration: 0
       Delay: 0

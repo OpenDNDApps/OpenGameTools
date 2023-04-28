@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace OGT
@@ -11,7 +12,7 @@ namespace OGT
 	    [Header("UI Resources")]
 	    [SerializeField] private UIRuntime m_uiRuntime;
 	    [SerializeField] private List<UIItem> m_uiItems = new List<UIItem>();
-	    [SerializeField] private List<UIItem> m_uiItemsInEditor = new List<UIItem>();
+	    [SerializeField] private List<UIItemBase> m_uiItemsInEditor = new List<UIItemBase>();
         [SerializeField] private List<UIWindow> m_uiWindows = new List<UIWindow>();
         [SerializeField] private List<UIAnimation> m_uiAnimations = new List<UIAnimation>();
 
@@ -28,7 +29,7 @@ namespace OGT
 	        public UISectionType Type;
         }
 
-        public static bool TryCreateEditorUIItem<T>(string uiItemName, out T item) where T : UIItem
+        public static bool TryCreateEditorUIItem<T>(string uiItemName, out T item) where T : UIItemBase
         {
 	        if (!GameResources.UI.TryGetEditorUIItem(uiItemName, out item))
 	        {
@@ -38,8 +39,39 @@ namespace OGT
 		                       $"\nYou can use the shortcut in the menu item. \n(TopMenu/OGT/Module Resources/Select UI)\n\n");
 		        return false;
 	        }
-            
-	        T newItem = Instantiate(item);
+	        
+	        T newItem = PrefabUtility.InstantiatePrefab(item, (Selection.activeObject as GameObject)?.transform) as T;
+	        if (newItem == null)
+	        {
+		        Debug.LogError($"The UI element '{uiItemName}' could not be instantiated.");
+		        return false;
+	        }
+	        
+	        newItem.name = uiItemName;
+	        #if UNITY_EDITOR
+	        UnityEditor.Selection.activeGameObject = newItem.gameObject;
+	        #endif
+	        return false;
+        }
+
+        public static bool TryCreateEditorUnlinkedUIItem<T>(string uiItemName, out T item) where T : UIItemBase
+        {
+	        if (!GameResources.UI.TryGetEditorUIItem(uiItemName, out item))
+	        {
+		        Debug.LogError($"There is no '{uiItemName}' item registered. " +
+		                       $"\nPlease add it to the UIItemsInEditor collection." +
+		                       $"\nThis can be found in the GameUIResourceCollection." +
+		                       $"\nYou can use the shortcut in the menu item. \n(TopMenu/OGT/Module Resources/Select UI)\n\n");
+		        return false;
+	        }
+	        
+	        T newItem = Instantiate(item, (Selection.activeObject as GameObject)?.transform) as T;
+	        if (newItem == null)
+	        {
+		        Debug.LogError($"The UI element '{uiItemName}' could not be instantiated.");
+		        return false;
+	        }
+	        
 	        newItem.name = uiItemName;
 	        #if UNITY_EDITOR
 	        UnityEditor.Selection.activeGameObject = newItem.gameObject;
@@ -47,33 +79,33 @@ namespace OGT
 	        return false;
         }
 		
-        public bool TryGetEditorUIItem<T>(string itemName, out T uiItem) where T : UIItem
+        public bool TryGetEditorUIItem<T>(string itemName, out T uiItem) where T : UIItemBase
         {
 	        uiItem = null;
 	        if (string.IsNullOrEmpty(itemName)) 
 		        return false;
             
-	        foreach (UIItem window in m_uiItemsInEditor)
+	        foreach (UIItemBase item in m_uiItemsInEditor)
 	        {
-		        if (!window.name.Equals(itemName)) continue;
+		        if (!item.name.Equals(itemName)) continue;
 				
-		        uiItem = window as T;
+		        uiItem = item as T;
 		        return true;
 	        }
 	        return false;
         }
 		
-		public bool TryGetUIItem<T>(string itemName, out T uiItem) where T : UIItem
+		public bool TryGetUIItem<T>(string itemName, out T uiItem) where T : UIItemBase
 		{
 			uiItem = null;
 			if (string.IsNullOrEmpty(itemName)) 
 				return false;
             
-			foreach (UIItem window in m_uiItems)
+			foreach (UIItem item in m_uiItems)
 			{
-				if (!window.name.Equals(itemName)) continue;
+				if (!item.name.Equals(itemName)) continue;
 				
-				uiItem = window as T;
+				uiItem = item as T;
 				return true;
 			}
 			return false;
@@ -113,7 +145,7 @@ namespace OGT
 	        
 	        foreach (string wrongLayer in wrongLayers)
 	        {
-		        Debug.LogError($"The UI SortingLayer '{wrongLayer}' does not exists but you're trying to use it.");
+		        Debug.LogError($"The UI SortingLayer '{wrongLayer}' does not exists but you're trying to use it. You need to add it manually.");
 	        }
         }
 

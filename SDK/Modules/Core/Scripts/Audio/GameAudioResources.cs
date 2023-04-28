@@ -5,7 +5,8 @@ namespace OGT
         public static AudioRuntime AudioRuntime => AudioRuntime.Instance;
         
         public const string kGameAudioFileName = "GameAudioResources";
-        
+        public const string kGameAudioMenuPath = kPluginName + "/Audio/";
+
         private static GameAudioResourcesCollection m_audio;
         public static GameAudioResourcesCollection Audio => GetGameResource(ref m_audio, kGameAudioFileName);
     }

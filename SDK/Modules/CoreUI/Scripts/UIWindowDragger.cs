@@ -35,11 +35,19 @@ namespace OGT
             RectTransformUtility.ScreenPointToLocalPointInRectangle(Window.RectTransform, eventData.position, eventData.pressEventCamera, out m_pointerOffset);
             m_desiredPosition = Window.RectTransform.localPosition;
             m_isDragging = true;
+            if (m_dragSafeSpace != null)
+            {
+                m_dragSafeSpace.gameObject.SetActive(true);
+            }
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             m_isDragging = false;
+            if (m_dragSafeSpace != null)
+            {
+                m_dragSafeSpace.gameObject.SetActive(false);
+            }
         }
 
         public void OnDrag(PointerEventData eventData)

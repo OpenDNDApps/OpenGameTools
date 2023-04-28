@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5262d8aa7abead448a1c9e602af946d, type: 3}
-  m_Name: GameSettings
+  m_Script: {fileID: 11500000, guid: e7890ffd3b85cc44a8776e9a71a218e3, type: 3}
+  m_Name: AudioClipDefinition_OnUIButtonClick
   m_EditorClassIdentifier: 
-  Environment: Dev1
-  Version: v0.0.1
-  VersionPref: game_version
-  Build: 10
-  BuildPref: game_build
+  Clip: {fileID: 0}
+  Layer: 0
+  OverridePlayMode: 0
+  VolumeScale: 1

@@ -37,7 +37,7 @@ namespace OGT
 
         public static int Play(AudioClipDefinition p_clipDefinition, Action p_onComplete = null)
         {
-            if (p_clipDefinition == null)
+            if (p_clipDefinition == default)
             {
                 p_onComplete?.Invoke();
                 return 0;
@@ -80,43 +80,43 @@ namespace OGT
             return l_source.GetInstanceID();
         }
 
-        public static int PlayOnce(AudioClipDefinition p_clipDefinition, Action p_onComplete = null)
+        public static int PlayOnce(AudioClipDefinition clipDefinition, Action onComplete = null)
         {
-            if (p_clipDefinition == null)
+            if (clipDefinition == default)
                 return 0;
-            return PlayOnce(p_clipDefinition.Clip, p_clipDefinition.Layer, p_onComplete);
+            return PlayOnce(clipDefinition.Clip, clipDefinition.Layer, onComplete);
         }
 
-        public static int PlayOnce(AudioClip p_clip, AudioLayer p_layer, Action p_onComplete = null)
+        public static int PlayOnce(AudioClip clip, AudioLayer layer, Action onComplete = null)
         {
-            if (p_clip == null)
+            if (clip == default)
                 return 0;
             
-            var l_source = Instance.GetSourceOnLayer(p_layer);
-            l_source.PlayOnce(p_clip, p_layer);
-            Instance.PendingAudioCallbacks.Add(l_source.GetInstanceID(), p_onComplete);
-            return l_source.GetInstanceID();
+            var source = Instance.GetSourceOnLayer(layer);
+            source.PlayOnce(clip, layer);
+            Instance.PendingAudioCallbacks.Add(source.GetInstanceID(), onComplete);
+            return source.GetInstanceID();
         }
 
-        public static void Stop(int p_soundID)
+        public static void Stop(int soundID)
         {
-            Instance.StopByID(p_soundID);
+            Instance.StopByID(soundID);
         }
         
-        public void StopByID(int p_soundID)
+        public void StopByID(int soundID)
         {
-            SmartAudioSource l_source = InUseSources.FirstOrDefault(p_source => p_source.GetInstanceID() == p_soundID);
-            if (l_source == null)
+            SmartAudioSource source = InUseSources.FirstOrDefault(item => item.GetInstanceID() == soundID);
+            if (source == null)
                 return;
             
-            l_source.Stop();
+            source.Stop();
         }
 
-        public SmartAudioSource GetSourceOnLayer(AudioLayer p_layer)
+        public SmartAudioSource GetSourceOnLayer(AudioLayer layer)
         {
             if (!m_availableSources.Any())
             {
-                GenerateAndQueueSourceOnLayer(p_layer);
+                GenerateAndQueueSourceOnLayer(layer);
             }
 
             SmartAudioSource recycled = m_availableSources.Dequeue();
@@ -125,53 +125,54 @@ namespace OGT
             return recycled;
         }
         
-        public SmartAudioSource GenerateAndQueueSourceOnLayer(AudioLayer p_layer)
+        public SmartAudioSource GenerateAndQueueSourceOnLayer(AudioLayer layer)
         {
-            SmartAudioSource l_source = Instantiate(m_defaultSource, transform);
-            m_availableSources.Enqueue(l_source);
-            return l_source;
+            SmartAudioSource source = Instantiate(m_defaultSource, transform);
+            m_availableSources.Enqueue(source);
+            return source;
         }
         
-        public static void SetVolume(AudioLayer p_layer, float p_volume)
+        public static void SetVolume(AudioLayer layer, float volume)
         {
-            Instance.m_mixer.SetVolume(p_layer.ToString(), p_volume);
+            Instance.m_mixer.SetVolume(layer.ToString(), volume);
         }
         
-        public static void NotifyAudioFinished(int p_audioId)
+        public static void NotifyAudioFinished(int audioId)
         {
-            if (!Instance.PendingAudioCallbacks.ContainsKey(p_audioId)) 
+            if (!Instance.PendingAudioCallbacks.ContainsKey(audioId)) 
                 return;
             
-            Instance.PendingAudioCallbacks[p_audioId]?.Invoke();
-            Instance.PendingAudioCallbacks.Remove(p_audioId);
+            Instance.PendingAudioCallbacks[audioId]?.Invoke();
+            Instance.PendingAudioCallbacks.Remove(audioId);
         }
 
-        public static AudioMixerGroup GetMixerGroupByLayer(AudioLayer p_layer)
+        public static AudioMixerGroup GetMixerGroupByLayer(AudioLayer layer)
         {
-            AudioMixerGroup[] l_possible = Instance.m_mixer.FindMatchingGroups($"{kMasterLayer}/{p_layer}");
-            if (l_possible.Length == 0)
+            AudioMixerGroup[] possible = Instance.m_mixer.FindMatchingGroups($"{kMasterLayer}/{layer}");
+            if (possible.Length == 0)
                 return Instance.m_mixer.FindMatchingGroups(kMasterLayer).FirstOrDefault();
             
-            return Instance.m_mixer.FindMatchingGroups($"Master/{p_layer}").FirstOrDefault();
+            return Instance.m_mixer.FindMatchingGroups($"Master/{layer}").FirstOrDefault();
         }
 
-        public static void BackToPool(SmartAudioSource p_smartAudioSource)
+        public static void BackToPool(SmartAudioSource smartAudioSource)
         {
-            Instance.InUseSources.Remove(p_smartAudioSource);
-            Instance.AvailableSources.Enqueue(p_smartAudioSource);
+            Instance.InUseSources.Remove(smartAudioSource);
+            Instance.AvailableSources.Enqueue(smartAudioSource);
         }
     }
 
     public enum AudioLayer
     {
-        Default, UISFX, SoundFX, Music, Ambient, TextToSpeech, Xappy
+        Default, UISFX, SoundFX, Music, Ambient
     }
     
     #if UNITY_EDITOR
     [UnityEditor.CustomEditor(typeof(AudioRuntime))]
-    public class MyMonoBehaviourScriptEditor : UnityEditor.Editor
+    public class AudioRuntimeEditor : UnityEditor.Editor
     {
-        AudioRuntime m_target;
+        private AudioRuntime m_target;
+        
         public void OnEnable()
         {
             m_target = target as AudioRuntime;
