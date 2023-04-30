@@ -205,6 +205,15 @@ public class ExampleWindow : UITabWindow
 
 &nbsp;
 
+# Random
+
+UI Gradients, usable on any UI element, using TMP Gradients
+![UIGradient](https://user-images.githubusercontent.com/1507317/235382060-91589fe1-a65c-4b48-b3b3-4e8b14e434bc.gif)
+
+--- 
+
+&nbsp;
+
 # **Installation**
 
 &nbsp;

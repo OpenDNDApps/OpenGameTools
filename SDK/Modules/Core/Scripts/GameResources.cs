@@ -9,9 +9,11 @@ namespace OGT
         // TODO: Do not merge this to OGT.
         public const string kPluginName = "OGT";
         
+        public const string kCreateComponentUIPath = kPluginName + "/UI/";
         public const string kCreateMenuPrefixNameResources = kPluginName + "/Base Collections/";
         public const string kCreateMenuPrefixModules = kPluginName + "/Modules/";
         public const string kCreateGameObjectMenuPath = "GameObject/" + kPluginName + "/";
+        public const string kCreateUIMenuPath = "GameObject/" + kPluginName + "/UI/";
 
         public const string kGeneralFileName = "GameResources";
         
