@@ -12,6 +12,9 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)
             {
+                if(visualRoot == default)
+                    continue;
+                
                 visualRoot.Init();
                 visualRoot.SetOwner(item);
             }
@@ -21,6 +24,9 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRoots)
             {
+                if(visualRoot == default)
+                    continue;
+                
                 visualRoot.Disable();
                 visualRoot.Activate();
                 visualRoot.StartAnimation(VisualRootAnimTriggerType.AnimatedShow, onComplete);
@@ -31,6 +37,9 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRoots)
             {
+                if(visualRoot == default)
+                    continue;
+                
                 visualRoot.StartAnimation(VisualRootAnimTriggerType.AnimatedHide, onComplete);
             }
         }
@@ -70,6 +79,9 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)
             {
+                if(visualRoot == default)
+                    continue;
+                
                 visualRoot.Enable();
             }
         }
@@ -78,6 +90,9 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)
             {
+                if(visualRoot == default)
+                    continue;
+                
                 visualRoot.Activate();
             }
         }
@@ -86,6 +101,9 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)
             {
+                if(visualRoot == default)
+                    continue;
+                
                 visualRoot.Disable(softDisable);
             }
         }
@@ -94,14 +112,20 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)
             {
+                if(visualRoot == default)
+                    continue;
+                
                 visualRoot.Deactivate();
             }
         }
         
         public static void DOKill(this List<UIVisualRoot> visualRoots)
         {
-            foreach (var visualRoot in visualRoots)
+            foreach (UIVisualRoot visualRoot in visualRoots)
             {
+                if(visualRoot == default)
+                    continue;
+                
                 visualRoot.DOKill();
             }
         }
@@ -110,6 +134,9 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)
             {
+                if(visualRoot == default)
+                    continue;
+                
                 visualRoot.HandleOnPointerEnter(pointerEventData);
             }
         }
@@ -123,6 +150,9 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)
             {
+                if(visualRoot == default)
+                    continue;
+
                 visualRoot.HandleOnPointerExit(pointerEventData);
             }
         }
@@ -136,6 +166,9 @@ namespace OGT
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)
             {
+                if(visualRoot == default)
+                    continue;
+
                 visualRoot.HandleOnPointerClick(pointerEventData);
             }
         }

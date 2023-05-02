@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,10 +9,10 @@ namespace OGT
     public class UIButton : UIItem, IConditionableUIItem, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("UI Button")]
-        [SerializeField] private Button m_button;
-        [SerializeField] private TMP_Text m_label;
-        [SerializeField] private Sprite m_icon;
-        [SerializeField] private string m_localizationKey;
+        [SerializeField] protected Button m_button;
+        [SerializeField] protected TMP_Text m_label;
+        [SerializeField] protected Sprite m_icon;
+        [SerializeField] protected string m_localizationKey;
         
         [Header("Styling")]
         [SerializeField] protected float m_defaultFontSize;

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace OGT
 {
@@ -36,6 +35,8 @@ namespace OGT
 
         public virtual void AnimatedShow()
         {
+            Init();
+            
             if((VisualRootAnimTriggerType.AnimatedShow | VisualRootAnimTriggerType.OnShowOrEnable).HasFlag(m_currentAnimationState))
                 return;
 
@@ -58,7 +59,7 @@ namespace OGT
         {
             if (includeRoot)
             {
-                Activate();
+                base.Activate();
             }
 
             Show();
@@ -66,8 +67,8 @@ namespace OGT
 
         public virtual void Show()
         {
-            m_currentAnimationState = VisualRootAnimTriggerType.None;
             m_visualRoots.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.AnimatedShow).Enable();
+            m_currentAnimationState = VisualRootAnimTriggerType.None;
             OnShow?.Invoke();
         }
 
@@ -91,7 +92,7 @@ namespace OGT
         {
             if (includeRoot)
             {
-                Deactivate();
+                base.Deactivate();
             }
 
             Hide();
@@ -99,10 +100,7 @@ namespace OGT
         
         public virtual void Hide()
         {
-            foreach (UIVisualRoot visualRoot in m_visualRoots)
-            {
-                visualRoot.Deactivate();
-            }
+            m_visualRoots.Deactivate();
 
             if (m_itemBehaviours.HasFlag(UIItemBehaviours.DestroyOnHide))
             {
@@ -124,7 +122,7 @@ namespace OGT
         {
             if (includeRoot)
             {
-                Deactivate();
+                base.Deactivate();
             }
             m_visualRoots.Deactivate();
         }
@@ -135,7 +133,7 @@ namespace OGT
             
             if (includeRoot)
             {
-                Activate();
+                base.Activate();
             }
             m_visualRoots.Enable();
         }
@@ -144,7 +142,7 @@ namespace OGT
         {
             if (includeRoot)
             {
-                Activate();
+                base.Activate();
             }
             m_visualRoots.Activate();
         }

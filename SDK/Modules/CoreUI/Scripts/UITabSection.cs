@@ -72,7 +72,7 @@ namespace OGT
         
         public void AnimatedHide()
         {
-            m_visualRoots.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.AnimatedHide).StartAnimation(VisualRootAnimTriggerType.AnimatedHide, Hide);
+            m_visualRoots.StartAnimation(VisualRootAnimTriggerType.AnimatedHide, Hide);
             
             foreach (UIButton button in m_tabButtons)
             {

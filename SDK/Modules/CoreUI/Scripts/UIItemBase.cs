@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace OGT
@@ -7,9 +6,9 @@ namespace OGT
     public class UIItemBase : MonoBehaviour
     {
         protected RectTransform m_rectTransform;
-        protected UIWindow m_window;        
-        protected UIContentSection m_contentSection;        
-        protected Canvas m_canvas;
+        [NonSerialized] protected UIWindow m_window;
+        [NonSerialized] protected UIContentSection m_contentSection;
+        [NonSerialized] protected Canvas m_canvas;
         private bool m_initialized = false;
 
         public RectTransform RectTransform
@@ -93,6 +92,8 @@ namespace OGT
             return m_initialized;
         }
 
+        protected virtual void OnInit() { }
+
         public virtual void Activate()
         {
             gameObject.SetActive(true);
@@ -102,8 +103,6 @@ namespace OGT
         {
             gameObject.SetActive(false);
         }
-
-        protected virtual void OnInit() { }
 
         protected virtual void OnDisable() { }
 
