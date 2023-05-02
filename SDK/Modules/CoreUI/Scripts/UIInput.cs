@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace OGT
 {
@@ -16,7 +14,8 @@ namespace OGT
         
         [SerializeField] private string m_localizationKey;
         [SerializeField] private string m_placeHolderLocalizationKey;
-        
+
+        private bool m_selected;
         private float m_delayedChangedTimer = 0.0f;
         private bool m_onDelayedChangedTimerActive = false;
 
@@ -24,6 +23,7 @@ namespace OGT
         public Action<string> OnDeselected;
         public Action<string> OnValueChanged;
         public Action<string> OnDelayedValueChanged;
+        public Action<string> OnSubmit;
 
         public TMP_InputField InputField => m_inputField;
 
@@ -35,6 +35,8 @@ namespace OGT
 
         protected override void OnInit()
         {
+            base.OnInit();
+            
             SetLabel(m_localizationKey);
             SetPlaceholder(m_placeHolderLocalizationKey);
 
@@ -43,19 +45,38 @@ namespace OGT
             m_inputField.onValueChanged.AddListener(HandleOnValueChanged);
         }
 
+        private void Update()
+        {
+            TryHandleSubmit();
+        }
+
+        private void TryHandleSubmit()
+        {
+            if (!Input.GetKeyDown(KeyCode.Return))
+                return;
+
+            if (!m_selected)
+                return;
+                    
+            OnSubmit?.Invoke(Value);
+            Deselect();
+        }
+
         private void HandleOnSelect(string _)
         {
+            m_selected = true;
             OnSelected?.Invoke(_);
         }
         
         private void HandleOnDeselect(string _)
         {
+            m_selected = false;
             OnDeselected?.Invoke(_);
         }
 
-        private void HandleOnValueChanged(string p_newValue)
+        private void HandleOnValueChanged(string newValue)
         {
-            OnValueChanged?.Invoke(p_newValue);
+            OnValueChanged?.Invoke(newValue);
             m_delayedChangedTimer = GameResources.Settings.UI.Default.DelayedTimeOnUIInputOnValueChanged;
             m_onDelayedChangedTimerActive = true;
             GameRuntime.ManualTickUpdater += HandleOnDelayedValueChangeTick;
@@ -83,5 +104,18 @@ namespace OGT
 
         public void SetLabel(string newLabel) => m_label.SetLocalizedText(newLabel);
         public void SetPlaceholder(string newPlaceholder) => m_placeholder.SetLocalizedText(newPlaceholder);
+
+        public void Select() => Focus();
+        
+        public void Focus()
+        {
+            EventSystem.current.SetSelectedGameObject(m_inputField.gameObject, null);
+            m_inputField.OnPointerClick(new PointerEventData(EventSystem.current));
+        }
+
+        public void Deselect()
+        {
+            EventSystem.current.SetSelectedGameObject(null, null);
+        }
     }
 }
