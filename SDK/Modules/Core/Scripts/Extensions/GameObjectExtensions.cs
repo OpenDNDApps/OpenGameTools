@@ -9,7 +9,9 @@ public static class GameObjectExtensions
 {
     public static void SafeDestroy(this GameObject go, GameObject target)
     {
-        if (target == null) return;
+        if (target == default)
+         return;
+        
         target.SetActive(false);
         Object.Destroy(target, 0.001f);
     }
@@ -101,11 +103,12 @@ public static class GameObjectExtensions
     /// </summary>
     /// <param name="go"></param>
     /// <param name="enabled"></param>
+    /// <param name="recursively"></param>
     public static void SetCollision(this GameObject go, bool enabled, bool recursively = false)
     {
-        Collider GCollide = go.GetComponent<Collider>();
-        if (GCollide != null)
-            GCollide.enabled = enabled;
+        Collider collider = go.GetComponent<Collider>();
+        if (collider != null)
+            collider.enabled = enabled;
 
         if(recursively)
             foreach (Transform t in go.transform)

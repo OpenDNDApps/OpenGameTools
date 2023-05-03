@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using OGT;
 
@@ -9,6 +10,33 @@ public static class MonoBehaviourExtensions
     {
         mono.gameObject.SafeDestroy(target);
     }
+        
+    public static void SafeDestroyListContent<T>(this MonoBehaviour mono, ref List<T> list, bool clean = true) where T : Component
+    {
+        list ??= new List<T>();
+        var copy = new List<T>(list);
+        foreach (T item in copy)
+        {
+            mono.SafeDestroy(item.gameObject);
+        }
+        if(clean)
+            list.Clear();
+    }
+        
+    public static void SafeDestroyListContent<TKey, TValue>(this MonoBehaviour mono, ref Dictionary<TKey, TValue> list, bool clean = true) where TKey : Component where TValue : Component
+    {
+        list ??= new Dictionary<TKey, TValue>();
+        var copy = new Dictionary<TKey, TValue>(list);
+        foreach (KeyValuePair<TKey, TValue> item in copy)
+        {
+            mono.SafeDestroy(item.Value.gameObject);
+        }
+        if(clean)
+            list.Clear();
+    }
+        
+    public static void SafeDestroyChildrenOf(this MonoBehaviour mono, ref Transform parent, Transform toIgnore = null) => parent.DestroyChildren(toIgnore);
+
     
     public static void ActionAfterFrame(this MonoBehaviour mono, Action action)
     {

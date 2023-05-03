@@ -8,6 +8,60 @@ using UnityEngine;
 /// </summary>
 public static class TransformExtensions
 {
+    public static void DestroyChildren(this Transform transform, Transform toIgnore = null)
+    {
+        List<Transform> anakin = new List<Transform>();
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            if (child == toIgnore)
+                continue;
+            anakin.Add(child);
+        }
+
+        foreach (Transform childToBeMurdered in anakin)
+        {
+            transform.gameObject.SafeDestroy(childToBeMurdered.gameObject);
+        }
+    }
+
+    public static void DestroySiblings(this Transform transform)
+    {
+        if (transform.parent == null || transform.parent == transform)
+        {
+            Debug.LogWarning($"DestroySiblings does not work on root transforms.");
+            return;
+        }
+
+        transform.parent.DestroyChildren(transform);
+    }
+
+    public static void FindAllChildrenWithTag(this Transform rootTransform, string findTag, ref List<Transform> listToFill)
+    {
+        listToFill ??= new List<Transform>();
+
+        foreach (Transform child in rootTransform)
+        {
+            if (child.CompareTag(findTag))
+            {
+                listToFill.Add(child);
+            }
+
+            FindAllChildrenWithTag(child, findTag, ref listToFill);
+        }
+    }
+
+    public static void FindAllChildren(this Transform rootTransform, ref List<Transform> listToFill)
+    {
+        listToFill ??= new List<Transform>();
+
+        foreach (Transform child in rootTransform)
+        {
+            listToFill.Add(child);
+            FindAllChildren(child, ref listToFill);
+        }
+    }
+    
     /// <summary>
     /// Finds the position closest to the given one.
     /// </summary>

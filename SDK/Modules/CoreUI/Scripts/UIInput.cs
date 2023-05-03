@@ -102,20 +102,33 @@ namespace OGT
             GameRuntime.ManualTickUpdater -= HandleOnDelayedValueChangeTick;
         }
 
-        public void SetLabel(string newLabel) => m_label.SetLocalizedText(newLabel);
-        public void SetPlaceholder(string newPlaceholder) => m_placeholder.SetLocalizedText(newPlaceholder);
+        public void SetLabel(string newLabel)
+        {
+            if(string.IsNullOrEmpty(newLabel))
+                return;
+            
+            m_label.SetLocalizedText(newLabel);
+        }
+
+        public void SetPlaceholder(string newPlaceholder)
+        {
+            if (string.IsNullOrEmpty(newPlaceholder))
+                return;
+            
+            m_placeholder.SetLocalizedText(newPlaceholder);
+        }
 
         public void Select() => Focus();
+
+        public void Deselect()
+        {
+            EventSystem.current.SetSelectedGameObject(null, null);
+        }
         
         public void Focus()
         {
             EventSystem.current.SetSelectedGameObject(m_inputField.gameObject, null);
             m_inputField.OnPointerClick(new PointerEventData(EventSystem.current));
-        }
-
-        public void Deselect()
-        {
-            EventSystem.current.SetSelectedGameObject(null, null);
         }
     }
 }
