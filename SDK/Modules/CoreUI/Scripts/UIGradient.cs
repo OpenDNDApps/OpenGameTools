@@ -29,34 +29,34 @@ namespace OGT
 	        graphic.SetVerticesDirty();
         }
     }
-}
+    
+    public static class GradientExtensions
+    {
+        public static Vector2[] VerticesPositions { get; } = { Vector2.up, Vector2.one, Vector2.right, Vector2.zero };
 
-public static class GradientExtensions
-{
-	public static Vector2[] VerticesPositions { get; } = { Vector2.up, Vector2.one, Vector2.right, Vector2.zero };
-
-	public static Color GetBiLerpAtPosition(this TMP_ColorGradient gradient, Vector2 matrixIndex)
-	{
-		Color bl = gradient.bottomLeft, br = gradient.bottomRight, tl = gradient.topLeft, tr = gradient.topRight;
-		switch (gradient.colorMode)
-		{
-			case ColorMode.Single:
-				tr = tl;
-				bl = tl;
-				br = tl;
-				break;
-			case ColorMode.HorizontalGradient:
-				bl = tl;
-				br = tr;
-				break;
-			case ColorMode.VerticalGradient:
-				tr = tl;
-				br = bl;
-				break;
-		}
+        public static Color GetBiLerpAtPosition(this TMP_ColorGradient gradient, Vector2 matrixIndex)
+        {
+            Color bl = gradient.bottomLeft, br = gradient.bottomRight, tl = gradient.topLeft, tr = gradient.topRight;
+            switch (gradient.colorMode)
+            {
+                case ColorMode.Single:
+                    tr = tl;
+                    bl = tl;
+                    br = tl;
+                    break;
+                case ColorMode.HorizontalGradient:
+                    bl = tl;
+                    br = tr;
+                    break;
+                case ColorMode.VerticalGradient:
+                    tr = tl;
+                    br = bl;
+                    break;
+            }
 		
-		Color a = Color.LerpUnclamped(br, tr, matrixIndex.x);
-		Color b = Color.LerpUnclamped(bl, tl, matrixIndex.x);
-		return Color.LerpUnclamped(a, b, matrixIndex.y);
-	}
+            Color a = Color.LerpUnclamped(br, tr, matrixIndex.x);
+            Color b = Color.LerpUnclamped(bl, tl, matrixIndex.x);
+            return Color.LerpUnclamped(a, b, matrixIndex.y);
+        }
+    }
 }

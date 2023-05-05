@@ -13,68 +13,6 @@ MonoBehaviour:
   m_Name: UIAnimation_PunchScale
   m_EditorClassIdentifier: 
   Steps:
-  - Type: 1
-    JoinType: 0
-    Alpha:
-      Duration: 0
-      Delay: 0
-      StartValue: 0
-      EndValue: 0
-      TargetValue: 1
-      Ease: 1
-    Scaling:
-      Duration: 0
-      Delay: 0
-      StartValue: {x: 0, y: 0, z: 0}
-      EndValue: {x: 0, y: 0, z: 0}
-      TargetValue: {x: 0, y: 0, z: 0}
-      Ease: 0
-    Animation:
-      Animator: {fileID: 0}
-      MotionKey: 
-      TriggerKey: 
-      Params:
-        Duration: 0
-        Delay: 0
-        StartValue: 0
-        EndValue: 0
-        TargetValue: 0
-        Ease: 0
-    AnchorMin:
-      Duration: 0
-      Delay: 0
-      StartValue: {x: 0, y: 0}
-      EndValue: {x: 0, y: 0}
-      TargetValue: {x: 0, y: 0}
-      Ease: 0
-    AnchorMax:
-      Duration: 0
-      Delay: 0
-      StartValue: {x: 0, y: 0}
-      EndValue: {x: 0, y: 0}
-      TargetValue: {x: 0, y: 0}
-      Ease: 0
-    AnchorPositions:
-      Duration: 0
-      Delay: 0
-      StartValue: {x: 0, y: 0}
-      EndValue: {x: 0, y: 0}
-      TargetValue: {x: 0, y: 0}
-      Ease: 0
-    AnchorPositionX:
-      Duration: 0
-      Delay: 0
-      StartValue: 0
-      EndValue: 0
-      TargetValue: 0
-      Ease: 0
-    AnchorPositionY:
-      Duration: 0
-      Delay: 0
-      StartValue: 0
-      EndValue: 0
-      TargetValue: 0
-      Ease: 0
   - Type: 2
     JoinType: 0
     Alpha:
@@ -137,22 +75,22 @@ MonoBehaviour:
       EndValue: 0
       TargetValue: 0
       Ease: 0
-  - Type: 1
-    JoinType: 1
+  - Type: 2
+    JoinType: 0
     Alpha:
       Duration: 0.3
-      Delay: 0.05
+      Delay: 0
       StartValue: 0
       EndValue: 0
-      TargetValue: 0
+      TargetValue: 1
       Ease: 17
     Scaling:
-      Duration: 0
+      Duration: 0.2
       Delay: 0
       StartValue: {x: 0, y: 0, z: 0}
       EndValue: {x: 0, y: 0, z: 0}
-      TargetValue: {x: 0, y: 0, z: 0}
-      Ease: 0
+      TargetValue: {x: 1.05, y: 1.05, z: 1.05}
+      Ease: 18
     Animation:
       Animator: {fileID: 0}
       MotionKey: 
@@ -200,7 +138,7 @@ MonoBehaviour:
       TargetValue: 0
       Ease: 0
   - Type: 2
-    JoinType: 0
+    JoinType: 1
     Alpha:
       Duration: 0.3
       Delay: 0
@@ -209,12 +147,12 @@ MonoBehaviour:
       TargetValue: 1
       Ease: 17
     Scaling:
-      Duration: 0.3
-      Delay: 0.05
+      Duration: 0.1
+      Delay: 0
       StartValue: {x: 0, y: 0, z: 0}
       EndValue: {x: 0, y: 0, z: 0}
-      TargetValue: {x: 1.15, y: 1.15, z: 1.15}
-      Ease: 18
+      TargetValue: {x: 1, y: 1, z: 1}
+      Ease: 1
     Animation:
       Animator: {fileID: 0}
       MotionKey: 

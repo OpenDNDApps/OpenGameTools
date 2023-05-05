@@ -1,31 +1,30 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using OGT;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Serialization;
 
-public class CoreUI_ExampleOverview : MonoBehaviour
+namespace OGT.Examples
 {
-    [FormerlySerializedAs("m_customWindow")] [SerializeField] private UIWindow m_customWindowPrefab;
-
-    // Used the button in the UI
-    private void SpawnCustomWindow()
+    public class CoreUI_ExampleOverview : MonoBehaviour
     {
-        // Yes, only this is needed.
-        UIRuntime.TryCreateWindow(m_customWindowPrefab.name, out UIWindow customWindow);
-        customWindow.AnimatedShow();
-    }
+        [SerializeField] private UIWindow m_customWindowPrefab;
 
-    private void Start()
-    {
-        ExampleUtils.CreateExampleButton("Open Custom Window", SpawnCustomWindow);
-    }
+        // Used the button in the UI
+        private void SpawnCustomWindow()
+        {
+            // Yes, only this is needed.
+            UIRuntime.TryCreateWindow(m_customWindowPrefab.name, out UIWindow customWindow);
+            customWindow.AnimatedShow();
+        }
 
-    // Ignore the following, this is just for the example.
-    // You should manually add your prefabs to the UIWindows collection in the GameResourcesCollection.
-    // Check UIResources.md in the docs.
-    // https://github.com/OpenDNDApps/OpenGameTools/tree/master/Documentation
-    private void OnEnable() { GameResources.UI.UIWindows.AddUnique(m_customWindowPrefab); }
-    private void OnDestroy() { GameResources.UI.UIWindows.Remove(m_customWindowPrefab); }
+        private void Start()
+        {
+            ExampleUtils.CreateExampleButton("Open Custom Window", SpawnCustomWindow);
+        }
+
+        // Ignore the following, this is just for the example.
+        // You should manually add your prefabs to the UIWindows collection in the GameResourcesCollection.
+        // Check UIResources.md in the docs.
+        // https://github.com/OpenDNDApps/OpenGameTools/tree/master/Documentation
+        private void OnEnable() { GameResources.UI.UIWindows.AddUnique(m_customWindowPrefab); }
+        private void OnDestroy() { GameResources.UI.UIWindows.Remove(m_customWindowPrefab); }
+    }
 }

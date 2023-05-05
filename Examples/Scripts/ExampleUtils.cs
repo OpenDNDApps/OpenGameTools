@@ -1,16 +1,18 @@
 using System;
-using OGT;
 
-public static class ExampleUtils
+namespace OGT.Examples
 {
-    public static void CreateExampleButton(string label, Action onClick)
+    public static class ExampleUtils
     {
-        GameResources.UI.TryGetEditorUIItem("UIButton", out UIButton buttonPrefab);
+        public static void CreateExampleButton(string label, Action onClick)
+        {
+            GameResources.UI.TryGetEditorUIItem("UIButton", out UIButton buttonPrefab);
 
-        GameResources.UIRuntime.TryGetUISectionByType(UISectionType.Default, out UIScreenPanelContainer container);
+            GameResources.UIRuntime.TryGetUISectionByType(UISectionType.Default, out UIScreenPanelContainer container);
 
-        UIButton button = UnityEngine.Object.Instantiate(buttonPrefab, container.Canvas.transform);
-        button.SetLabel(label);
-        button.OnClick += onClick;
+            UIButton button = UnityEngine.Object.Instantiate(buttonPrefab, container.Canvas.transform);
+            button.SetLabel(label);
+            button.OnClick += onClick;
+        }
     }
 }

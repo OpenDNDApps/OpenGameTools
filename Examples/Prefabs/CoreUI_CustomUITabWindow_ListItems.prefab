@@ -1352,17 +1352,21 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_visualRootBehaviours
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
+      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
+      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].Animation
       value: 
@@ -1373,11 +1377,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 54d856158c45b2542a7d2af40d23c107, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].TriggerType
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].TriggerType
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].TriggerType
@@ -1385,11 +1389,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[3].TriggerType
-      value: 16
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_animationsInfo.Array.data[0].VisualBehaviour
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].VisualBehaviour
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].VisualBehaviour
@@ -1502,17 +1510,21 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_visualRootBehaviours
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
+      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
+      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].Animation
       value: 
@@ -1523,11 +1535,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 54d856158c45b2542a7d2af40d23c107, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].TriggerType
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].TriggerType
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].TriggerType
@@ -1535,11 +1547,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[3].TriggerType
-      value: 16
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_animationsInfo.Array.data[0].VisualBehaviour
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].VisualBehaviour
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].VisualBehaviour
@@ -2027,17 +2043,21 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_visualRootBehaviours
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
+      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
+      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].Animation
       value: 
@@ -2048,11 +2068,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 54d856158c45b2542a7d2af40d23c107, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].TriggerType
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].TriggerType
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].TriggerType
@@ -2060,11 +2080,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[3].TriggerType
-      value: 16
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_animationsInfo.Array.data[0].VisualBehaviour
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].VisualBehaviour
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].VisualBehaviour
@@ -2177,17 +2201,21 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_visualRootBehaviours
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
+      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
+      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].Animation
       value: 
@@ -2198,11 +2226,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 54d856158c45b2542a7d2af40d23c107, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].TriggerType
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].TriggerType
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].TriggerType
@@ -2210,11 +2238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[3].TriggerType
-      value: 16
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_animationsInfo.Array.data[0].VisualBehaviour
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].VisualBehaviour
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].VisualBehaviour
@@ -2327,17 +2359,21 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_visualRootBehaviours
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
+      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].Animation
       value: 
-      objectReference: {fileID: 11400000, guid: 3becfa8c72f635645abaa18bd3e7d4a6, type: 2}
+      objectReference: {fileID: 11400000, guid: 72171c62cde7eaa44b159531bc9e21e3, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].Animation
       value: 
@@ -2348,11 +2384,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 54d856158c45b2542a7d2af40d23c107, type: 2}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[0].TriggerType
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].TriggerType
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].TriggerType
@@ -2360,11 +2396,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[3].TriggerType
-      value: 16
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
+      propertyPath: m_animationsInfo.Array.data[0].VisualBehaviour
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[1].VisualBehaviour
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7656522116056092288, guid: eb51d7fbbf450954482ce205a8576a4a, type: 3}
       propertyPath: m_animationsInfo.Array.data[2].VisualBehaviour

@@ -4,31 +4,34 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-public static class EditorExtensions
+namespace OGT
 {
-    public static string GetFilePathForType(Type type)
+    public static class EditorExtensions
     {
-        Assembly assembly = type.Assembly;
-        string assemblyPath = AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(ScriptableObject.CreateInstance(type)));
-        string assemblyFolder = Path.GetDirectoryName(assemblyPath);
-
-        string[] sourceFiles = Directory.GetFiles(Application.dataPath, "*.cs", SearchOption.AllDirectories);
-
-        foreach (string sourceFile in sourceFiles)
+        public static string GetFilePathForType(Type type)
         {
-            string relativePath = "Assets" + sourceFile.Substring(Application.dataPath.Length);
+            Assembly assembly = type.Assembly;
+            string assemblyPath = AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(ScriptableObject.CreateInstance(type)));
+            string assemblyFolder = Path.GetDirectoryName(assemblyPath);
 
-            if (relativePath.EndsWith(".cs"))
+            string[] sourceFiles = Directory.GetFiles(Application.dataPath, "*.cs", SearchOption.AllDirectories);
+
+            foreach (string sourceFile in sourceFiles)
             {
-                string className = Path.GetFileNameWithoutExtension(relativePath);
+                string relativePath = "Assets" + sourceFile.Substring(Application.dataPath.Length);
 
-                if (className.Equals(type.Name))
+                if (relativePath.EndsWith(".cs"))
                 {
-                    return relativePath;
+                    string className = Path.GetFileNameWithoutExtension(relativePath);
+
+                    if (className.Equals(type.Name))
+                    {
+                        return relativePath;
+                    }
                 }
             }
-        }
 
-        return "";
+            return "";
+        }
     }
 }

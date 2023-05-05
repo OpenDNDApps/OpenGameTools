@@ -1,71 +1,70 @@
-using OGT;
 using UnityEngine;
 
-public class MonoSingletonSelfGenerated<T> : MonoBehaviour where T : MonoBehaviour
+namespace OGT
 {
-    [SerializeField] private bool m_isPersistentThroughScenes;
-    private static T m_instance;
-
-    public static T Instance
+    public class MonoSingletonSelfGenerated<T> : MonoBehaviour where T : MonoBehaviour
     {
-        get
+        [SerializeField] private bool m_isPersistentThroughScenes;
+        private static T m_instance;
+
+        public static T Instance
         {
-            if (m_instance != null)
-                return m_instance;
-
-            var target = FindObjectOfType<T>();
-            if (target != null)
-                m_instance = target;
-
-            if (m_instance != null)
-                return m_instance;
-
-            GameObject loadable = GameResources.General.GetLoadablePrefab(typeof(T).Name);
-            GameObject newObject;
-            if (loadable != null)
+            get
             {
-                newObject = Instantiate(loadable);
-                newObject.name = typeof(T).Name;
-                m_instance = newObject.GetComponent<T>();
-            }
-            else
-            {
-                newObject = new GameObject($@"{typeof(T).Name}")
+                if (m_instance != default)
+                    return m_instance;
+
+                var target = FindObjectOfType<T>();
+                if (target != default)
+                    m_instance = target;
+
+                if (m_instance != default)
+                    return m_instance;
+
+                GameObject loadable = GameResources.General.GetLoadablePrefab(typeof(T).Name);
+                GameObject newObject;
+                if (loadable != default)
                 {
-                    hideFlags = HideFlags.DontSaveInEditor
-                };
+                    newObject = Instantiate(loadable);
+                    newObject.name = typeof(T).Name;
+                    m_instance = newObject.GetComponent<T>();
+                }
+                else
+                {
+                    newObject = new GameObject($@"{typeof(T).Name}")
+                    {
+                        hideFlags = HideFlags.DontSaveInEditor
+                    };
+                }
+                
+                m_instance = newObject.GetOrAddComponent<T>();
+                m_instance.transform.SetAsFirstSibling();
+
+                return m_instance;
             }
-            
-            m_instance = newObject.GetOrAddComponent<T>();
-            m_instance.transform.SetAsFirstSibling();
-
-            return m_instance;
         }
-    }
 
-    protected virtual void Awake()
-    {
-        if (m_instance != null && m_instance != this as T)
+        protected virtual void Awake()
         {
-            Destroy(this);
-            return;
+            if (m_instance != default && m_instance != this as T)
+            {
+                Destroy(this);
+                return;
+            }
+
+            if (m_instance == default)
+            {
+                m_instance = this as T;
+            }
+
+            if (m_isPersistentThroughScenes)
+            {
+                DontDestroyOnLoad(this);
+            }
+
+            OnSingletonAwake();
         }
 
-        if (m_instance == null)
-        {
-            m_instance = this as T;
-        }
-
-        if (m_isPersistentThroughScenes)
-        {
-            DontDestroyOnLoad(this);
-        }
-
-        OnSingletonAwake();
-    }
-
-    protected virtual void OnSingletonAwake()
-    {
-        
+        protected virtual void OnSingletonAwake() { }
     }
 }

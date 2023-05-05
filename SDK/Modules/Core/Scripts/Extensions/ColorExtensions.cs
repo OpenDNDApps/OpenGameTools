@@ -30,4 +30,28 @@ public static class ColorExtensions
 	{
 		return new Color(color.r, color.g, color.b, alpha);
 	}
+	
+	/// <summary>
+	/// Returns AABBCCDD
+	/// </summary>
+	/// <param name="color"></param>
+	/// <returns></returns>
+	public static string ToHexString(this Color color)
+	{
+		return
+			((byte)(color.r * 255)).ToString("X2") +
+			((byte)(color.g * 255)).ToString("X2") +
+			((byte)(color.b * 255)).ToString("X2") +
+			((byte)(color.a * 255)).ToString("X2");
+	}
+    
+	/// <summary>
+	/// Returns #AABBCCDD
+	/// </summary>
+	/// <param name="color"></param>
+	/// <returns></returns>
+	public static string ToHashHexString(this Color color)
+	{
+		return $"#{color.ToHexString()}";
+	}
 }

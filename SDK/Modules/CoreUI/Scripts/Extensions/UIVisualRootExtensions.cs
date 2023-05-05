@@ -143,7 +143,7 @@ namespace OGT
         
         public static void TriggerOnPointerEnterBehaviour(this List<UIVisualRoot> visualRootPairs, PointerEventData pointerEventData)
         {
-            visualRootPairs.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.PointerClick).HandleOnPointerEnter(pointerEventData);
+            visualRootPairs.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.PointerEnter).HandleOnPointerEnter(pointerEventData);
         }
         
         public static void HandleOnPointerExit(this List<UIVisualRoot> visualRootPairs, PointerEventData pointerEventData)
@@ -159,7 +159,7 @@ namespace OGT
         
         public static void TriggerOnPointerExitBehaviour(this List<UIVisualRoot> visualRootPairs, PointerEventData pointerEventData)
         {
-            visualRootPairs.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.PointerClick).HandleOnPointerExit(pointerEventData);
+            visualRootPairs.GetVisualRootsByTriggerType(VisualRootAnimTriggerType.PointerExit).HandleOnPointerExit(pointerEventData);
         }
         
         public static void HandleOnPointerClick(this List<UIVisualRoot> visualRootPairs, PointerEventData pointerEventData)

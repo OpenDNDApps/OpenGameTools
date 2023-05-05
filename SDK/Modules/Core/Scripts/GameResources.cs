@@ -41,12 +41,20 @@ namespace OGT
     {
         private const string kMenuPath = GameResources.kPluginName + "/";
         private const string kModuleMenuPath = kMenuPath + "Module Resources/";
+
+        private const string kDocumentationURL = "https://github.com/OpenDNDApps/OpenGameTools";
 		
         [MenuItem(kModuleMenuPath + "Select General")]
         private static void SelectGameProperties()
         {
             Selection.activeObject = GameResources.General;
             EditorGUIUtility.PingObject(Selection.activeObject);
+        }
+		
+        [MenuItem(kMenuPath + "Documentation")]
+        private static void SelectDocumentation()
+        {
+            Application.OpenURL(kDocumentationURL);
         }
     }
 }
