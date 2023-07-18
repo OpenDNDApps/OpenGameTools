@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7890ffd3b85cc44a8776e9a71a218e3, type: 3}
   m_Name: AudioClipDefinition_OnUIButtonClick
   m_EditorClassIdentifier: 
-  Clip: {fileID: 0}
+  Clip: {fileID: 8300000, guid: cd7044bf418f642df9a2130900bd3fd5, type: 3}
   Layer: 0
   OverridePlayMode: 0
   VolumeScale: 1

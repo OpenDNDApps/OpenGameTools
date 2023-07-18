@@ -25,7 +25,6 @@ namespace OGT
     public enum UIContentSectionBehaviours
     {
         None = 0,
-        
         DisableOnAwake = 1 << 1,
     }
 }

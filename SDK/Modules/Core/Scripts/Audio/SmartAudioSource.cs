@@ -9,8 +9,8 @@ namespace OGT
         [SerializeField] private AudioLayer m_audioLayer;
         [SerializeField] private AudioSource m_source;
         
-        private bool m_properSetup = false;
-        private bool m_checkPlaying = false;
+        private bool m_properSetup;
+        private bool m_checkPlaying;
         
         public AudioLayer AudioLayer => m_audioLayer;
         public AudioSource Source => m_source;
@@ -33,9 +33,9 @@ namespace OGT
             m_checkPlaying = true;
         }
 
-        public void PlayLoop(AudioClip p_clip, AudioLayer p_layer)
+        public void PlayLoop(AudioClip clip, AudioLayer layer)
         {
-            Setup(p_clip, p_layer);
+            Setup(clip, layer);
             if (!IsValidSetup())
                 return;
 
@@ -43,9 +43,9 @@ namespace OGT
             m_source.Play();
         }
 
-        public void PlayOnce(AudioClip p_clip, AudioLayer p_layer)
+        public void PlayOnce(AudioClip clip, AudioLayer layer)
         {
-            Setup(p_clip, p_layer);
+            Setup(clip, layer);
             if (!IsValidSetup())
                 return;
             

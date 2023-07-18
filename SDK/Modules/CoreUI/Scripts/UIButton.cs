@@ -13,6 +13,7 @@ namespace OGT
         [SerializeField] protected TMP_Text m_label;
         [SerializeField] protected Sprite m_icon;
         [SerializeField] protected string m_localizationKey;
+        [SerializeField] protected AudioClipDefinition m_onClickSfx;
         
         [Header("Styling")]
         [SerializeField] protected float m_defaultFontSize;
@@ -75,6 +76,7 @@ namespace OGT
         {
             OnClick?.Invoke();
             OnTabButtonClick?.Invoke(m_tabSection);
+            AudioRuntime.Play(m_onClickSfx);
         }
 
         public void SetupAsTabButton(UITabSection owner, Action<UITabSection> onTabButtonClick)

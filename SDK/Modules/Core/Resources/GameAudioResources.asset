@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GameAudioResources
   m_EditorClassIdentifier: 
   m_loadablePrefabs: []
-  m_sounds: []
+  m_sounds:
+  - {fileID: 11400000, guid: b8f9383b992b67046b0d9b00202b6dbe, type: 2}

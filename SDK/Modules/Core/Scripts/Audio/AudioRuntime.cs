@@ -35,59 +35,59 @@ namespace OGT
             }
         }
 
-        public static int Play(AudioClipDefinition p_clipDefinition, Action p_onComplete = null)
+        public static int Play(AudioClipDefinition clipDefinition, Action onComplete = null)
         {
-            if (p_clipDefinition == default)
+            if (clipDefinition == default)
             {
-                p_onComplete?.Invoke();
+                onComplete?.Invoke();
                 return 0;
             }
             
-            switch (p_clipDefinition.OverridePlayMode)
+            switch (clipDefinition.OverridePlayMode)
             {
                 default:
                 case AudioPlayMode.None:
                     return 0;
                 case AudioPlayMode.OneShot:
-                    return PlayOnce(p_clipDefinition, p_onComplete);
+                    return PlayOnce(clipDefinition, onComplete);
                 case AudioPlayMode.Loop:
-                    return PlayLoop(p_clipDefinition, p_onComplete);
+                    return PlayLoop(clipDefinition, onComplete);
             }
         }
 
-        public static bool TryGetClipDefinition(string p_clipName, out AudioClipDefinition p_clipDefinition)
+        public static bool TryGetClipDefinition(string clipName, out AudioClipDefinition clipDefinition)
         {
-            p_clipDefinition = null;
-            return GameResources.Audio.TryGetAudioDefinition(p_clipName, out p_clipDefinition);
+            clipDefinition = null;
+            return GameResources.Audio.TryGetAudioDefinition(clipName, out clipDefinition);
         }
 
-        public static int PlayLoop(AudioClipDefinition p_clipDefinition, Action p_onComplete = null)
+        public static int PlayLoop(AudioClipDefinition clipDefinition, Action onComplete = default)
         {
-            if (p_clipDefinition == null || p_clipDefinition.Clip == null)
+            if (clipDefinition == default || clipDefinition.Clip == default)
                 return 0;
             
-            return Instance.PlayLoop(p_clipDefinition.Clip, p_clipDefinition.Layer, p_onComplete);
+            return Instance.PlayLoop(clipDefinition.Clip, clipDefinition.Layer, onComplete);
         }
 
-        public int PlayLoop(AudioClip p_clip, AudioLayer p_layer, Action p_onComplete = null)
+        public int PlayLoop(AudioClip clip, AudioLayer layer, Action onComplete = default)
         {
-            if (p_clip == null)
+            if (clip == default)
                 return 0;
             
-            var l_source = GetSourceOnLayer(p_layer);
-            l_source.PlayLoop(p_clip, p_layer);
-            PendingAudioCallbacks.Add(l_source.GetInstanceID(), p_onComplete);
-            return l_source.GetInstanceID();
+            var source = GetSourceOnLayer(layer);
+            source.PlayLoop(clip, layer);
+            PendingAudioCallbacks.Add(source.GetInstanceID(), onComplete);
+            return source.GetInstanceID();
         }
 
-        public static int PlayOnce(AudioClipDefinition clipDefinition, Action onComplete = null)
+        public static int PlayOnce(AudioClipDefinition clipDefinition, Action onComplete = default)
         {
             if (clipDefinition == default)
                 return 0;
             return PlayOnce(clipDefinition.Clip, clipDefinition.Layer, onComplete);
         }
 
-        public static int PlayOnce(AudioClip clip, AudioLayer layer, Action onComplete = null)
+        public static int PlayOnce(AudioClip clip, AudioLayer layer, Action onComplete = default)
         {
             if (clip == default)
                 return 0;
@@ -183,6 +183,8 @@ namespace OGT
             base.OnInspectorGUI();
 
             m_target = target as AudioRuntime;
+            if (m_target == default)
+                return;
 
             UnityEditor.EditorGUILayout.Space();
             UnityEditor.EditorGUILayout.LabelField("Enqueued Items:");
