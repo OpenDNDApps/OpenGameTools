@@ -67,7 +67,7 @@ namespace OGT.Editor
         private int GetNumberOfLines(string text)
         {
             string content = Regex.Replace(text, @"\r\n|\n\r|\r|\n", Environment.NewLine);
-            string[] lines = content.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            string[] lines = content.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             return lines.Length;
         }
 

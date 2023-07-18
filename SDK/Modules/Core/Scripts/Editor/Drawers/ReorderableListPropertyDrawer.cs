@@ -9,19 +9,21 @@ namespace OGT.Editor
     {
         public static readonly ReorderableListPropertyDrawer Instance = new ReorderableListPropertyDrawer();
 
-        private readonly Dictionary<string, ReorderableList> _reorderableListsByPropertyName = new Dictionary<string, ReorderableList>();
+        private readonly Dictionary<string, ReorderableList> m_reorderableListsByPropertyName = new Dictionary<string, ReorderableList>();
 
-        private GUIStyle _labelStyle;
+        private GUIStyle m_labelStyle;
 
         private GUIStyle GetLabelStyle()
         {
-            if (_labelStyle == null)
+            if (m_labelStyle != null) 
+                return m_labelStyle;
+            
+            m_labelStyle = new GUIStyle(EditorStyles.boldLabel)
             {
-                _labelStyle = new GUIStyle(EditorStyles.boldLabel);
-                _labelStyle.richText = true;
-            }
+                richText = true
+            };
 
-            return _labelStyle;
+            return m_labelStyle;
         }
 
         private string GetPropertyKeyName(SerializedProperty property)
@@ -31,19 +33,18 @@ namespace OGT.Editor
 
         protected override float GetPropertyHeight_Internal(SerializedProperty property)
         {
-            if (property.isArray)
+            if (!property.isArray) 
+                return EditorGUI.GetPropertyHeight(property, true);
+            
+            string key = GetPropertyKeyName(property);
+
+            if (m_reorderableListsByPropertyName.TryGetValue(key, out ReorderableList reorderableList) == false)
             {
-                string key = GetPropertyKeyName(property);
-
-                if (_reorderableListsByPropertyName.TryGetValue(key, out ReorderableList reorderableList) == false)
-                {
-                    return 0;
-                }
-
-                return reorderableList.GetHeight();
+                return 0;
             }
 
-            return EditorGUI.GetPropertyHeight(property, true);
+            return reorderableList.GetHeight();
+
         }
 
         protected override void OnGUI_Internal(Rect rect, SerializedProperty property, GUIContent label)
@@ -53,33 +54,34 @@ namespace OGT.Editor
                 string key = GetPropertyKeyName(property);
 
                 ReorderableList reorderableList = null;
-                if (!_reorderableListsByPropertyName.ContainsKey(key))
+                if (!m_reorderableListsByPropertyName.ContainsKey(key))
                 {
                     reorderableList = new ReorderableList(property.serializedObject, property, true, true, true, true)
                     {
-                        drawHeaderCallback = (Rect r) =>
+                        drawHeaderCallback = position =>
                         {
-                            EditorGUI.LabelField(r, string.Format("{0}: {1}", label.text, property.arraySize), GetLabelStyle());
-                            HandleDragAndDrop(r, reorderableList);
+                            EditorGUI.LabelField(position, $"{label.text}: {property.arraySize}", GetLabelStyle());
+                            // ReSharper disable once AccessToModifiedClosure
+                            HandleDragAndDrop(position, reorderableList);
                         },
 
-                        drawElementCallback = (Rect r, int index, bool isActive, bool isFocused) =>
+                        drawElementCallback = (position, index, _, _) =>
                         {
                             SerializedProperty element = property.GetArrayElementAtIndex(index);
-                            r.y += 1.0f;
-                            r.x += 10.0f;
-                            r.width -= 10.0f;
+                            position.y += 1.0f;
+                            position.x += 10.0f;
+                            position.width -= 10.0f;
 
-                            EditorGUI.PropertyField(new Rect(r.x, r.y, r.width, EditorGUIUtility.singleLineHeight), element, true);
+                            EditorGUI.PropertyField(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight), element, true);
                         },
 
-                        elementHeightCallback = (int index) => EditorGUI.GetPropertyHeight(property.GetArrayElementAtIndex(index)) + 4.0f
+                        elementHeightCallback = index => EditorGUI.GetPropertyHeight(property.GetArrayElementAtIndex(index)) + 4.0f
                     };
 
-                    _reorderableListsByPropertyName[key] = reorderableList;
+                    m_reorderableListsByPropertyName[key] = reorderableList;
                 }
 
-                reorderableList = _reorderableListsByPropertyName[key];
+                reorderableList = m_reorderableListsByPropertyName[key];
 
                 if (rect == default)
                 {
@@ -100,7 +102,7 @@ namespace OGT.Editor
 
         public void ClearCache()
         {
-            _reorderableListsByPropertyName.Clear();
+            m_reorderableListsByPropertyName.Clear();
         }
 
         private Object GetAssignableObject(Object obj, ReorderableList list)

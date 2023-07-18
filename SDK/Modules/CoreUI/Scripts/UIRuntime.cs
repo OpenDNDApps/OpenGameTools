@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,15 +11,16 @@ namespace OGT
     public partial class UIRuntime : MonoSingletonSelfGenerated<UIRuntime>, IGameDependency
     {
 		[SerializeField] private List<UIScreenPanelContainer> m_canvases = new List<UIScreenPanelContainer>();
+        
+        private Dictionary<UISectionType, List<UIWindow>> m_windowHistory = new Dictionary<UISectionType, List<UIWindow>>();
+        private Camera m_camera;
 
         public static bool IsReady { get; private set; }
         public event Action OnManualUpdate;
         public event Action OnManualLateUpdate;
         public event Action OnManualFixedUpdate;
-        
-        private Dictionary<UISectionType, List<UIWindow>> m_windowHistory = new Dictionary<UISectionType, List<UIWindow>>();
-        private Camera m_camera;
 
+        public event Action<UIWindow> OnWindowRemoved;
         public List<UIScreenPanelContainer> Canvases => m_canvases;
 		public Camera WorldCamera
         {
@@ -45,8 +45,6 @@ namespace OGT
                 Instance.m_camera = value;
             }
         }
-
-        public event Action<UIWindow> OnWindowRemoved;
 
 		protected override void OnSingletonAwake()
         {
@@ -87,20 +85,9 @@ namespace OGT
             OnUIRuntimeResponsivenessInitialize();
         }
 
-        private void Update()
-        {
-            OnManualUpdate?.Invoke();
-        }
-
-        private void LateUpdate()
-        {
-            OnManualLateUpdate?.Invoke();
-        }
-
-        private void FixedUpdate()
-        {
-            OnManualFixedUpdate?.Invoke();
-        }
+        private void Update() => OnManualUpdate?.Invoke();
+        private void LateUpdate() => OnManualLateUpdate?.Invoke();
+        private void FixedUpdate() => OnManualFixedUpdate?.Invoke();
 
         public static Canvas GetCanvasOfType(UISectionType type)
         {
@@ -250,7 +237,7 @@ namespace OGT
 		}
 	}
 
-	[System.Serializable]
+	[Serializable]
 	public struct UIScreenPanelContainer
 	{
 		public UISectionType Type;

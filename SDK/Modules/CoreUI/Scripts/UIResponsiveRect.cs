@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -13,8 +12,6 @@ namespace OGT
         [Header("Portrait")]
         [SerializeField] private RectTransformData m_portraitData;
 
-        [SerializeField] private List<UIResponsiveRectTransformDataByScreenOrientation> m_rectsByScreenOrientations = new List<UIResponsiveRectTransformDataByScreenOrientation>();
-        
         [Header("On Transition Animation")]
         [SerializeField] private float m_transitionDuration = 0.2f;
         [SerializeField] private Ease m_transitionEase = Ease.InExpo;

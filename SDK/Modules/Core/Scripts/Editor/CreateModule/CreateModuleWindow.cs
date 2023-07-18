@@ -1,10 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
-using System.Reflection;
 using Newtonsoft.Json;
 using UnityEditor.Callbacks;
 
@@ -19,6 +17,7 @@ namespace OGT
         public string ModulePrefabsFolderPath;
     }
     
+    [SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
     public class CreateModuleWindow : EditorWindow
     {
         private static EditorWindow m_window;
@@ -135,7 +134,7 @@ namespace OGT
             if (tempData == null)
                 return;
 
-            Type runtimeType = System.Type.GetType(tempData.RuntimeFileName);
+            Type runtimeType = Type.GetType(tempData.RuntimeFileName);
             string runtimeFullPath = $"{tempData.ModulePrefabsFolderPath}{tempData.RuntimeFileName}.prefab";
 
             if (runtimeType != null)
@@ -223,6 +222,7 @@ namespace OGT
             return ParseTemplate(File.ReadAllText(kResourceDefinitionsTemplatePath), m_moduleName);
         }
         
+        // ReSharper disable Unity.PerformanceAnalysis
         private string GetModuleCollectionTemplate()
         {
             if (!File.Exists(kResourcesCollectionTemplatePath))
@@ -234,6 +234,7 @@ namespace OGT
             return ParseTemplate(File.ReadAllText(kResourcesCollectionTemplatePath), m_moduleName);
         }
         
+        // ReSharper disable Unity.PerformanceAnalysis
         private string GetModuleSettingsTemplate()
         {
             if (!File.Exists(kSettingsCollectionTemplatePath))
@@ -249,10 +250,8 @@ namespace OGT
         {
             string filePath = Path.Combine(directoryPath, fileName + ".cs");
 
-            using (StreamWriter streamWriter = File.CreateText(filePath))
-            {
-                streamWriter.Write(fileContent);
-            }
+            using StreamWriter streamWriter = File.CreateText(filePath);
+            streamWriter.Write(fileContent);
 
             return filePath;
         }
