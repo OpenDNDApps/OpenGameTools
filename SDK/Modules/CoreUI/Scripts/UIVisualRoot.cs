@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -209,6 +210,13 @@ namespace OGT
         public void ResetState()
         {
             m_currentTriggerType = VisualRootAnimTriggerType.None;
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            this.DOKill(true);
+            m_canvasGroup.DOKill(true);
         }
     }
 

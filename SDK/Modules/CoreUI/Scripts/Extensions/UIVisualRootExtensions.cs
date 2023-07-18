@@ -119,17 +119,6 @@ namespace OGT
             }
         }
         
-        public static void DOKill(this List<UIVisualRoot> visualRoots)
-        {
-            foreach (UIVisualRoot visualRoot in visualRoots)
-            {
-                if(visualRoot == default)
-                    continue;
-                
-                visualRoot.DOKill();
-            }
-        }
-        
         public static void HandleOnPointerEnter(this List<UIVisualRoot> visualRootPairs, PointerEventData pointerEventData)
         {
             foreach (UIVisualRoot visualRoot in visualRootPairs)

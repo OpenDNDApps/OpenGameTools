@@ -5,7 +5,7 @@ using UnityEngine;
 namespace OGT
 {
     [CreateAssetMenu(fileName = "UIAnimation_", menuName = GameResources.kPluginName + "/UI/Animation")]
-    public class UIAnimation : ScriptableAnimation<UIAnimationStep>
+    public class UIAnimation : ScriptableAnimation<UIAnimationStep, UIAnimationStepType>
     {
         public virtual void StartAnimation(CanvasGroup target, Action onComplete = null, Animator targetAnimator = null)
         {
@@ -70,10 +70,9 @@ namespace OGT
             sequence.Play();
         }
 
-        protected override float GetDurationByStepType(BaseAnimationStep baseStep)
+        protected override float GetDurationByStepType(UIAnimationStep step)
         {
             float stepDuration = 0f;
-            var step = (UIAnimationStep)baseStep;
             
             switch (step.Type)
             {
@@ -168,7 +167,7 @@ namespace OGT
     }
     
     [Serializable]
-    public class UIAnimationStep : BaseAnimationStep
+    public class UIAnimationStep : BaseAnimationStep<UIAnimationStepType>
     {
         public AnimationBaseParams<float> Alpha;
         public AnimationBaseParams<Vector3> Scaling;

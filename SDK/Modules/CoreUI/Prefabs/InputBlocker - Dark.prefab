@@ -5,11 +5,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 597198063604527152, guid: 4bc3104045bc859479db8b151b9dce07, type: 3}
       propertyPath: m_Alpha
-      value: 0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 597198063604527152, guid: 4bc3104045bc859479db8b151b9dce07, type: 3}
       propertyPath: m_Interactable
@@ -42,6 +43,10 @@ PrefabInstance:
     - target: {fileID: 3356484190096299368, guid: 4bc3104045bc859479db8b151b9dce07, type: 3}
       propertyPath: m_Name
       value: InputBlocker - Dark
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055149550189223783, guid: 4bc3104045bc859479db8b151b9dce07, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842756374753823001, guid: 4bc3104045bc859479db8b151b9dce07, type: 3}
       propertyPath: m_Pivot.x
@@ -128,4 +133,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc3104045bc859479db8b151b9dce07, type: 3}

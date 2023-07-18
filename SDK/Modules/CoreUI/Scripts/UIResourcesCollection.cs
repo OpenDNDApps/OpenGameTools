@@ -87,6 +87,7 @@ namespace OGT
             
 	        foreach (UIItemBase item in m_uiItemsInEditor)
 	        {
+		        if(item == default) continue;
 		        if (!item.name.Equals(itemName)) continue;
 				
 		        uiItem = item as T;
@@ -103,6 +104,7 @@ namespace OGT
             
 			foreach (UIItem item in m_uiItems)
 			{
+				if(item == default) continue;
 				if (!item.name.Equals(itemName)) continue;
 				
 				uiItem = item as T;
@@ -119,6 +121,7 @@ namespace OGT
             
 			foreach (var window in m_uiWindows)
 			{
+				if(window == default) continue;
 				if (!window.name.Equals(itemName)) continue;
 				
 				uiWindow = window as T;

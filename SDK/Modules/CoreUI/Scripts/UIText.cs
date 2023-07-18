@@ -2,7 +2,7 @@ using TMPro;
 
 namespace ORC
 {
-    public class UIText : TextMeshProUGUI
+    public partial class UIText : TextMeshProUGUI
     {
     }
 }

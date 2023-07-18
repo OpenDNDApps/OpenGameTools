@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 namespace OGT
@@ -25,8 +26,9 @@ namespace OGT
             base.OnInit();
         }
 
-        protected virtual void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             if (m_itemBehaviours.HasFlag(UIItemBehaviours.PlayOnShowAnimationOnEnable))
             {
                 AnimatedShow();
@@ -150,7 +152,10 @@ namespace OGT
         protected override void OnDisable()
         {
             base.OnDisable();
-            m_visualRoots.DOKill();
+            foreach (UIVisualRoot visualRoot in m_visualRoots)
+            {
+                visualRoot.DOKill();
+            }
         }
 
         protected override void OnDestroy()

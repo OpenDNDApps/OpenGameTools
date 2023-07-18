@@ -11,7 +11,9 @@ namespace OGT
         
         private SceneManager m_sceneManager;
 
-        public static Action<CameraController, CameraController> OnCameraControllerChanged;
+        public static event Action<CameraController, CameraController> OnCameraControllerChanged;
+        public static event Action OnManualTickUpdater;
+        public bool IsReady { get; set; }
 
         public static Camera WorldCamera
         {
@@ -30,8 +32,6 @@ namespace OGT
             set => UIRuntime.UICamera = value;
         }
 
-        public static event Action ManualTickUpdater;
-
         protected override void OnSingletonAwake()
         {
             base.OnSingletonAwake();
@@ -42,7 +42,7 @@ namespace OGT
 
         private void Update()
         {
-            ManualTickUpdater?.Invoke();
+            OnManualTickUpdater?.Invoke();
         }
 
         private void OnActiveSceneChange(Scene current, Scene next)
@@ -59,7 +59,5 @@ namespace OGT
                 m_mainCameraController = value;
             }
         }
-
-        public bool IsReady { get; set; }
     }
 }

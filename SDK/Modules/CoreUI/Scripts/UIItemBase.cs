@@ -106,6 +106,8 @@ namespace OGT
 
         protected virtual void OnDisable() { }
 
+        protected virtual void OnEnable() { }
+
         protected virtual void OnDestroy() { }
 
         public enum UIItemVisibilityState

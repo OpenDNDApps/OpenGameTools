@@ -408,6 +408,7 @@ MonoBehaviour:
   m_label: {fileID: 4801534825859306700}
   m_icon: {fileID: 0}
   m_localizationKey: 
+  m_onClickSfx: {fileID: 11400000, guid: b8f9383b992b67046b0d9b00202b6dbe, type: 2}
   m_defaultFontSize: 18
   m_highlightFontSize: 24
 --- !u!114 &1979186909000964910

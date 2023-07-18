@@ -6,9 +6,9 @@ using UnityEngine;
 
 namespace OGT
 {
-    public class ScriptableAnimation<TIAnimStep> : ScriptableObject where TIAnimStep : BaseAnimationStep
+    public class ScriptableAnimation<TAnimStep, TStepType> : ScriptableObject where TAnimStep : BaseAnimationStep<TStepType> where TStepType : Enum
     {
-        public List<TIAnimStep> Steps = new List<TIAnimStep>();
+        public List<TAnimStep> Steps = new List<TAnimStep>();
 
         public float OverallDuration => GetOverallDuration();
 
@@ -50,7 +50,7 @@ namespace OGT
             onComplete?.Invoke();
         }
 
-        protected virtual float GetDurationByStepType(BaseAnimationStep step)
+        protected virtual float GetDurationByStepType(TAnimStep step)
         {
             return 0f;
         }
@@ -83,9 +83,18 @@ namespace OGT
     }
     
     [Serializable]
-    public class BaseAnimationStep
+    public class BaseAnimationStep<T> where T : Enum
     {
-        public UIAnimationStepType Type;
+        public T Type;
         public ScriptableAnimationJoinType JoinType;
+    }
+
+    [Serializable]
+    public enum BaseAnimationStepType
+    {
+        None,
+        Alpha,
+        Scaling,
+        Animation,
     }
 }

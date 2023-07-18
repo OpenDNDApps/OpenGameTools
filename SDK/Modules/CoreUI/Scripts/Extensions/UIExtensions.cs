@@ -10,6 +10,17 @@ namespace OGT
 {
     public static class UIExtensions
     {
+        public static void SetSprite(this Image image, Sprite targetSprite)
+        {
+            image.sprite = targetSprite;
+            image.overrideSprite = targetSprite;
+        }
+        
+        public static void SetTexture(this RawImage image, Texture targetSprite)
+        {
+            image.texture = targetSprite;
+        }
+        
         public static string GetLocalizedText(this TMP_Text tmp)
         {
             // if defaultAsFail just set key as string.
