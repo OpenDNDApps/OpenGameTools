@@ -79,7 +79,7 @@ namespace OGT
             OnValueChanged?.Invoke(newValue);
             m_delayedChangedTimer = GameResources.Settings.UI.Default.DelayedTimeOnUIInputOnValueChanged;
             m_onDelayedChangedTimerActive = true;
-            GameRuntime.ManualTickUpdater += HandleOnDelayedValueChangeTick;
+            GameRuntime.OnManualTickUpdater += HandleOnDelayedValueChangeTick;
         }
 
         private void HandleOnDelayedValueChangeTick()
@@ -99,7 +99,7 @@ namespace OGT
         {
             m_onDelayedChangedTimerActive = false;
             OnDelayedValueChanged?.Invoke(m_inputField.text);
-            GameRuntime.ManualTickUpdater -= HandleOnDelayedValueChangeTick;
+            GameRuntime.OnManualTickUpdater -= HandleOnDelayedValueChangeTick;
         }
 
         public void SetLabel(string newLabel)

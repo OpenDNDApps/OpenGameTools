@@ -3,6 +3,7 @@ using UnityEngine.Serialization;
 
 namespace OGT.Examples
 {
+    // ReSharper disable once InconsistentNaming
     public class CoreUI_ExampleOverview : MonoBehaviour
     {
         [SerializeField] private UIWindow m_customWindowPrefab;

@@ -12,6 +12,11 @@ namespace OGT
     public partial class UIRuntime : MonoSingletonSelfGenerated<UIRuntime>, IGameDependency
     {
 		[SerializeField] private List<UIScreenPanelContainer> m_canvases = new List<UIScreenPanelContainer>();
+
+        public bool IsReady { get; set; }
+        public event Action OnManualUpdate;
+        public event Action OnManualLateUpdate;
+        public event Action OnManualFixedUpdate;
         
         private Dictionary<UISectionType, List<UIWindow>> m_windowHistory = new Dictionary<UISectionType, List<UIWindow>>();
         private Camera m_camera;
@@ -55,6 +60,9 @@ namespace OGT
             Initialize();
         }
 
+        partial void OnUIRuntimeTMPInitialize();
+        partial void OnUIRuntimeResponsivenessInitialize();
+
         private void Initialize()
         {
             foreach (var container in m_canvases)
@@ -75,6 +83,23 @@ namespace OGT
             }
 
             IsReady = true;
+            OnUIRuntimeTMPInitialize();
+            OnUIRuntimeResponsivenessInitialize();
+        }
+
+        private void Update()
+        {
+            OnManualUpdate?.Invoke();
+        }
+
+        private void LateUpdate()
+        {
+            OnManualLateUpdate?.Invoke();
+        }
+
+        private void FixedUpdate()
+        {
+            OnManualFixedUpdate?.Invoke();
         }
 
         public static Canvas GetCanvasOfType(UISectionType type)
@@ -206,8 +231,6 @@ namespace OGT
         {
             return TryCreateWindow("UIGenericTextMessagePopup", out messagePopup);
         }
-
-        public bool IsReady { get; set; }
     }
 
 	public static class UIRuntimeExtensions

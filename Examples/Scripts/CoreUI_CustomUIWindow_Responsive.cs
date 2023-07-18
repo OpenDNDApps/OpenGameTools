@@ -4,7 +4,7 @@ using UnityEngine;
 namespace OGT.Examples
 {
     // ReSharper disable once InconsistentNaming
-    public class CoreUI_CustomUITabWindow : UITabWindow
+    public class CoreUI_CustomUIWindow_Responsive : UITabWindow
     {
         [Header("CoreUI_CustomUIWindow")]
         [SerializeField] private TMP_Text m_title;
@@ -13,8 +13,6 @@ namespace OGT.Examples
         protected override void OnInit()
         {
             base.OnInit();
-            m_title.SetLocalizedText("My Custom Tab Window");
-            m_message.SetLocalizedText("This window was created in runtime and is using UI Animations.");
         }
     }  
 }

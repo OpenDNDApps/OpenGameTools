@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace OGT.Examples
 {
+    // ReSharper disable once InconsistentNaming
     public class CoreUI_CustomUIWindow : UIWindow
     {
         [Header("CoreUI_CustomUIWindow")] [SerializeField]
