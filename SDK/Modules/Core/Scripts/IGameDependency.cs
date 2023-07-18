@@ -2,6 +2,6 @@ namespace OGT
 {
     public interface IGameDependency
     {
-        public bool IsReady { get; set; }
+        public static bool IsReady { get; private set; }
     } 
 }

@@ -16,7 +16,7 @@ namespace OGT
         {
             m_tmp = GetComponent<TMP_Text>();
             
-            yield return new WaitUntil(() => UIRuntime.Instance.IsReady);
+            yield return new WaitUntil(() => UIRuntime.IsReady);
             m_ready = true;
         }
 

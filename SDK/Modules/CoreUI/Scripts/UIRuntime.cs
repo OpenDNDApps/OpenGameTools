@@ -13,7 +13,7 @@ namespace OGT
     {
 		[SerializeField] private List<UIScreenPanelContainer> m_canvases = new List<UIScreenPanelContainer>();
 
-        public bool IsReady { get; set; }
+        public static bool IsReady { get; private set; }
         public event Action OnManualUpdate;
         public event Action OnManualLateUpdate;
         public event Action OnManualFixedUpdate;
