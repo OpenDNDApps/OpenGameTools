@@ -1,3 +1,13 @@
+This asset is governed by the Asset Store EULA; however, the following
+components are governed by the licenses indicated below:
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+OpenGameTools addons, which were acquired from sources other than the Unity Asset Store.
+These addons can be found in the SDK/Modules/* Folder.
+
 Creative Commons Attribution 4.0 International Public License ("CC BY 4.0")
 
 https://creativecommons.org/licenses/by/4.0/
@@ -348,3 +358,7 @@ For the avoidance of doubt, this paragraph does not form part of the public
 licenses.
 
 Creative Commons may be contacted at creativecommons.org.
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
