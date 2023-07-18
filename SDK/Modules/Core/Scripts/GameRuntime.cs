@@ -13,7 +13,7 @@ namespace OGT
 
         public static event Action<CameraController, CameraController> OnCameraControllerChanged;
         public static event Action OnManualTickUpdater;
-        public bool IsReady { get; set; }
+        public static bool IsReady { get; private set; }
 
         public static Camera WorldCamera
         {
