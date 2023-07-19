@@ -59,15 +59,15 @@ namespace OGT
 
         private void StructsGetAddDropdownElements(Rect buttonRect, ReorderableList list)
         {
-            var menu = new GenericMenu();
+            GenericMenu menu = new GenericMenu();
             menu.AddItem(new GUIContent("Alpha"), false, () =>
             {
-                var index = m_stepsProp.arraySize;
+                int index = m_stepsProp.arraySize;
                 m_stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+                SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.Alpha;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
-                var alphaProp = stepProp.FindPropertyRelative("Alpha");
+                SerializedProperty alphaProp = stepProp.FindPropertyRelative("Alpha");
                 alphaProp.FindPropertyRelative("Duration").floatValue = 1f;
                 alphaProp.FindPropertyRelative("Delay").floatValue = 0f;
                 alphaProp.FindPropertyRelative("TargetValue").floatValue = 0f;
@@ -76,12 +76,12 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("Scaling"), false, () =>
             {
-                var index = m_stepsProp.arraySize;
+                int index = m_stepsProp.arraySize;
                 m_stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+                SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.Scaling;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
-                var scalingProp = stepProp.FindPropertyRelative("Scaling");
+                SerializedProperty scalingProp = stepProp.FindPropertyRelative("Scaling");
                 scalingProp.FindPropertyRelative("Duration").floatValue = 1f;
                 scalingProp.FindPropertyRelative("Delay").floatValue = 0f;
                 scalingProp.FindPropertyRelative("TargetValue").vector3Value = Vector3.one;
@@ -90,12 +90,12 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("Animation"), false, () =>
             {
-                var index = m_stepsProp.arraySize;
+                int index = m_stepsProp.arraySize;
                 m_stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+                SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.Animation;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
-                var animationProp = stepProp.FindPropertyRelative("Animation");
+                SerializedProperty animationProp = stepProp.FindPropertyRelative("Animation");
                 animationProp.FindPropertyRelative("Animator").objectReferenceValue = null;
                 animationProp.FindPropertyRelative("MotionKey").stringValue = string.Empty;
                 animationProp.FindPropertyRelative("TriggerKey").stringValue = string.Empty;
@@ -106,12 +106,12 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorMin"), false, () =>
             {
-                var index = m_stepsProp.arraySize;
+                int index = m_stepsProp.arraySize;
                 m_stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+                SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorMin;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
-                var anchorProp = stepProp.FindPropertyRelative("AnchorMin");
+                SerializedProperty anchorProp = stepProp.FindPropertyRelative("AnchorMin");
                 anchorProp.FindPropertyRelative("Duration").floatValue = 1f;
                 anchorProp.FindPropertyRelative("Delay").floatValue = 0f;
                 anchorProp.FindPropertyRelative("TargetValue").vector2Value = Vector2.one;
@@ -120,12 +120,12 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorMax"), false, () =>
             {
-                var index = m_stepsProp.arraySize;
+                int index = m_stepsProp.arraySize;
                 m_stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+                SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorMax;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
-                var anchorProp = stepProp.FindPropertyRelative("AnchorMax");
+                SerializedProperty anchorProp = stepProp.FindPropertyRelative("AnchorMax");
                 anchorProp.FindPropertyRelative("Duration").floatValue = 1f;
                 anchorProp.FindPropertyRelative("Delay").floatValue = 0f;
                 anchorProp.FindPropertyRelative("TargetValue").vector2Value = Vector2.one;
@@ -134,12 +134,12 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorPositions"), false, () =>
             {
-                var index = m_stepsProp.arraySize;
+                int index = m_stepsProp.arraySize;
                 m_stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+                SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorPositions;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
-                var anchorProp = stepProp.FindPropertyRelative("AnchorPositions");
+                SerializedProperty anchorProp = stepProp.FindPropertyRelative("AnchorPositions");
                 anchorProp.FindPropertyRelative("Duration").floatValue = 1f;
                 anchorProp.FindPropertyRelative("Delay").floatValue = 0f;
                 anchorProp.FindPropertyRelative("TargetValue").vector2Value = Vector2.one;
@@ -148,12 +148,12 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorPositionX"), false, () =>
             {
-                var index = m_stepsProp.arraySize;
+                int index = m_stepsProp.arraySize;
                 m_stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+                SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorPositionX;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
-                var anchorProp = stepProp.FindPropertyRelative("AnchorPositionX");
+                SerializedProperty anchorProp = stepProp.FindPropertyRelative("AnchorPositionX");
                 anchorProp.FindPropertyRelative("Duration").floatValue = 1f;
                 anchorProp.FindPropertyRelative("Delay").floatValue = 0f;
                 anchorProp.FindPropertyRelative("TargetValue").floatValue = 0f;
@@ -162,12 +162,12 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorPositionY"), false, () =>
             {
-                var index = m_stepsProp.arraySize;
+                int index = m_stepsProp.arraySize;
                 m_stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+                SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorPositionY;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
-                var anchorProp = stepProp.FindPropertyRelative("AnchorPositionY");
+                SerializedProperty anchorProp = stepProp.FindPropertyRelative("AnchorPositionY");
                 anchorProp.FindPropertyRelative("Duration").floatValue = 1f;
                 anchorProp.FindPropertyRelative("Delay").floatValue = 0f;
                 anchorProp.FindPropertyRelative("TargetValue").floatValue = 0f;
@@ -179,8 +179,8 @@ namespace OGT
 
         private float StructsGetElementHeight(int index)
         {
-            var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
-            var stepType = (UIAnimationStepType)stepProp.FindPropertyRelative("Type").enumValueIndex;
+            SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+            UIAnimationStepType stepType = (UIAnimationStepType)stepProp.FindPropertyRelative("Type").enumValueIndex;
 
             float height = EditorGUIUtility.singleLineHeight; // for type and join type
 
@@ -217,16 +217,16 @@ namespace OGT
 
         private void StructsDrawStepElement(Rect rect, int index, bool isActive, bool isFocused)
         {
-            var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
-            var alphaProp = stepProp.FindPropertyRelative("Alpha");
-            var scalingProp = stepProp.FindPropertyRelative("Scaling");
-            var anchorMinProp = stepProp.FindPropertyRelative("AnchorMin");
-            var anchorMaxProp = stepProp.FindPropertyRelative("AnchorMax");
-            var anchorPosProp = stepProp.FindPropertyRelative("AnchorPositions");
-            var anchorPosXProp = stepProp.FindPropertyRelative("AnchorPositionX");
-            var anchorPosYProp = stepProp.FindPropertyRelative("AnchorPositionY");
-            var animationProp = stepProp.FindPropertyRelative("Animation");
-            var stepType = (UIAnimationStepType) stepProp.FindPropertyRelative("Type").enumValueIndex;
+            SerializedProperty stepProp = m_stepsProp.GetArrayElementAtIndex(index);
+            SerializedProperty alphaProp = stepProp.FindPropertyRelative("Alpha");
+            SerializedProperty scalingProp = stepProp.FindPropertyRelative("Scaling");
+            SerializedProperty anchorMinProp = stepProp.FindPropertyRelative("AnchorMin");
+            SerializedProperty anchorMaxProp = stepProp.FindPropertyRelative("AnchorMax");
+            SerializedProperty anchorPosProp = stepProp.FindPropertyRelative("AnchorPositions");
+            SerializedProperty anchorPosXProp = stepProp.FindPropertyRelative("AnchorPositionX");
+            SerializedProperty anchorPosYProp = stepProp.FindPropertyRelative("AnchorPositionY");
+            SerializedProperty animationProp = stepProp.FindPropertyRelative("Animation");
+            UIAnimationStepType stepType = (UIAnimationStepType) stepProp.FindPropertyRelative("Type").enumValueIndex;
 
             EditorGUI.BeginProperty(rect, GUIContent.none, stepProp);
 
@@ -271,81 +271,81 @@ namespace OGT
             switch (stepType)
             {
                 case UIAnimationStepType.Alpha:
-                    var alphaPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
+                    string[] alphaPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
                     yPosition += EditorGUIUtility.standardVerticalSpacing;
-                    foreach (var propName in alphaPropNames)
+                    foreach (string propName in alphaPropNames)
                     {
-                        var propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
+                        Rect propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
                         EditorGUI.PropertyField(propRect, alphaProp.FindPropertyRelative(propName));
                         yPosition += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                     }
                     break;
                 case UIAnimationStepType.Scaling:
-                    var scalingPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
+                    string[] scalingPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
                     yPosition += EditorGUIUtility.standardVerticalSpacing;
-                    foreach (var propName in scalingPropNames)
+                    foreach (string propName in scalingPropNames)
                     {
-                        var propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
+                        Rect propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
                         EditorGUI.PropertyField(propRect, scalingProp.FindPropertyRelative(propName));
                         yPosition += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                     }
                     break;
                 case UIAnimationStepType.Animation:
-                    var animationPropNames = new[] { "Animator", "MotionKey", "TriggerKey", "Params.Duration", "Params.Delay", "Params.Ease" };
+                    string[] animationPropNames = new[] { "Animator", "MotionKey", "TriggerKey", "Params.Duration", "Params.Delay", "Params.Ease" };
                     yPosition += EditorGUIUtility.standardVerticalSpacing;
-                    foreach (var propName in animationPropNames)
+                    foreach (string propName in animationPropNames)
                     {
-                        var propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
+                        Rect propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
                         EditorGUI.PropertyField(propRect, animationProp.FindPropertyRelative(propName));
                         yPosition += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                     }
                     break;
                 case UIAnimationStepType.AnchorMin:
-                    var anchorMinPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
+                    string[] anchorMinPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
                     yPosition += EditorGUIUtility.standardVerticalSpacing;
-                    foreach (var propName in anchorMinPropNames)
+                    foreach (string propName in anchorMinPropNames)
                     {
-                        var propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
+                        Rect propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
                         EditorGUI.PropertyField(propRect, anchorMinProp.FindPropertyRelative(propName));
                         yPosition += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                     }
                     break;
                 case UIAnimationStepType.AnchorMax:
-                    var anchorMaxPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
+                    string[] anchorMaxPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
                     yPosition += EditorGUIUtility.standardVerticalSpacing;
-                    foreach (var propName in anchorMaxPropNames)
+                    foreach (string propName in anchorMaxPropNames)
                     {
-                        var propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
+                        Rect propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
                         EditorGUI.PropertyField(propRect, anchorMaxProp.FindPropertyRelative(propName));
                         yPosition += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                     }
                     break;
                 case UIAnimationStepType.AnchorPositions:
-                    var anchorPosPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
+                    string[] anchorPosPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
                     yPosition += EditorGUIUtility.standardVerticalSpacing;
-                    foreach (var propName in anchorPosPropNames)
+                    foreach (string propName in anchorPosPropNames)
                     {
-                        var propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
+                        Rect propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
                         EditorGUI.PropertyField(propRect, anchorPosProp.FindPropertyRelative(propName));
                         yPosition += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                     }
                     break;
                 case UIAnimationStepType.AnchorPositionX:
-                    var anchorPosXPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
+                    string[] anchorPosXPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
                     yPosition += EditorGUIUtility.standardVerticalSpacing;
-                    foreach (var propName in anchorPosXPropNames)
+                    foreach (string propName in anchorPosXPropNames)
                     {
-                        var propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
+                        Rect propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
                         EditorGUI.PropertyField(propRect, anchorPosXProp.FindPropertyRelative(propName));
                         yPosition += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                     }
                     break;
                 case UIAnimationStepType.AnchorPositionY:
-                    var anchorPosYPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
+                    string[] anchorPosYPropNames = new[] { "Duration", "Delay", "TargetValue", "Ease" };
                     yPosition += EditorGUIUtility.standardVerticalSpacing;
-                    foreach (var propName in anchorPosYPropNames)
+                    foreach (string propName in anchorPosYPropNames)
                     {
-                        var propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
+                        Rect propRect = new Rect(rect.x, yPosition, rect.width, EditorGUIUtility.singleLineHeight);
                         EditorGUI.PropertyField(propRect, anchorPosYProp.FindPropertyRelative(propName));
                         yPosition += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                     }

@@ -3,9 +3,9 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-/// This code is heavily based on NaughtyAttributes, go support them c: 
-/// - https://github.com/dbrizov/NaughtyAttributes
-/// - https://assetstore.unity.com/packages/tools/utilities/naughtyattributes-129996
+// This code is heavily based on NaughtyAttributes, go support them c: 
+// - https://github.com/dbrizov/NaughtyAttributes
+// - https://assetstore.unity.com/packages/tools/utilities/naughtyattributes-129996
 
 namespace OGT.Editor
 {
@@ -23,14 +23,9 @@ namespace OGT.Editor
 
         protected virtual void OnEnable()
         {
-            m_nonSerializedFields = ReflectionUtility.GetAllFields(
-                target, f => f.GetCustomAttributes(typeof(ShowNonSerializedFieldAttribute), true).Length > 0);
-
-            m_nativeProperties = ReflectionUtility.GetAllProperties(
-                target, p => p.GetCustomAttributes(typeof(ShowNativePropertyAttribute), true).Length > 0);
-
-            m_methods = ReflectionUtility.GetAllMethods(
-                target, m => m.GetCustomAttributes(typeof(ButtonAttribute), true).Length > 0);
+            m_nonSerializedFields = ReflectionUtility.GetAllFields(target, f => f.GetCustomAttributes(typeof(ShowNonSerializedFieldAttribute), true).Length > 0);
+            m_nativeProperties = ReflectionUtility.GetAllProperties(target, p => p.GetCustomAttributes(typeof(ShowNativePropertyAttribute), true).Length > 0);
+            m_methods = ReflectionUtility.GetAllMethods(target, m => m.GetCustomAttributes(typeof(ButtonAttribute), true).Length > 0);
         }
 
         protected virtual void OnDisable()
@@ -60,17 +55,15 @@ namespace OGT.Editor
         protected void GetSerializedProperties(ref List<SerializedProperty> outSerializedProperties)
         {
             outSerializedProperties.Clear();
-            using (var iterator = serializedObject.GetIterator())
+            using SerializedProperty iterator = serializedObject.GetIterator();
+            if (!iterator.NextVisible(true)) 
+                return;
+            
+            do
             {
-                if (iterator.NextVisible(true))
-                {
-                    do
-                    {
-                        outSerializedProperties.Add(serializedObject.FindProperty(iterator.name));
-                    }
-                    while (iterator.NextVisible(false));
-                }
+                outSerializedProperties.Add(serializedObject.FindProperty(iterator.name));
             }
+            while (iterator.NextVisible(false));
         }
 
         protected void DrawSerializedProperties()
@@ -78,29 +71,24 @@ namespace OGT.Editor
             serializedObject.Update();
 
             // Draw non-grouped serialized properties
-            foreach (var property in GetNonGroupedProperties(m_serializedProperties))
+            foreach (SerializedProperty property in GetNonGroupedProperties(m_serializedProperties))
             {
-                if (property.name.Equals("m_Script", System.StringComparison.Ordinal))
-                {
-                    using (new EditorGUI.DisabledScope(disabled: true))
-                    {
-                        EditorGUILayout.PropertyField(property);
-                    }
-                }
-                else
+                if (!property.name.Equals("m_Script", System.StringComparison.Ordinal))
                 {
                     OGTEditorGUI.PropertyField_Layout(property, includeChildren: true);
+                    continue;
                 }
+
+                using EditorGUI.DisabledScope _ = new EditorGUI.DisabledScope(disabled: true);
+                EditorGUILayout.PropertyField(property);
             }
 
             // Draw grouped serialized properties
             foreach (var group in GetGroupedProperties(m_serializedProperties))
             {
-                IEnumerable<SerializedProperty> visibleProperties = group.Where(p => PropertyUtility.IsVisible(p));
+                IEnumerable<SerializedProperty> visibleProperties = group.Where(PropertyUtility.IsVisible);
                 if (!visibleProperties.Any())
-                {
                     continue;
-                }
 
                 OGTEditorGUI.BeginBoxGroup_Layout(group.Key);
                 foreach (SerializedProperty property in visibleProperties)
@@ -114,11 +102,9 @@ namespace OGT.Editor
             // Draw foldout serialized properties
             foreach (var group in GetFoldoutProperties(m_serializedProperties))
             {
-                IEnumerable<SerializedProperty> visibleProperties = group.Where(p => PropertyUtility.IsVisible(p));
+                IEnumerable<SerializedProperty> visibleProperties = group.Where(PropertyUtility.IsVisible);
                 if (!visibleProperties.Any())
-                {
                     continue;
-                }
 
                 if (!m_foldouts.ContainsKey(group.Key))
                 {
@@ -126,12 +112,12 @@ namespace OGT.Editor
                 }
 
                 m_foldouts[group.Key].Value = EditorGUILayout.Foldout(m_foldouts[group.Key].Value, group.Key, true);
-                if (m_foldouts[group.Key].Value)
+                if (!m_foldouts[group.Key].Value) 
+                    continue;
+                
+                foreach (SerializedProperty property in visibleProperties)
                 {
-                    foreach (var property in visibleProperties)
-                    {
-                        OGTEditorGUI.PropertyField_Layout(property, true);
-                    }
+                    OGTEditorGUI.PropertyField_Layout(property, true);
                 }
             }
 
@@ -140,58 +126,55 @@ namespace OGT.Editor
 
         protected void DrawNonSerializedFields(bool drawHeader = false)
         {
-            if (m_nonSerializedFields.Any())
+            if (!m_nonSerializedFields.Any())
+                return;
+            
+            if (drawHeader)
             {
-                if (drawHeader)
-                {
-                    EditorGUILayout.Space();
-                    EditorGUILayout.LabelField("Non-Serialized Fields", GetHeaderGUIStyle());
-                    OGTEditorGUI.HorizontalLine(
-                        EditorGUILayout.GetControlRect(false), HorizontalLineAttribute.DefaultHeight, HorizontalLineAttribute.DefaultColor.GetColor());
-                }
+                EditorGUILayout.Space();
+                EditorGUILayout.LabelField("Non-Serialized Fields", GetHeaderGUIStyle());
+                OGTEditorGUI.HorizontalLine(EditorGUILayout.GetControlRect(false), HorizontalLineAttribute.DefaultHeight, HorizontalLineAttribute.DefaultColor.GetColor());
+            }
 
-                foreach (var field in m_nonSerializedFields)
-                {
-                    OGTEditorGUI.NonSerializedField_Layout(serializedObject.targetObject, field);
-                }
+            foreach (FieldInfo field in m_nonSerializedFields)
+            {
+                OGTEditorGUI.NonSerializedField_Layout(serializedObject.targetObject, field);
             }
         }
 
         protected void DrawNativeProperties(bool drawHeader = false)
         {
-            if (m_nativeProperties.Any())
+            if (!m_nativeProperties.Any()) 
+                return;
+            
+            if (drawHeader)
             {
-                if (drawHeader)
-                {
-                    EditorGUILayout.Space();
-                    EditorGUILayout.LabelField("Native Properties", GetHeaderGUIStyle());
-                    OGTEditorGUI.HorizontalLine(
-                        EditorGUILayout.GetControlRect(false), HorizontalLineAttribute.DefaultHeight, HorizontalLineAttribute.DefaultColor.GetColor());
-                }
+                EditorGUILayout.Space();
+                EditorGUILayout.LabelField("Native Properties", GetHeaderGUIStyle());
+                OGTEditorGUI.HorizontalLine(EditorGUILayout.GetControlRect(false), HorizontalLineAttribute.DefaultHeight, HorizontalLineAttribute.DefaultColor.GetColor());
+            }
 
-                foreach (var property in m_nativeProperties)
-                {
-                    OGTEditorGUI.NativeProperty_Layout(serializedObject.targetObject, property);
-                }
+            foreach (PropertyInfo property in m_nativeProperties)
+            {
+                OGTEditorGUI.NativeProperty_Layout(serializedObject.targetObject, property);
             }
         }
 
         protected void DrawButtons(bool drawHeader = false)
         {
-            if (m_methods.Any())
+            if (!m_methods.Any()) 
+                return;
+            
+            if (drawHeader)
             {
-                if (drawHeader)
-                {
-                    EditorGUILayout.Space();
-                    EditorGUILayout.LabelField("Buttons", GetHeaderGUIStyle());
-                    OGTEditorGUI.HorizontalLine(
-                        EditorGUILayout.GetControlRect(false), HorizontalLineAttribute.DefaultHeight, HorizontalLineAttribute.DefaultColor.GetColor());
-                }
+                EditorGUILayout.Space();
+                EditorGUILayout.LabelField("Buttons", GetHeaderGUIStyle());
+                OGTEditorGUI.HorizontalLine(EditorGUILayout.GetControlRect(false), HorizontalLineAttribute.DefaultHeight, HorizontalLineAttribute.DefaultColor.GetColor());
+            }
 
-                foreach (var method in m_methods)
-                {
-                    OGTEditorGUI.Button(serializedObject.targetObject, method);
-                }
+            foreach (MethodInfo method in m_methods)
+            {
+                OGTEditorGUI.Button(serializedObject.targetObject, method);
             }
         }
 
@@ -216,9 +199,11 @@ namespace OGT.Editor
 
         private static GUIStyle GetHeaderGUIStyle()
         {
-            GUIStyle style = new GUIStyle(EditorStyles.centeredGreyMiniLabel);
-            style.fontStyle = FontStyle.Bold;
-            style.alignment = TextAnchor.UpperCenter;
+            GUIStyle style = new GUIStyle(EditorStyles.centeredGreyMiniLabel)
+            {
+                fontStyle = FontStyle.Bold,
+                alignment = TextAnchor.UpperCenter
+            };
 
             return style;
         }
