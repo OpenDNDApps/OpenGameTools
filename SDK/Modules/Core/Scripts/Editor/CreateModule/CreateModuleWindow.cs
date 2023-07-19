@@ -50,7 +50,7 @@ namespace OGT
         private const string kSettingsCollectionTemplatePath = kModulesFolder + "Core/Scripts/Editor/CreateModule/Template" + kSettingsCollectionName + ".txt";
         private const string kRuntimeTemplatePath = kModulesFolder + "Core/Scripts/Editor/CreateModule/Template" + kRuntimeName + ".txt";
 
-        [MenuItem(GameResources.kPluginName + "/Create Module")]
+        [MenuItem(GameResources.kMenuPath + "/Create Module")]
         public static void ShowWindow()
         {
             m_window = GetWindow<CreateModuleWindow>(true, "Create Module", true);

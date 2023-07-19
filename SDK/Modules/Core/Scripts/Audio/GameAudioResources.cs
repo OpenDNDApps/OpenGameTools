@@ -19,7 +19,7 @@ namespace OGT
     using UnityEditor;
     public static partial class CoreEditor
     {
-        [MenuItem(kModuleMenuPath + "Select Audio")]
+        [MenuItem(GameResources.kModuleMenuPath + "Select Audio")]
         private static void SelectGameAudioResources()
         {
             Selection.activeObject = GameResources.Audio;
