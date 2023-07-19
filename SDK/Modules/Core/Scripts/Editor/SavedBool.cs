@@ -4,31 +4,26 @@ namespace OGT.Editor
 {
     internal class SavedBool
     {
-        private bool _value;
-        private string _name;
+        private bool m_value;
+        private readonly string m_name;
 
         public bool Value
         {
-            get
-            {
-                return _value;
-            }
+            get => m_value;
             set
             {
-                if (_value == value)
-                {
+                if (m_value == value)
                     return;
-                }
 
-                _value = value;
-                EditorPrefs.SetBool(_name, value);
+                m_value = value;
+                EditorPrefs.SetBool(m_name, value);
             }
         }
 
         public SavedBool(string name, bool value)
         {
-            _name = name;
-            _value = EditorPrefs.GetBool(name, value);
+            m_name = name;
+            m_value = EditorPrefs.GetBool(name, value);
         }
     }
 }

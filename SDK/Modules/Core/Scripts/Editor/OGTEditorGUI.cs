@@ -3,7 +3,6 @@ using System.Collections;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,8 +11,8 @@ namespace OGT.Editor
 {
     public static class OGTEditorGUI
     {
-        public const float IndentLength = 15.0f;
-        public const float HorizontalSpacing = 2.0f;
+        public const float kIndentLength = 15.0f;
+        public const float kHorizontalSpacing = 2.0f;
 
         private static readonly GUIStyle m_buttonStyle = new GUIStyle(GUI.skin.button) { richText = true };
         private delegate void PropertyFieldFunction(Rect rect, SerializedProperty property, GUIContent label, bool includeChildren);
@@ -151,7 +150,7 @@ namespace OGT.Editor
                 bool methodIsCoroutine = methodInfo.ReturnType == typeof(IEnumerator);
                 if (methodIsCoroutine)
                 {
-                    buttonEnabled &= (Application.isPlaying ? true : false);
+                    buttonEnabled &= Application.isPlaying;
                 }
 
                 EditorGUI.BeginDisabledGroup(!buttonEnabled);
@@ -334,7 +333,7 @@ namespace OGT.Editor
                 {
                     EditorGUILayout.EnumPopup(label, (Enum)value);
                 }
-                else if (valueType.BaseType == typeof(System.Reflection.TypeInfo))
+                else if (valueType.BaseType == typeof(TypeInfo))
                 {
                     EditorGUILayout.TextField(label, value.ToString());
                 }

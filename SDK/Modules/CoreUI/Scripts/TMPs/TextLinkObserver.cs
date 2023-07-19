@@ -32,6 +32,9 @@ namespace OGT
         {
             if (m_tmp.textInfo.linkCount == 0)
                 return;
+
+            if (Application.isMobilePlatform || Application.isConsolePlatform)
+                return;
             
             int linkIndex = TMP_TextUtilities.FindIntersectingLink(m_tmp, Input.mousePosition, UIRuntime.UICamera);
 

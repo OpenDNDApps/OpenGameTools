@@ -10,31 +10,31 @@ namespace OGT.Editor
         [MenuItem(kCreateItemEditorPath + "Generic", priority = kCreateUIButtonBaseIndex)]
         private static void CreateUIButtonGeneric()
         {
-            UIResourcesCollection.TryCreateEditorUIItem("UIButton", out UIButton button);
+            UIResourcesCollection.TryCreateEditorUIItem("UIButton", out UIButton _);
         }
         
         [MenuItem(kCreateItemEditorPath + "Primary", priority = kCreateUIButtonBaseIndex + 1)]
         private static void CreateUIButtonPrimary()
         {
-            UIResourcesCollection.TryCreateEditorUIItem("UIButton - Primary", out UIButton button);
+            UIResourcesCollection.TryCreateEditorUIItem("UIButton - Primary", out UIButton _);
         }
         
         [MenuItem(kCreateItemEditorPath + "Secondary", priority = kCreateUIButtonBaseIndex + 2)]
         private static void CreateUIButtonSecondary()
         {
-            UIResourcesCollection.TryCreateEditorUIItem("UIButton - Secondary", out UIButton button);
+            UIResourcesCollection.TryCreateEditorUIItem("UIButton - Secondary", out UIButton _);
         }
         
         [MenuItem(kCreateItemEditorPath + "Success", priority = kCreateUIButtonBaseIndex + 3)]
         private static void CreateUIButtonSuccess()
         {
-            UIResourcesCollection.TryCreateEditorUIItem("UIButton - Success", out UIButton button);
+            UIResourcesCollection.TryCreateEditorUIItem("UIButton - Success", out UIButton _);
         }
         
         [MenuItem(kCreateItemEditorPath + "Danger", priority = kCreateUIButtonBaseIndex + 4)]
         private static void CreateUIButtonDanger()
         {
-            UIResourcesCollection.TryCreateEditorUIItem("UIButton - Danger", out UIButton button);
+            UIResourcesCollection.TryCreateEditorUIItem("UIButton - Danger", out UIButton _);
         }
     }
 }

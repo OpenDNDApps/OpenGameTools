@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,7 +11,7 @@ namespace OGT
         [MenuItem(kCreateItemEditorPath + "VisualRoot", priority = kCreateUIOtherBaseIndex)]
         private static void CreateUIVisualRoot()
         {
-            UIResourcesCollection.TryCreateEditorUnlinkedUIItem("UIVisualRoot", out UIVisualRoot visualRoot);
+            UIResourcesCollection.TryCreateEditorUnlinkedUIItem("UIVisualRoot", out UIVisualRoot _);
         }
     }
 }

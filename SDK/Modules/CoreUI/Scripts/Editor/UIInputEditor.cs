@@ -10,7 +10,7 @@ namespace OGT.Editor
         [MenuItem(kCreateItemEditorPath + "UIInput", priority = kCreateUIInputBaseIndex)]
         private static void CreateUIButtonGeneric()
         {
-            UIResourcesCollection.TryCreateEditorUIItem("UIInput", out UIInput input);
+            UIResourcesCollection.TryCreateEditorUIItem("UIInput", out UIInput _);
         }
     }
 }

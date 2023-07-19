@@ -5,24 +5,23 @@ using UnityEngine;
 namespace OGT
 {
     using UnityEditor;
-    using OGT.Editor;
 
     [CustomEditor(typeof(UIAnimation))]
     public class UIAnimationEditor : UnityEditor.Editor
     {
-        private SerializedProperty stepsProp;
-        private ReorderableList stepsList;
+        private SerializedProperty m_stepsProp;
+        private ReorderableList m_stepsList;
         
         private void OnEnable()
         {
             serializedObject.Update();
             
-            stepsProp = serializedObject.FindProperty("Steps");
-            stepsList = new ReorderableList(serializedObject, stepsProp, true, true, true, true);
-            stepsList.drawHeaderCallback = rect => { EditorGUI.LabelField(rect, "Steps"); };
-            stepsList.elementHeightCallback = StructsGetElementHeight;
-            stepsList.drawElementCallback = StructsDrawStepElement;
-            stepsList.onAddDropdownCallback = StructsGetAddDropdownElements;
+            m_stepsProp = serializedObject.FindProperty("Steps");
+            m_stepsList = new ReorderableList(serializedObject, m_stepsProp, true, true, true, true);
+            m_stepsList.drawHeaderCallback = rect => { EditorGUI.LabelField(rect, "Steps"); };
+            m_stepsList.elementHeightCallback = StructsGetElementHeight;
+            m_stepsList.drawElementCallback = StructsDrawStepElement;
+            m_stepsList.onAddDropdownCallback = StructsGetAddDropdownElements;
 
             serializedObject.ApplyModifiedProperties();
         }
@@ -41,7 +40,7 @@ namespace OGT
             EditorGUILayout.EndHorizontal();
             GUILayout.Space(EditorGUIUtility.singleLineHeight);
             
-            stepsList.DoLayoutList();
+            m_stepsList.DoLayoutList();
             
             GUILayout.Space(EditorGUIUtility.standardVerticalSpacing);
             EditorGUILayout.BeginHorizontal();
@@ -58,14 +57,14 @@ namespace OGT
             serializedObject.ApplyModifiedProperties();
         }
 
-        private void StructsGetAddDropdownElements(Rect p_buttonRect, ReorderableList p_list)
+        private void StructsGetAddDropdownElements(Rect buttonRect, ReorderableList list)
         {
             var menu = new GenericMenu();
             menu.AddItem(new GUIContent("Alpha"), false, () =>
             {
-                var index = stepsProp.arraySize;
-                stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = stepsProp.GetArrayElementAtIndex(index);
+                var index = m_stepsProp.arraySize;
+                m_stepsProp.InsertArrayElementAtIndex(index);
+                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.Alpha;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
                 var alphaProp = stepProp.FindPropertyRelative("Alpha");
@@ -77,9 +76,9 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("Scaling"), false, () =>
             {
-                var index = stepsProp.arraySize;
-                stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = stepsProp.GetArrayElementAtIndex(index);
+                var index = m_stepsProp.arraySize;
+                m_stepsProp.InsertArrayElementAtIndex(index);
+                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.Scaling;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
                 var scalingProp = stepProp.FindPropertyRelative("Scaling");
@@ -91,9 +90,9 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("Animation"), false, () =>
             {
-                var index = stepsProp.arraySize;
-                stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = stepsProp.GetArrayElementAtIndex(index);
+                var index = m_stepsProp.arraySize;
+                m_stepsProp.InsertArrayElementAtIndex(index);
+                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.Animation;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
                 var animationProp = stepProp.FindPropertyRelative("Animation");
@@ -107,9 +106,9 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorMin"), false, () =>
             {
-                var index = stepsProp.arraySize;
-                stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = stepsProp.GetArrayElementAtIndex(index);
+                var index = m_stepsProp.arraySize;
+                m_stepsProp.InsertArrayElementAtIndex(index);
+                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorMin;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
                 var anchorProp = stepProp.FindPropertyRelative("AnchorMin");
@@ -121,9 +120,9 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorMax"), false, () =>
             {
-                var index = stepsProp.arraySize;
-                stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = stepsProp.GetArrayElementAtIndex(index);
+                var index = m_stepsProp.arraySize;
+                m_stepsProp.InsertArrayElementAtIndex(index);
+                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorMax;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
                 var anchorProp = stepProp.FindPropertyRelative("AnchorMax");
@@ -135,9 +134,9 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorPositions"), false, () =>
             {
-                var index = stepsProp.arraySize;
-                stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = stepsProp.GetArrayElementAtIndex(index);
+                var index = m_stepsProp.arraySize;
+                m_stepsProp.InsertArrayElementAtIndex(index);
+                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorPositions;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
                 var anchorProp = stepProp.FindPropertyRelative("AnchorPositions");
@@ -149,9 +148,9 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorPositionX"), false, () =>
             {
-                var index = stepsProp.arraySize;
-                stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = stepsProp.GetArrayElementAtIndex(index);
+                var index = m_stepsProp.arraySize;
+                m_stepsProp.InsertArrayElementAtIndex(index);
+                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorPositionX;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
                 var anchorProp = stepProp.FindPropertyRelative("AnchorPositionX");
@@ -163,9 +162,9 @@ namespace OGT
             });
             menu.AddItem(new GUIContent("AnchorPositionY"), false, () =>
             {
-                var index = stepsProp.arraySize;
-                stepsProp.InsertArrayElementAtIndex(index);
-                var stepProp = stepsProp.GetArrayElementAtIndex(index);
+                var index = m_stepsProp.arraySize;
+                m_stepsProp.InsertArrayElementAtIndex(index);
+                var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
                 stepProp.FindPropertyRelative("Type").enumValueIndex = (int)UIAnimationStepType.AnchorPositionY;
                 stepProp.FindPropertyRelative("JoinType").enumValueIndex = (int)ScriptableAnimationJoinType.Join;
                 var anchorProp = stepProp.FindPropertyRelative("AnchorPositionY");
@@ -180,7 +179,7 @@ namespace OGT
 
         private float StructsGetElementHeight(int index)
         {
-            var stepProp = stepsProp.GetArrayElementAtIndex(index);
+            var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
             var stepType = (UIAnimationStepType)stepProp.FindPropertyRelative("Type").enumValueIndex;
 
             float height = EditorGUIUtility.singleLineHeight; // for type and join type
@@ -218,7 +217,7 @@ namespace OGT
 
         private void StructsDrawStepElement(Rect rect, int index, bool isActive, bool isFocused)
         {
-            var stepProp = stepsProp.GetArrayElementAtIndex(index);
+            var stepProp = m_stepsProp.GetArrayElementAtIndex(index);
             var alphaProp = stepProp.FindPropertyRelative("Alpha");
             var scalingProp = stepProp.FindPropertyRelative("Scaling");
             var anchorMinProp = stepProp.FindPropertyRelative("AnchorMin");

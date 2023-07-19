@@ -10,7 +10,7 @@
         [MenuItem(kCreateItemEditorPath + "UIToggle", priority = kCreateUIToggleBaseIndex)]
         private static void CreateUIButtonGeneric()
         {
-            UIResourcesCollection.TryCreateEditorUIItem("UIToggle", out UIToggle toggle);
+            UIResourcesCollection.TryCreateEditorUIItem("UIToggle", out UIToggle _);
         }
     }
 }

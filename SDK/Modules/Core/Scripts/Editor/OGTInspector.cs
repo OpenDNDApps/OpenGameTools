@@ -3,11 +3,9 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-/// <summary>
 /// This code is heavily based on NaughtyAttributes, go support them c: 
 /// - https://github.com/dbrizov/NaughtyAttributes
 /// - https://assetstore.unity.com/packages/tools/utilities/naughtyattributes-129996
-/// </summary>
 
 namespace OGT.Editor
 {
@@ -17,21 +15,21 @@ namespace OGT.Editor
     [CustomEditor(typeof(Object), true)]
     public class OGTInspector : Editor
     {
-        private List<SerializedProperty> _serializedProperties = new List<SerializedProperty>();
-        private IEnumerable<FieldInfo> _nonSerializedFields;
-        private IEnumerable<PropertyInfo> _nativeProperties;
-        private IEnumerable<MethodInfo> _methods;
-        private Dictionary<string, SavedBool> _foldouts = new Dictionary<string, SavedBool>();
+        private List<SerializedProperty> m_serializedProperties = new List<SerializedProperty>();
+        private IEnumerable<FieldInfo> m_nonSerializedFields;
+        private IEnumerable<PropertyInfo> m_nativeProperties;
+        private IEnumerable<MethodInfo> m_methods;
+        private readonly Dictionary<string, SavedBool> m_foldouts = new Dictionary<string, SavedBool>();
 
         protected virtual void OnEnable()
         {
-            _nonSerializedFields = ReflectionUtility.GetAllFields(
+            m_nonSerializedFields = ReflectionUtility.GetAllFields(
                 target, f => f.GetCustomAttributes(typeof(ShowNonSerializedFieldAttribute), true).Length > 0);
 
-            _nativeProperties = ReflectionUtility.GetAllProperties(
+            m_nativeProperties = ReflectionUtility.GetAllProperties(
                 target, p => p.GetCustomAttributes(typeof(ShowNativePropertyAttribute), true).Length > 0);
 
-            _methods = ReflectionUtility.GetAllMethods(
+            m_methods = ReflectionUtility.GetAllMethods(
                 target, m => m.GetCustomAttributes(typeof(ButtonAttribute), true).Length > 0);
         }
 
@@ -42,9 +40,9 @@ namespace OGT.Editor
 
         public override void OnInspectorGUI()
         {
-            GetSerializedProperties(ref _serializedProperties);
+            GetSerializedProperties(ref m_serializedProperties);
 
-            bool anyNaughtyAttribute = _serializedProperties.Any(p => PropertyUtility.GetAttribute<IOGTAttribute>(p) != null);
+            bool anyNaughtyAttribute = m_serializedProperties.Any(p => PropertyUtility.GetAttribute<IOGTAttribute>(p) != null);
             if (!anyNaughtyAttribute)
             {
                 DrawDefaultInspector();
@@ -80,7 +78,7 @@ namespace OGT.Editor
             serializedObject.Update();
 
             // Draw non-grouped serialized properties
-            foreach (var property in GetNonGroupedProperties(_serializedProperties))
+            foreach (var property in GetNonGroupedProperties(m_serializedProperties))
             {
                 if (property.name.Equals("m_Script", System.StringComparison.Ordinal))
                 {
@@ -96,7 +94,7 @@ namespace OGT.Editor
             }
 
             // Draw grouped serialized properties
-            foreach (var group in GetGroupedProperties(_serializedProperties))
+            foreach (var group in GetGroupedProperties(m_serializedProperties))
             {
                 IEnumerable<SerializedProperty> visibleProperties = group.Where(p => PropertyUtility.IsVisible(p));
                 if (!visibleProperties.Any())
@@ -105,7 +103,7 @@ namespace OGT.Editor
                 }
 
                 OGTEditorGUI.BeginBoxGroup_Layout(group.Key);
-                foreach (var property in visibleProperties)
+                foreach (SerializedProperty property in visibleProperties)
                 {
                     OGTEditorGUI.PropertyField_Layout(property, includeChildren: true);
                 }
@@ -114,7 +112,7 @@ namespace OGT.Editor
             }
 
             // Draw foldout serialized properties
-            foreach (var group in GetFoldoutProperties(_serializedProperties))
+            foreach (var group in GetFoldoutProperties(m_serializedProperties))
             {
                 IEnumerable<SerializedProperty> visibleProperties = group.Where(p => PropertyUtility.IsVisible(p));
                 if (!visibleProperties.Any())
@@ -122,13 +120,13 @@ namespace OGT.Editor
                     continue;
                 }
 
-                if (!_foldouts.ContainsKey(group.Key))
+                if (!m_foldouts.ContainsKey(group.Key))
                 {
-                    _foldouts[group.Key] = new SavedBool($"{target.GetInstanceID()}.{group.Key}", false);
+                    m_foldouts[group.Key] = new SavedBool($"{target.GetInstanceID()}.{group.Key}", false);
                 }
 
-                _foldouts[group.Key].Value = EditorGUILayout.Foldout(_foldouts[group.Key].Value, group.Key, true);
-                if (_foldouts[group.Key].Value)
+                m_foldouts[group.Key].Value = EditorGUILayout.Foldout(m_foldouts[group.Key].Value, group.Key, true);
+                if (m_foldouts[group.Key].Value)
                 {
                     foreach (var property in visibleProperties)
                     {
@@ -142,7 +140,7 @@ namespace OGT.Editor
 
         protected void DrawNonSerializedFields(bool drawHeader = false)
         {
-            if (_nonSerializedFields.Any())
+            if (m_nonSerializedFields.Any())
             {
                 if (drawHeader)
                 {
@@ -152,7 +150,7 @@ namespace OGT.Editor
                         EditorGUILayout.GetControlRect(false), HorizontalLineAttribute.DefaultHeight, HorizontalLineAttribute.DefaultColor.GetColor());
                 }
 
-                foreach (var field in _nonSerializedFields)
+                foreach (var field in m_nonSerializedFields)
                 {
                     OGTEditorGUI.NonSerializedField_Layout(serializedObject.targetObject, field);
                 }
@@ -161,7 +159,7 @@ namespace OGT.Editor
 
         protected void DrawNativeProperties(bool drawHeader = false)
         {
-            if (_nativeProperties.Any())
+            if (m_nativeProperties.Any())
             {
                 if (drawHeader)
                 {
@@ -171,7 +169,7 @@ namespace OGT.Editor
                         EditorGUILayout.GetControlRect(false), HorizontalLineAttribute.DefaultHeight, HorizontalLineAttribute.DefaultColor.GetColor());
                 }
 
-                foreach (var property in _nativeProperties)
+                foreach (var property in m_nativeProperties)
                 {
                     OGTEditorGUI.NativeProperty_Layout(serializedObject.targetObject, property);
                 }
@@ -180,7 +178,7 @@ namespace OGT.Editor
 
         protected void DrawButtons(bool drawHeader = false)
         {
-            if (_methods.Any())
+            if (m_methods.Any())
             {
                 if (drawHeader)
                 {
@@ -190,7 +188,7 @@ namespace OGT.Editor
                         EditorGUILayout.GetControlRect(false), HorizontalLineAttribute.DefaultHeight, HorizontalLineAttribute.DefaultColor.GetColor());
                 }
 
-                foreach (var method in _methods)
+                foreach (var method in m_methods)
                 {
                     OGTEditorGUI.Button(serializedObject.targetObject, method);
                 }
