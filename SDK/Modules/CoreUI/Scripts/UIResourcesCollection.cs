@@ -34,9 +34,9 @@ namespace OGT
 	        if (!GameResources.UI.TryGetEditorUIItem(uiItemName, out item))
 	        {
 		        Debug.LogError($"There is no '{uiItemName}' item registered. " +
-		                       $"\nPlease add it to the UIItemsInEditor collection." +
-		                       $"\nThis can be found in the GameUIResourceCollection." +
-		                       $"\nYou can use the shortcut in the menu item. \n(TopMenu/OGT/Module Resources/Select UI)\n\n");
+		                       "\nPlease add it to the UIItemsInEditor collection." +
+		                       "\nThis can be found in the GameUIResourceCollection." +
+		                       "\nYou can use the shortcut in the menu item. \n(TopMenu/OGT/Module Resources/Select UI)\n\n");
 		        return false;
 	        }
 	        
@@ -49,7 +49,7 @@ namespace OGT
 	        
 	        newItem.name = uiItemName;
 	        #if UNITY_EDITOR
-	        UnityEditor.Selection.activeGameObject = newItem.gameObject;
+	        Selection.activeGameObject = newItem.gameObject;
 	        #endif
 	        return false;
         }
@@ -59,9 +59,9 @@ namespace OGT
 	        if (!GameResources.UI.TryGetEditorUIItem(uiItemName, out item))
 	        {
 		        Debug.LogError($"There is no '{uiItemName}' item registered. " +
-		                       $"\nPlease add it to the UIItemsInEditor collection." +
-		                       $"\nThis can be found in the GameUIResourceCollection." +
-		                       $"\nYou can use the shortcut in the menu item. \n(TopMenu/OGT/Module Resources/Select UI)\n\n");
+		                       "\nPlease add it to the UIItemsInEditor collection." +
+		                       "\nThis can be found in the GameUIResourceCollection." +
+		                       "\nYou can use the shortcut in the menu item. \n(TopMenu/OGT/Module Resources/Select UI)\n\n");
 		        return false;
 	        }
 	        
@@ -74,7 +74,7 @@ namespace OGT
 	        
 	        newItem.name = uiItemName;
 	        #if UNITY_EDITOR
-	        UnityEditor.Selection.activeGameObject = newItem.gameObject;
+	        Selection.activeGameObject = newItem.gameObject;
 	        #endif
 	        return false;
         }
@@ -119,7 +119,7 @@ namespace OGT
 			if (string.IsNullOrEmpty(itemName)) 
 				return false;
             
-			foreach (var window in m_uiWindows)
+			foreach (UIWindow window in m_uiWindows)
 			{
 				if(window == default) continue;
 				if (!window.name.Equals(itemName)) continue;
@@ -138,11 +138,6 @@ namespace OGT
         [ContextMenu("Validate")]
         private void OnValidate()
         {
-	        if (m_uiRuntime == null)
-	        {
-		        AddLoadablePrefabs(m_uiRuntime.gameObject);
-	        }
-
 	        if (LayersAreValid(out List<string> wrongLayers))
 		        return;
 	        

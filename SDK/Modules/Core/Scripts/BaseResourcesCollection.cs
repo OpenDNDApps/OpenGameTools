@@ -9,11 +9,6 @@ namespace OGT
         [Header("Base Resources")]
         [SerializeField] protected List<GameObject> m_loadablePrefabs = new List<GameObject>();
 
-        protected void AddLoadablePrefabs(GameObject prefab)
-        {
-            m_loadablePrefabs.AddUnique(prefab);
-        }
-        
         public GameObject GetLoadablePrefab(string prefabName)
         {
             TryGetPrefab(prefabName, m_loadablePrefabs, out var prefab);
@@ -23,12 +18,13 @@ namespace OGT
         protected bool TryGetPrefab<T>(string itemName, List<T> collection, out T outItem) where T : Object
         {
             outItem = null;
-            if (string.IsNullOrEmpty(itemName)) 
+            if (string.IsNullOrEmpty(itemName))
                 return false;
             
             foreach (var item in collection)
             {
-                if (!item.name.Equals(itemName)) continue;
+                if (!item.name.Equals(itemName)) 
+                    continue;
 				
                 outItem = item;
                 return true;

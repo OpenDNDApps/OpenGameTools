@@ -7,7 +7,7 @@ namespace OGT
         public static #MODULE_NAME#Runtime #MODULE_NAME#Runtime => #MODULE_NAME#Runtime.Instance;
         
         private static #MODULE_NAME#ResourcesCollection m_#MODULE_NAME_LOWER#;
-        public static #MODULE_NAME#ResourcesCollection #MODULE_NAME# => GetGameResource(ref m_#MODULE_NAME_LOWER#, k#MODULE_NAME#FileName);
+        public static #MODULE_NAME#ResourcesCollection #MODULE_NAME#Collection => GetGameResource(ref m_#MODULE_NAME_LOWER#, k#MODULE_NAME#FileName);
     }
 }
 
@@ -18,10 +18,10 @@ namespace OGT
     using UnityEditor;
     public static partial class CoreEditor
     {
-        [MenuItem(kModuleMenuPath + "Select #MODULE_NAME#")]
+        [MenuItem(GameResources.kModuleMenuPath + "Select #MODULE_NAME#")]
         private static void Select#MODULE_NAME#Resources()
         {
-            Selection.activeObject = GameResources.#MODULE_NAME#;
+            Selection.activeObject = GameResources.#MODULE_NAME#Collection;
             EditorGUIUtility.PingObject(Selection.activeObject);
         }
     }

@@ -2,7 +2,7 @@ namespace OGT
 {
     public partial class #MODULE_NAME#Runtime : MonoSingletonSelfGenerated<#MODULE_NAME#Runtime>, IGameDependency
     {
-        public bool IsReady { get; set; }
+        public static bool IsReady { get; private set; }
         
         protected override void OnSingletonAwake()
         {

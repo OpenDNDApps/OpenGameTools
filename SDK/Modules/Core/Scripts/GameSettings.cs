@@ -16,7 +16,7 @@ namespace OGT
     using UnityEditor;
     public static partial class CoreEditor
     {
-        [MenuItem(kModuleMenuPath + "Select Settings")]
+        [MenuItem(GameResources.kModuleMenuPath + "Select Settings")]
         private static void SelectGameSettings()
         {
             Selection.activeObject = GameResources.Settings;

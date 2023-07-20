@@ -23,7 +23,7 @@ namespace OGT
     using UnityEditor;
     public static partial class CoreEditor
     {
-        [MenuItem(kModuleMenuPath + "Select ScriptableVariables")]
+        [MenuItem(GameResources.kModuleMenuPath + "Select ScriptableVariables")]
         private static void SelectScriptableVariablesResources()
         {
             Selection.activeObject = GameResources.ScriptableVariables;

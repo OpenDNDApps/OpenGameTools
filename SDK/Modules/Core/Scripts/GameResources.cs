@@ -6,9 +6,11 @@ namespace OGT
     {
         public static GameRuntime Runtime => GameRuntime.Instance;
         
-        // TODO: Do not merge this to OGT.
+        // Notice: Change this to personalize your game, but don't PR.
         public const string kPluginName = "OGT";
-        
+        public const string kMenuPath = "Tools/" + kPluginName + "/";
+        public const string kModuleMenuPath = kMenuPath + "Module Resources/";
+
         public const string kCreateComponentUIPath = kPluginName + "/UI/";
         public const string kCreateMenuPrefixNameResources = kPluginName + "/Base Collections/";
         public const string kCreateMenuPrefixModules = kPluginName + "/Modules/";
@@ -39,19 +41,16 @@ namespace OGT
     using UnityEditor;
     public static partial class CoreEditor
     {
-        private const string kMenuPath = GameResources.kPluginName + "/";
-        private const string kModuleMenuPath = kMenuPath + "Module Resources/";
-
         private const string kDocumentationURL = "https://github.com/OpenDNDApps/OpenGameTools";
 		
-        [MenuItem(kModuleMenuPath + "Select General")]
+        [MenuItem(GameResources.kModuleMenuPath + "Select General")]
         private static void SelectGameProperties()
         {
             Selection.activeObject = GameResources.General;
             EditorGUIUtility.PingObject(Selection.activeObject);
         }
 		
-        [MenuItem(kMenuPath + "Documentation")]
+        [MenuItem(GameResources.kMenuPath + "Documentation")]
         private static void SelectDocumentation()
         {
             Application.OpenURL(kDocumentationURL);

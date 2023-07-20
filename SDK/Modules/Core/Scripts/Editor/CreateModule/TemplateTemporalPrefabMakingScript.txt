@@ -1,0 +1,66 @@
+namespace OGT
+{
+    using System.IO;
+    using UnityEditor;
+    using UnityEngine;
+    using System.Reflection;
+    using System.Collections.Generic;
+    
+    public class #TEMP_SCRIPT_NAME#
+    {
+        [MenuItem(GameResources.kMenuPath + "#TEMP_SCRIPT_NAME#")]
+        public static void QueueCreation()
+        {
+            CreateModuleWindow.NotifyTemporalScriptCreation(CreateAssets);
+            Debug.Log("Queued Creation.");
+        }
+        
+        public static void CreateAssets()
+        {
+            string moduleFolderPath = "#MODULE_FOLDER_PATH#";
+            string soCollectionAssetPath = Path.Combine("#MODULE_RESOURCES_COLLECTION_PATH#", $"#MODULE_NAME#ResourcesCollection.asset");
+            string runtimeFullPath = $"#MODULE_PREFABS_FOLDER_PATH##MODULE_NAME#Runtime.prefab";
+
+            GameObject gameObject = new GameObject()
+            {
+                name = "#MODULE_NAME#Runtime"
+            };
+            gameObject.AddComponent<#MODULE_NAME#Runtime>();
+            PrefabUtility.SaveAsPrefabAsset(gameObject, runtimeFullPath);
+            Object.DestroyImmediate(gameObject);
+        
+            #MODULE_NAME#ResourcesCollection collection = ScriptableObject.CreateInstance<#MODULE_NAME#ResourcesCollection>();
+            
+            GameModulePackageReadme readmeObject = ScriptableObject.CreateInstance<GameModulePackageReadme>();
+            readmeObject.name = "Readme";
+            readmeObject.ModuleName = "#MODULE_NAME#";
+        
+            AssetDatabase.CreateAsset(collection, soCollectionAssetPath);
+            AssetDatabase.CreateAsset(readmeObject, $"{moduleFolderPath}Readme.asset");
+        
+            AssetDatabase.ImportAsset(soCollectionAssetPath);
+            AssetDatabase.ImportAsset(runtimeFullPath);
+
+            AssetDatabase.Refresh();
+            
+            GameObject savedPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(runtimeFullPath);
+            #MODULE_NAME#Runtime runtimePrefab = savedPrefab.GetComponent<#MODULE_NAME#Runtime>();
+            FieldInfo runtimeField = typeof(#MODULE_NAME#ResourcesCollection).GetField("m_#MODULE_NAME_LOWER#Runtime", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (runtimeField != null)
+            {
+                runtimeField.SetValue(collection, runtimePrefab);
+            }
+            
+            #MODULE_NAME#ResourcesCollection savedCollection = AssetDatabase.LoadAssetAtPath<#MODULE_NAME#ResourcesCollection>(soCollectionAssetPath);
+            FieldInfo loadables = typeof(#MODULE_NAME#ResourcesCollection).GetField("m_loadablePrefabs", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (loadables != null)
+            {
+                List<GameObject> prefabList = (List<GameObject>)loadables.GetValue(savedCollection);
+                prefabList.Add(savedPrefab);
+            }
+            
+            CreateModuleWindow.NotifyTemporalScriptAssetsLoad($"{moduleFolderPath}Readme.asset");
+            Debug.Log("Creation Completed.");
+        }
+    }
+}

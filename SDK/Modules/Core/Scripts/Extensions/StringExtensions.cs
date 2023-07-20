@@ -15,103 +15,108 @@ public static class StringExtensions
     /// <summary>
     /// Truncates the string to a specified length and replace the truncated to a ...
     /// </summary>
-    /// <param name="value">string that will be truncated</param>
+    /// <param name="str">string that will be truncated</param>
     /// <param name="maxLength">total length of characters to maintain before the truncate happens</param>
+    /// <param name="ellipsis">...</param>
     /// <returns>truncated string</returns>
-    public static string Truncate(this string value, int maxLength, string ellipsis = "...")
+    public static string Truncate(this string str, int maxLength, string ellipsis = "...")
     {
-        int lengthToTake = Math.Min(maxLength, value.Length);
+        int lengthToTake = Math.Min(maxLength, str.Length);
+        return (lengthToTake < str.Length) ? $"{str[..lengthToTake]}{ellipsis}" : str[..lengthToTake];
+    }
+    
+    public static string ToLowerFirst(this string str)
+    {
+        if (string.IsNullOrEmpty(str))
+            return str;
 
-        return (lengthToTake < value.Length) ?
-            string.Format("{0}{1}", value.Substring(0, lengthToTake), ellipsis) :
-            value.Substring(0, lengthToTake);
+        char firstChar = char.ToLower(str[0]);
+        return firstChar + str[1..];
     }
 
     /// <summary>
-    /// Emulation of PHPs ucfirst()
+    /// Emulation of PHPs UcFirst()
     /// </summary>
-    /// <param name="value">A composite format string</param>
+    /// <param name="str">A composite format string</param>
     /// <returns>A copy of format in which the format items have been replaced by the System.String</returns>
     /// <remarks>https://extensionmethod.net/csharp/string/ucfirst</remarks>
-    public static string UcFirst(this string value)
+    public static string UcFirst(this string str)
     {
-        if (string.IsNullOrEmpty(value))
+        if (string.IsNullOrEmpty(str))
         {
             return string.Empty;
         }
 
-        char[] chars = value.ToCharArray();
+        char[] chars = str.ToCharArray();
         chars[0] = char.ToUpper(chars[0]);
 
         return new string(chars);
     }
 
     /// <summary>
-    ///     Read in a sequence of words from standard input and capitalize each
-    ///     one (make first letter uppercase; make rest lowercase).
+    /// Read in a sequence of words from standard input and capitalize each
+    /// one (make first letter uppercase; make rest lowercase).
     /// </summary>
-    /// <param name="s">string</param>
+    /// <param name="str">string</param>
     /// <returns>Word with capitalization</returns>
-    public static string Capitalize(this string s)
+    public static string Capitalize(this string str)
     {
-        if (s.Length == 0)
+        if (str.Length == 0)
         {
-            return s;
+            return str;
         }
-        return s.Substring(0, 1).ToUpper() + s.Substring(1).ToLower();
+        return str[..1].ToUpper() + str[1..].ToLower();
     }
 
     /// <summary>
     /// Converts the specified string to title case (except for words that are entirely in uppercase, which are considered to be acronyms).
     /// </summary>
-    /// <param name="mText"></param>
+    /// <param name="str"></param>
     /// <returns></returns>
-    public static string ToTitleCase(this string mText)
+    public static string ToTitleCase(this string str)
     {
-        if (mText.IsNullOrEmpty())
-            return mText;
+        if (str.IsNullOrEmpty())
+            return str;
 
-        // get globalization info
         CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
         TextInfo textInfo = cultureInfo.TextInfo;
 
-        // convert to title case
-        return textInfo.ToTitleCase(mText);
+        return textInfo.ToTitleCase(str);
     }
 
     public static string ToUrlFriendly(this string str)
     {
         string value = str.Normalize(NormalizationForm.FormD).Trim();
-        StringBuilder builder = new StringBuilder();
-
+        StringBuilder builder = new StringBuilder(value);
+        
         foreach (char c in str)
             if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
                 builder.Append(c);
-
+        
         value = builder.ToString();
-
+        
         byte[] bytes = Encoding.GetEncoding("Cyrillic").GetBytes(str);
-
+        
         value = Regex.Replace(Regex.Replace(Encoding.ASCII.GetString(bytes), @"\s{2,}|[^\w]", " ", RegexOptions.ECMAScript).Trim(), @"\s+", "_");
-
+        
         return value.ToLowerInvariant();
     }
 
-    public static string AsSlug(this string text)
+    public static string AsSlug(this string str)
     {
-        string value = text.Normalize(NormalizationForm.FormD).Trim();
-        StringBuilder builder = new StringBuilder();
-
-        foreach (char c in text.ToCharArray())
+        string value = str.Normalize(NormalizationForm.FormD).Trim();
+        StringBuilder builder = new StringBuilder(value);
+        
+        foreach (char c in str.ToCharArray())
             if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
                 builder.Append(c);
-
+        
         value = builder.ToString();
-
-        byte[] bytes = Encoding.GetEncoding("Cyrillic").GetBytes(text);
-
+        
+        byte[] bytes = Encoding.GetEncoding("Cyrillic").GetBytes(str);
+        
         value = Regex.Replace(Regex.Replace(Encoding.ASCII.GetString(bytes), @"\s{2,}|[^\w]", " ", RegexOptions.ECMAScript).Trim(), @"\s+", "-");
-
+        
         return value.ToLowerInvariant();
     }
 
@@ -158,10 +163,8 @@ public static class StringExtensions
     public static bool IsValidImageURL(this string url)
     {
         if (!url.IsValidUrl())
-        {
             return false;
-        }
-
+        
         string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".gif" };
         string extension = System.IO.Path.GetExtension(url);
         return imageExtensions.Contains(extension.ToLower());
@@ -170,9 +173,7 @@ public static class StringExtensions
     public static bool IsValidVideoUrl(this string url)
     {
         if (!url.IsValidUrl())
-        {
             return false;
-        }
 
         string[] videoExtensions = { ".mp4", ".avi", ".mov", ".wmv", ".flv", ".webm" };
         string extension = System.IO.Path.GetExtension(url);
@@ -217,11 +218,11 @@ public static class StringExtensions
     /// <summary>
     /// Reverses the string
     /// </summary>
-    /// <param name="input"></param>
+    /// <param name="str"></param>
     /// <returns></returns>
-    public static string Reverse(this string input)
+    public static string Reverse(this string str)
     {
-        char[] chars = input.ToCharArray();
+        char[] chars = str.ToCharArray();
         Array.Reverse(chars);
         return new string(chars);
     }
@@ -242,22 +243,22 @@ public static class StringExtensions
     /// <summary>
     /// Returns true if the pattern matches
     /// </summary>
-    /// <param name="value"></param>
+    /// <param name="str"></param>
     /// <param name="pattern"></param>
     /// <returns></returns>
-    public static bool Match(this string value, string pattern)
+    public static bool Match(this string str, string pattern)
     {
-        return Regex.IsMatch(value, pattern);
+        return Regex.IsMatch(str, pattern);
     }
 
     /// <summary>
     /// Returns the number of words in the given string.
     /// </summary>
-    /// <param name="s">The given string.</param>
+    /// <param name="str">The given string.</param>
     /// <returns>The word count.</returns>
-    public static int GetWordCount(this string s)
+    public static int GetWordCount(this string str)
     {
-        return new Regex(@"\w+").Matches(s).Count;
+        return new Regex(@"\w+").Matches(str).Count;
     }
 
     /// <summary>
@@ -312,37 +313,33 @@ public static class StringExtensions
     /// <summary>
     /// Returns whether the given string is a valid IP address v4
     /// </summary>
-    /// <param name="s">The given string.</param>
+    /// <param name="str">The given string.</param>
     /// <returns></returns>
-    public static bool IsValidIPv4(this string s)
+    public static bool IsValidIPv4(this string str)
     {
-        System.Net.IPAddress.TryParse(s, out System.Net.IPAddress address);
+        System.Net.IPAddress.TryParse(str, out System.Net.IPAddress address);
         return (address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
     }
 
     /// <summary>
     /// Returns whether the given string is a valid IP address v6
     /// </summary>
-    /// <param name="s">The given string.</param>
+    /// <param name="str">The given string.</param>
     /// <returns></returns>
-    /// <summary>
-    /// Returns whether the given string is a valid IP address v4 or v6
-    /// </summary>
-    /// <param name="s">The given string.</param>
-    public static bool IsValidIPv6(this string s)
+    public static bool IsValidIPv6(this string str)
     {
-        System.Net.IPAddress.TryParse(s, out System.Net.IPAddress address);
+        System.Net.IPAddress.TryParse(str, out System.Net.IPAddress address);
         return (address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6);
     }
 
     /// <returns></returns>
-    public static bool IsValidIP(this string s)
+    public static bool IsValidIP(this string str)
     {
-        return s.IsValidIPv4() || s.IsValidIPv6();
+        return str.IsValidIPv4() || str.IsValidIPv6();
     }
 
-    public static int AsInt(this string s)
+    public static int AsInt(this string str)
     {
-        return int.Parse(s);
+        return int.Parse(str);
     }
 }
