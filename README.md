@@ -5,8 +5,7 @@
 
 # OpenGameTools
 
-**OGT** is a compilation of several systems, scripts and extensions made by us and found on the internet over the years. The 3rd party scripts included are still maintained and heavily modified by us.
-Hence, this aims to be a lightweight 'framework'.  
+**OGT** is a compilation of several systems, scripts and extensions aiming to be a lightweight 'framework'.
 We, as a team, use this asset every day on production apps and games.
 The UI system alone has -collectively- being used for more than 800k users on those apps and games.
 
@@ -14,6 +13,29 @@ Check the [Documentation](https://github.com/OpenDNDApps/OpenGameTools/tree/mast
 
 &nbsp;
   
+---
+
+&nbsp;
+
+# **Tech things - TLDR**  
+• The UI system focuses on easy to use and performance, self managed instantiation, canvases, sorting layers, etc.  
+• An ScriptableObject architecture and event system, the core of the asset. Based on [Ryan Hipple's 2017 Unite talk](https://www.youtube.com/watch?v=raQ3iHhE_Kk) and [Richard Fine's 2016 Unite talk](https://www.youtube.com/watch?v=6vmRwLYWNRo)  
+• Event System compatible with ScriptableObjects and MonoBehaviours on runtime  
+• Hundreds of C# Extensions  
+• Many Scripts and Components to use and "extend" Unity.  
+
+&nbsp;
+
+### **Why would I want to use this?**  
+We use this asset as a framework and as a base on every project, feel free to try it, its free.  
+
+### **Do you like this asset?**  
+Consider supporting us on [Github Sponsors](https://github.com/sponsors/EduardoU24) - [Patreon](https://www.patreon.com/EduardoU24)  
+
+&nbsp;
+
+&nbsp;
+
 ---
 
 &nbsp;
@@ -291,33 +313,3 @@ UI Gradients, usable on any UI element, using TMP Gradients
 &nbsp;
 
 ---
-
-&nbsp;
-
-# **Tech things - TLDR**  
-• The UI system focuses on easy to use and performance, self managed instantiation, canvases, sorting layers, etc.  
-• An ScriptableObject architecture and event system, the core of the asset. Based on [Ryan Hipple's 2017 Unite talk](https://www.youtube.com/watch?v=raQ3iHhE_Kk) and [Richard Fine's 2016 Unite talk](https://www.youtube.com/watch?v=6vmRwLYWNRo)  
-• Event System compatible with ScriptableObjects and MonoBehaviours on runtime  
-• Hundreds of C# Extensions  
-• Many Scripts and Components to use and "extend" Unity.  
-
-&nbsp;
-
-### **Why would I want to use this?**  
-We use this asset as a framework and as a base on every project, feel free to try it, its free.  
-
-### **Do you like this asset?**  
-Consider supporting us on [Github Sponsors](https://github.com/sponsors/EduardoU24) - [Patreon](https://www.patreon.com/EduardoU24)  
-
-&nbsp;
-
-&nbsp;
-
----
-
-&nbsp;
-
-# Licenses & Attributions 
-
->`OpenGameTools` [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), Use and modify as you like just mentions us on the credits 😊
-
