@@ -5,6 +5,8 @@
 
 # OpenGameTools
 
+![Logo](https://assetstorev1-prd-cdn.unity3d.com/key-image/70235caf-9a54-4c6b-8986-8fc63ca34b6c.webp)
+
 **OGT** is a compilation of several systems, scripts and extensions aiming to be a lightweight 'framework'.
 We, as a team, use this asset every day on production apps and games.
 The UI system alone has -collectively- being used for more than 800k users on those apps and games.
