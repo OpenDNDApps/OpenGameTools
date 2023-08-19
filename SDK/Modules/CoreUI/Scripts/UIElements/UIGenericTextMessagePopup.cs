@@ -94,7 +94,7 @@ namespace OGT
             
             if (cleanCallback)
             {
-                m_primaryButton.OnClick = null;
+                m_primaryButton.CleanOnClick();
             }
             
             m_secondaryButton.SetLabel(labelKey);

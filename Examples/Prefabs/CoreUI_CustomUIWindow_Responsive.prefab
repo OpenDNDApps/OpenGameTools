@@ -26,6 +26,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2249943036055169626}
   - {fileID: 7343547949020718066}
@@ -67,6 +68,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5477809796941544375}
   m_RootOrder: 0
@@ -142,6 +144,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8560048341560588669}
   - {fileID: 5477809796941544375}
@@ -211,6 +214,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4671263255803138132}
   m_RootOrder: 0
@@ -286,6 +290,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4671263255803138132}
   m_Father: {fileID: 0}
@@ -322,7 +327,6 @@ MonoBehaviour:
     AnchorMax: {x: 0.5, y: 1}
     Pivot: {x: 0.5, y: 0.5}
     SizeDelta: {x: 500, y: 0}
-  m_rectsByScreenOrientations: []
   m_transitionDuration: 0.2
   m_transitionEase: 17
   m_transitionRotationMode: 0
@@ -342,13 +346,15 @@ MonoBehaviour:
   m_visualRoots:
   - {fileID: 7319504815178381752}
   m_contentSectionBehaviours: 2
+  m_notchBehaviour: 0
   m_uiWindowBehaviours: 1
   m_uiSectionType: 2
   m_closeButton: {fileID: 4791712479113989129}
-  m_notchBehaviour: 0
-  m_autoGenerateInputBlocker: 0
-  m_inputBlocker: {fileID: 0}
-  m_inputBlockClickBehaviour: 2
+  m_inputBlockerSettings:
+    AutoGenerate: 1
+    Prefab: {fileID: 6316150423643922361, guid: bd9ff69435161af47aeff112199cb1c8, type: 3}
+    Instance: {fileID: 0}
+    ClickBehaviour: 2
 --- !u!1 &6759870439682220090
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +383,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5477809796941544375}
   m_RootOrder: 1
@@ -511,6 +518,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4671263255803138132}
   m_RootOrder: 2

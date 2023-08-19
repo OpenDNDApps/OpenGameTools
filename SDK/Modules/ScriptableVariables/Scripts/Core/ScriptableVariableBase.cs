@@ -10,7 +10,7 @@ namespace OGT
         
         #region ID / IIdentifiable Section
         
-        [SerializeField] protected bool m_hasId = false;
+        [SerializeField] protected bool m_hasId;
         [ConditionalHide("m_hasId", true), SerializeField] protected int m_id;
         
         public int ID => m_id;
@@ -20,7 +20,7 @@ namespace OGT
         #region OnChange Section
         
         [Header("OnChange")]
-        [SerializeField] protected bool m_changeable = false;
+        [SerializeField] protected bool m_changeable;
         [ConditionalHide("m_changeable", true), SerializeField] protected GameEvent m_onChangeScriptableObject;
         [ConditionalHide("m_changeable", true), SerializeField] protected UnityEvent m_onChangeEvent;
         [ConditionalHide("m_changeable", true), SerializeField] protected UnityAction m_onChangeAction;

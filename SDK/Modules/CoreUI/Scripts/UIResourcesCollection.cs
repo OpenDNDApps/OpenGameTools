@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -33,10 +32,10 @@ namespace OGT
         {
 	        if (!GameResources.UI.TryGetEditorUIItem(uiItemName, out item))
 	        {
-		        Debug.LogError($"There is no '{uiItemName}' item registered. " +
-		                       "\nPlease add it to the UIItemsInEditor collection." +
-		                       "\nThis can be found in the GameUIResourceCollection." +
-		                       "\nYou can use the shortcut in the menu item. \n(TopMenu/OGT/Module Resources/Select UI)\n\n");
+		        Debug.LogError(@$"There is no '{uiItemName}' item registered. 
+		                       Please add it to the UIItemsInEditor collection.
+		                       This can be found in the GameUIResourceCollection.
+		                       You can use the shortcut in the menu item. \n(TopMenu/Tools/OGT/Module Resources/Select UI)\n\n");
 		        return false;
 	        }
 	        
@@ -58,10 +57,10 @@ namespace OGT
         {
 	        if (!GameResources.UI.TryGetEditorUIItem(uiItemName, out item))
 	        {
-		        Debug.LogError($"There is no '{uiItemName}' item registered. " +
-		                       "\nPlease add it to the UIItemsInEditor collection." +
-		                       "\nThis can be found in the GameUIResourceCollection." +
-		                       "\nYou can use the shortcut in the menu item. \n(TopMenu/OGT/Module Resources/Select UI)\n\n");
+		        Debug.LogError(@$"There is no '{uiItemName}' item registered. 
+		                       Please add it to the UIItemsInEditor collection.
+		                       This can be found in the GameUIResourceCollection.
+		                       You can use the shortcut in the menu item. \n(TopMenu/Tools/OGT/Module Resources/Select UI)\n\n");
 		        return false;
 	        }
 	        
@@ -150,9 +149,14 @@ namespace OGT
         private static bool LayersAreValid(out List<string> wrongLayers)
         {
 	        wrongLayers = new List<string>();
+	        
+	        List<SortingLayer> list = new List<SortingLayer>();
+	        foreach (SortingLayer layer in SortingLayer.layers) 
+		        list.Add(layer);
+	        
 	        foreach (UISortingKeyPair sorting in GameResources.Settings.UI.Sorting)
 	        {
-		        if (SortingLayer.layers.ToList().Exists(layer => layer.name.Equals(sorting.Type.ToString())))
+		        if (list.Exists(layer => layer.name.Equals(sorting.Type.ToString())))
 			        continue;
 
 		        wrongLayers.Add(sorting.Type.ToString());

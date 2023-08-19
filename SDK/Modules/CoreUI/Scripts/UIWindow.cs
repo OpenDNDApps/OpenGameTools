@@ -1,29 +1,18 @@
 using System;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace OGT
 {
     public class UIWindow : UIContentSection
     {
-        [Header("Generic Window Settings")]
         [SerializeField] protected UIWindowBehaviours m_uiWindowBehaviours = UIWindowBehaviours.AutoHideWhenCloseCalled;
         [SerializeField] protected UISectionType m_uiSectionType = UISectionType.Default;
         [SerializeField] protected UIButton m_closeButton;
         
-        [Header("Notch Settings")]
-        [SerializeField] protected NotchBehaviour m_notchBehaviour = NotchBehaviour.Ignore;
-        
-        [Header("Popup Settings")] 
-        [SerializeField] protected bool m_autoGenerateInputBlocker = false;
-        [SerializeField] protected UIInputBlocker m_inputBlocker;
-        [SerializeField] protected InputBlockClickBehaviour m_inputBlockClickBehaviour = InputBlockClickBehaviour.AnimatedHide;
+        [SerializeField] private InputBlockerSettings m_inputBlockerSettings;
 
-        public UIWindowBehaviours WindowBehaviours => m_uiWindowBehaviours;
         public UISectionType SectionType => m_uiSectionType;
-        public NotchBehaviour NotchBehaviour => m_notchBehaviour;
-        public InputBlockClickBehaviour InputBlockerBehaviour => m_inputBlockClickBehaviour;
+        public InputBlockerSettings InputBlocker => m_inputBlockerSettings;
 
         public event Action OnCloseTrigger;
         
@@ -33,15 +22,14 @@ namespace OGT
             
             if (m_closeButton != default)
             {
-                m_closeButton.OnClick = OnCloseButtonClick;
+                m_closeButton.OnClick -= OnCloseButtonClick;
+                m_closeButton.OnClick += OnCloseButtonClick;
             }
 
-            if (m_autoGenerateInputBlocker && m_inputBlocker == default)
+            if (m_inputBlockerSettings.AutoGenerate)
             {
-                m_inputBlocker = AddInputBlocker(this);
+                TryAddInputBlocker(m_inputBlockerSettings.Prefab);
             }
-
-            this.ApplySafeArea();
         }
 
         public virtual void OnCloseButtonClick()
@@ -50,43 +38,6 @@ namespace OGT
                 AnimatedHide();
             
             OnCloseTrigger?.Invoke();
-        }
-        
-        public override void Show()
-        {
-            base.Show();
-            if (m_inputBlocker != null)
-            {
-                m_inputBlocker.Enable();
-            }
-        }
-    
-        public override void AnimatedShow()
-        {
-            if (m_inputBlocker != null)
-            {
-                m_inputBlocker.AnimatedShow();
-            }
-            base.AnimatedShow();
-        }
-
-        public override void Hide()
-        {
-            base.Hide();
-            m_visualRoots.Disable();
-            if (m_inputBlocker != null)
-            {
-                m_inputBlocker.Disable();
-            }
-        }
-        
-        public override void AnimatedHide()
-        {
-            base.AnimatedHide();
-            if (m_inputBlocker != default)
-            {
-                m_inputBlocker.AnimatedHide();
-            }
         }
 
         protected override void OnDestroy()
@@ -102,57 +53,36 @@ namespace OGT
                 rectTransform.SetVerticalPosition(bottomToTop, changePivot);
             }
         }
-        
-        public UIInputBlocker AddInputBlocker(UIWindow window, UIInputBlocker inputBlocker = null)
+
+        private bool TryAddInputBlocker(UIInputBlocker inputBlocker = null)
         {
-            if (inputBlocker == null)
+            if (inputBlocker == default)
                 inputBlocker = GameResources.Settings.UI.Default.InputBlocker;
+
+            if (m_inputBlockerSettings.Instance != default)
+                return false;
             
-            UIInputBlocker newInputBlocker = Instantiate(inputBlocker, window.VisualRoots.First().transform);
-            var ibTransform = (RectTransform)newInputBlocker.transform;
-            ibTransform.localPosition = Vector3.zero;
-            ibTransform.localScale = Vector3.one;
-            ibTransform.SetAsFirstSibling();
-            newInputBlocker.Disable();
-
-            return newInputBlocker;
+            m_inputBlockerSettings.Instance = Instantiate(inputBlocker, RectTransform);
+            return true;
         }
+    }
 
-        public virtual void SetInputBlockerBehaviour(InputBlockClickBehaviour newBehaviour)
-        {
-            m_inputBlockClickBehaviour = newBehaviour;
-        }
-
-        public virtual void OnInputBlockerClick()
-        {
-            switch (m_inputBlockClickBehaviour)
-            {
-                case InputBlockClickBehaviour.Hide:
-                    Hide();
-                    return;
-                case InputBlockClickBehaviour.AnimatedHide:
-                    AnimatedHide();
-                    return;
-                case InputBlockClickBehaviour.Show:
-                    Show();
-                    return;
-                case InputBlockClickBehaviour.AnimatedShow:
-                    AnimatedShow();
-                    return;
-                default:
-                case InputBlockClickBehaviour.None:
-                    break;
-            }
-        }
+    [Serializable]
+    public struct InputBlockerSettings
+    {
+        public bool AutoGenerate;
+        public UIInputBlocker Prefab;
+        public UIInputBlocker Instance;
+        public InputBlockClickBehaviour ClickBehaviour;
+    }
         
-        public enum InputBlockClickBehaviour
-        {
-            None,
-            Hide,
-            AnimatedHide,
-            Show,
-            AnimatedShow,
-        }
+    public enum InputBlockClickBehaviour
+    {
+        None,
+        Hide,
+        AnimatedHide,
+        Show,
+        AnimatedShow,
     }
 
     [Flags]

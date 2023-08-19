@@ -23,6 +23,7 @@ public static class RectTransformExtensions
         rectTransform.anchoredPosition = Vector2.zero;
     }
 
+    // ReSharper disable once InconsistentNaming
     public static void DOVerticalPosition(this RectTransform rectTransform, float duration, float bottomToTop = 0.5f, bool changePivot = true)
     {
         rectTransform.DOAnchorMax(new Vector2(rectTransform.anchorMax.x, bottomToTop), duration);

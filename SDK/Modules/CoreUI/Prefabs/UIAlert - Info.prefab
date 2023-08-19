@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a8da66bf749a14c8046716c0bfb98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_id: MainVisualRoot
   m_canvasGroup: {fileID: 2376852172045422353}
+  m_visualRootBehaviours: 0
   m_animationsInfo: []
 --- !u!225 &2376852172045422353
 CanvasGroup:
@@ -466,16 +466,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35481106bf09521469273309d894b281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_itemBehaviours: 0
   m_visualRoots:
   - {fileID: 671829335685220890}
-  destroyOnHide: 0
+  m_contentSectionBehaviours: 2
+  m_notchBehaviour: 0
+  m_uiWindowBehaviours: 1
   m_uiSectionType: 3
   m_closeButton: {fileID: 8017465240728263752}
-  m_hideOnAwake: 1
-  m_autoHideWhenCloseCalled: 1
-  m_notchBehaviour: 0
+  m_inputBlockerSettings:
+    AutoGenerate: 0
+    Prefab: {fileID: 8600537380143655204}
+    ClickBehaviour: 0
   m_autoGenerateInputBlocker: 0
-  m_inputBlocker: {fileID: 8600537380143655204}
+  m_inputBlocker: {fileID: 0}
   m_inputBlockClickBehaviour: 0
   m_message: {fileID: 2376852173112814256}
 --- !u!1001 &2376852173142221798

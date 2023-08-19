@@ -8,7 +8,7 @@ namespace OGT
     public class TextLinkObserver : BaseBehaviour
     {
         private int m_intersectedLinkID = -1;
-        private bool m_ready = false;
+        private bool m_ready;
 
         private TMP_Text m_tmp;
 

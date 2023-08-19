@@ -7,7 +7,7 @@ namespace OGT
     public abstract class BaseVariable<T> : ScriptableVariableBase
     {
         [Header("Data")]
-        [SerializeField] protected T m_value = default;
+        [SerializeField] protected T m_value;
         [NonSerialized] protected T m_initValue = default;
 
         protected virtual T Value

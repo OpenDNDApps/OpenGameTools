@@ -1,50 +1,48 @@
-using System;
-using UnityEngine.EventSystems;
-
 namespace OGT
 {
-    using static UIWindow;
+    using UnityEngine;
+    using UnityEngine.EventSystems;
     
     public class UIInputBlocker : UIItem, IPointerClickHandler
     {
-        private UIWindow m_owner;
-
         protected override void OnInit()
         {
-            m_owner = GetComponentInParent<UIWindow>();
+            base.OnInit();
+            
+            RectTransform.localPosition = Vector3.zero;
+            RectTransform.localScale = Vector3.one;
+            RectTransform.SetAsFirstSibling();
+
+            Window.OnShow += Show;
+            Window.OnAnimatedShowStart += AnimatedShow;
+            Window.OnHide += Hide;
+            Window.OnAnimatedHideStart += AnimatedHide;
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (m_owner == null)
-                return;
-
             OnInputBlockerClick();
         }
 
-        public virtual void OnInputBlockerClick()
+        private void OnInputBlockerClick()
         {
-            if (m_owner == null)
-                return;
-            
-            switch (m_owner.InputBlockerBehaviour)
+            switch (Window.InputBlocker.ClickBehaviour)
             {
                 case InputBlockClickBehaviour.Hide:
-                    m_owner.Hide();
+                    Window.Hide();
                     return;
                 case InputBlockClickBehaviour.AnimatedHide:
-                    m_owner.AnimatedHide();
+                    Window.AnimatedHide();
                     return;
                 case InputBlockClickBehaviour.Show:
-                    m_owner.Show();
+                    Window.Show();
                     return;
                 case InputBlockClickBehaviour.AnimatedShow:
-                    m_owner.AnimatedShow();
+                    Window.AnimatedShow();
                     return;
+                default:
                 case InputBlockClickBehaviour.None:
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
     }

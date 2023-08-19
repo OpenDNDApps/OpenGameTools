@@ -89,7 +89,7 @@ namespace OGT
                 UIAnimation theAnimation = null;
                 if (pair.TriggerType.HasFlag(VisualRootAnimTriggerType.AnimatedShow) || pair.TriggerType.HasFlag(VisualRootAnimTriggerType.OnShowOrEnable))
                 {
-                    theAnimation = theAnimation != default ? theAnimation : pair.Animation != default ? pair.Animation : GameResources.Settings.UI.Default.ShowAnimation;
+                    theAnimation = pair.Animation != default ? pair.Animation : GameResources.Settings.UI.Default.ShowAnimation;
                     Disable();
                 }
                 if (pair.TriggerType.HasFlag(VisualRootAnimTriggerType.AnimatedHide))
@@ -248,7 +248,7 @@ namespace OGT
         InsertParentPositionBasedDelay = 1 << 6,
     }
 
-    [System.Flags]
+    [Flags]
     public enum VisualRootAnimTriggerType
     {
         None = -1,

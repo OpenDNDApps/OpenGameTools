@@ -8,7 +8,6 @@ namespace OGT
 {
     public class UIButton : UIItem, IConditionableUIItem, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        [Header("UI Button")]
         [SerializeField] protected Button m_button;
         [SerializeField] protected TMP_Text m_label;
         [SerializeField] protected Sprite m_icon;
@@ -27,7 +26,7 @@ namespace OGT
         public Action<UITabSection> OnTabButtonClick;
         
         public Func<bool> Conditionable { get; set; } = () => true;
-        public Action OnClick;
+        public event Action OnClick;
         public Button Button => m_button;
         
         public bool IsHighlighted
@@ -130,6 +129,11 @@ namespace OGT
                 return;
             
             m_visualRoots.HandleOnPointerExit(eventData);
+        }
+
+        public void CleanOnClick()
+        {
+            OnClick = null;
         }
     }
 

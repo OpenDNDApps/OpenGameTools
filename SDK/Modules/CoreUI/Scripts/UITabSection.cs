@@ -13,7 +13,7 @@ namespace OGT
 
         private bool m_isActive;
         private UITabWindow m_tabWindow;
-        private bool m_initialized = false;
+        private bool m_initialized;
         
         public string ID => m_id;
         public bool IsActive => m_isActive;

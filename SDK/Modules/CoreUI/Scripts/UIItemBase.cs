@@ -9,7 +9,7 @@ namespace OGT
         [NonSerialized] protected UIWindow m_window;
         [NonSerialized] protected UIContentSection m_contentSection;
         [NonSerialized] protected Canvas m_canvas;
-        private bool m_initialized = false;
+        private bool m_initialized;
 
         public RectTransform RectTransform
         {

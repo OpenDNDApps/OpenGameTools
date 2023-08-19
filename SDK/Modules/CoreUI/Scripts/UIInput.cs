@@ -16,8 +16,8 @@ namespace OGT
         [SerializeField] private string m_placeHolderLocalizationKey;
 
         private bool m_selected;
-        private float m_delayedChangedTimer = 0.0f;
-        private bool m_onDelayedChangedTimerActive = false;
+        private float m_delayedChangedTimer;
+        private bool m_onDelayedChangedTimerActive;
 
         public Action<string> OnSelected;
         public Action<string> OnDeselected;

@@ -35,6 +35,17 @@ public static class StringExtensions
     }
 
     /// <summary>
+    /// Transform a [CamelCase] into [Camel Case]
+    /// </summary>
+    /// <param name="str"></param>
+    /// <returns></returns>
+    public static string ToSeparatedCamelCase(this string str)
+    {
+        const string kPattern = "(?<=[a-z])([A-Z])|(?<=[A-Z])([A-Z][a-z])";
+        return Regex.Replace(str, kPattern, " $1$2");
+    }
+
+    /// <summary>
     /// Emulation of PHPs UcFirst()
     /// </summary>
     /// <param name="str">A composite format string</param>

@@ -7,7 +7,6 @@ namespace OGT
 {
     public class UIItem : UIItemBase
     {
-        [Header("UIItem Settings")] 
         [SerializeField] protected UIItemBehaviours m_itemBehaviours = UIItemBehaviours.None;
         [SerializeField] protected List<UIVisualRoot> m_visualRoots = new List<UIVisualRoot>();
 
@@ -158,6 +157,7 @@ namespace OGT
             }
         }
 
+        // ReSharper disable once RedundantOverriddenMember
         protected override void OnDestroy()
         {
             base.OnDestroy();

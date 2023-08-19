@@ -37,9 +37,11 @@ namespace OGT
                         animator.runtimeAnimatorController = step.Animation.Animator;
                         animator.enabled = true;
                         sequence.JoinByStepType(step.JoinType, DOVirtual.Float(0f, 1f, step.Animation.Params.Duration, currentValue => {
+                            // ReSharper disable AccessToModifiedClosure
                             if (animator == default)
                                 return;
                             animator.SetFloat(step.Animation.MotionKey, currentValue);
+                            // ReSharper restore AccessToModifiedClosure
                         }).SetDelay(step.Animation.Params.Delay).SetEase(step.Animation.Params.Ease));
                     break;
                     case UIAnimationStepType.Alpha:

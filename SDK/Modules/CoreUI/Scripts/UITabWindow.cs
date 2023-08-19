@@ -6,8 +6,7 @@ namespace OGT
 {
     public class UITabWindow : UIWindow
     {
-        [Header("Tabs Settings")]
-        [SerializeField] private List<UITabSection> m_tabSections;
+        [SerializeField] private List<UITabSection> m_tabSections = new List<UITabSection>();
         [SerializeField] private UITabBehaviours m_tabBehaviours = UITabBehaviours.Empty;
         [SerializeField] private string m_defaultTabID;
         

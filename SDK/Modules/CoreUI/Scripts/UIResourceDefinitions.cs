@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace OGT
 {
     public static partial class GameResources
