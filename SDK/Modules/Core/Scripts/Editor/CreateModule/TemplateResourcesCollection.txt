@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace OGT
 {
-    [CreateAssetMenu(fileName = GameResources.k#MODULE_NAME#FileName, menuName = GameResources.kCreateMenuPrefixNameResources + GameResources.k#MODULE_NAME#FileName)]
+    [CreateAssetMenu(fileName = nameof(#MODULE_NAME#ResourcesCollection), menuName = OGTConstants.kCreateMenuPrefixNameResources + nameof(#MODULE_NAME#ResourcesCollection))]
     public class #MODULE_NAME#ResourcesCollection : BaseResourcesCollection
     {
         [SerializeField] private #MODULE_NAME#Runtime m_#MODULE_NAME_LOWER#Runtime;

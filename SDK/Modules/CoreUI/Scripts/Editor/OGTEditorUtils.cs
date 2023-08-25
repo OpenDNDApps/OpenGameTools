@@ -5,7 +5,6 @@
     
     public static class OGTEditorUtils
     {
-        public static readonly BindingFlags BindingFlags = BindingFlags.Default | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly;
         
         public static FieldInfo GetField(this Type type, string fieldName, BindingFlags flags, bool includeParents)
         {

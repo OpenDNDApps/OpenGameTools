@@ -5,10 +5,10 @@ namespace OGT
         public static UIRuntime UIRuntime => UIRuntime.Instance;
         
         public const string kUIFileName = "UIGameResources";
-        public const string kCreateUIGameObjectMenuPath = "GameObject/UI/" + kPluginName + "/";
+        public const string kCreateUIGameObjectMenuPath = "GameObject/UI/" + OGTConstants.kPluginName + "/";
         
         private static UIResourcesCollection m_ui;
-        public static UIResourcesCollection UI => GetGameResource(ref m_ui, kUIFileName);
+        public static UIResourcesCollection UI => GetGameResource(ref m_ui);
     }
 }
 
@@ -19,7 +19,7 @@ namespace OGT
     using UnityEditor;
     public static partial class CoreEditor
     {
-        [MenuItem(GameResources.kModuleMenuPath + "Select UI")]
+        [MenuItem(OGTConstants.kModuleMenuPath + "Select 📚 UI")]
         private static void SelectGameUIResources()
         {
             Selection.activeObject = GameResources.UI;

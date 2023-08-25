@@ -18,7 +18,7 @@ namespace OGT
             float latestLargerAppend = 0f;
             float latestLargerJoin = 0f;
 
-            foreach (var step in Steps)
+            foreach (TAnimStep step in Steps)
             {
                 float stepDuration = GetDurationByStepType(step);
                 

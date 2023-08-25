@@ -9,8 +9,6 @@ namespace OGT
         [SerializeField] private Camera m_camera;
         [SerializeField] private CameraController m_mainCameraController;
         
-        private SceneManager m_sceneManager;
-
         public static event Action<CameraController, CameraController> OnCameraControllerChanged;
         public static event Action OnManualTickUpdater;
         public static bool IsReady { get; private set; }

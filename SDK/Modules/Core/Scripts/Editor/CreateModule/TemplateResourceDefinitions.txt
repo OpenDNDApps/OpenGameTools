@@ -2,12 +2,10 @@ namespace OGT
 {
     public static partial class GameResources
     {
-        public const string k#MODULE_NAME#FileName = "#MODULE_NAME#Resources";
-
         public static #MODULE_NAME#Runtime #MODULE_NAME#Runtime => #MODULE_NAME#Runtime.Instance;
+        public static #MODULE_NAME#ResourcesCollection #MODULE_NAME#Collection => GetGameResource(ref m_#MODULE_NAME_LOWER#);
         
         private static #MODULE_NAME#ResourcesCollection m_#MODULE_NAME_LOWER#;
-        public static #MODULE_NAME#ResourcesCollection #MODULE_NAME#Collection => GetGameResource(ref m_#MODULE_NAME_LOWER#, k#MODULE_NAME#FileName);
     }
 }
 

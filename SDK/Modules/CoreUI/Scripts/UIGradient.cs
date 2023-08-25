@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace OGT
 {
     [RequireComponent(typeof(CanvasRenderer))]
-    [AddComponentMenu(GameResources.kCreateComponentUIPath + "UIGradient", 11)]
+    [AddComponentMenu(OGTConstants.kCreateComponentUIPath + "UIGradient", 11)]
     public class UIGradient : BaseMeshEffect
     {
 	    [Expandable]

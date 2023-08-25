@@ -4,6 +4,6 @@ using UnityEngine;
 
 namespace OGT
 {
-    [CreateAssetMenu(fileName = GameResources.kSettingsFileName, menuName = GameResources.kCreateMenuPrefixNameResources + GameResources.kSettingsFileName)]
+    [CreateAssetMenu(fileName = nameof(GameSettingsCollection), menuName = OGTConstants.kCreateMenuPrefixNameResources + nameof(GameSettingsCollection))]
     public partial class GameSettingsCollection : ScriptableObject { }
 }

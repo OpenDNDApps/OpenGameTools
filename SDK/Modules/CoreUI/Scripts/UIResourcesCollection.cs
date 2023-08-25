@@ -5,20 +5,18 @@ using UnityEngine;
 
 namespace OGT
 {
-    [CreateAssetMenu(fileName = GameResources.kUIFileName, menuName = GameResources.kCreateMenuPrefixNameResources + GameResources.kUIFileName)]
+    [CreateAssetMenu(fileName = nameof(UIResourcesCollection), menuName = OGTConstants.kCreateMenuPrefixNameResources + nameof(UIResourcesCollection))]
     public partial class UIResourcesCollection : BaseResourcesCollection
     {
-	    [Header("UI Resources")]
-	    [SerializeField] private UIRuntime m_uiRuntime;
-	    [SerializeField] private List<UIItem> m_uiItems = new List<UIItem>();
 	    [SerializeField] private List<UIItemBase> m_uiItemsInEditor = new List<UIItemBase>();
-        [SerializeField] private List<UIWindow> m_uiWindows = new List<UIWindow>();
+	    
+	    [SerializeField] private List<UIItem> m_uiItemPrefabs = new List<UIItem>();
+        [SerializeField] private List<UIWindow> m_uiWindowPrefabs = new List<UIWindow>();
         [SerializeField] private List<UIAnimation> m_uiAnimations = new List<UIAnimation>();
 
-        public UIRuntime UIRuntime => m_uiRuntime;
-        public List<UIWindow> UIWindows => m_uiWindows;
+        public List<UIWindow> UIWindowPrefabs => m_uiWindowPrefabs;
         public List<UIAnimation> UIAnimations => m_uiAnimations;
-		public List<UIItem> UIItems => m_uiItems;
+		public List<UIItem> UIItemPrefabs => m_uiItemPrefabs;
 		
         [Serializable]
         public struct UISortingKeyPair
@@ -65,7 +63,7 @@ namespace OGT
 	        }
 	        
 	        T newItem = Instantiate(item, (Selection.activeObject as GameObject)?.transform) as T;
-	        if (newItem == null)
+	        if (newItem == default)
 	        {
 		        Debug.LogError($"The UI element '{uiItemName}' could not be instantiated.");
 		        return false;
@@ -101,7 +99,7 @@ namespace OGT
 			if (string.IsNullOrEmpty(itemName)) 
 				return false;
             
-			foreach (UIItem item in m_uiItems)
+			foreach (UIItem item in m_uiItemPrefabs)
 			{
 				if(item == default) continue;
 				if (!item.name.Equals(itemName)) continue;
@@ -112,13 +110,13 @@ namespace OGT
 			return false;
 		}
 
-		public bool TryGetUIWindow<T>(string itemName, out T uiWindow) where T : UIWindow
+		public bool TryGetUIWindowPrefab<T>(string itemName, out T uiWindow) where T : UIWindow
 		{
 			uiWindow = null;
 			if (string.IsNullOrEmpty(itemName)) 
 				return false;
             
-			foreach (UIWindow window in m_uiWindows)
+			foreach (UIWindow window in m_uiWindowPrefabs)
 			{
 				if(window == default) continue;
 				if (!window.name.Equals(itemName)) continue;

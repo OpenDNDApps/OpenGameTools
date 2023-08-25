@@ -46,7 +46,7 @@ namespace OGT
         private const string kRuntimeTemplatePath = kCreateModuleMenuPath + kRuntimeName + ".txt";
         private const string kTemporalScriptTemplatePath = kCreateModuleMenuPath + kTemporalScriptName + ".txt";
 
-        [MenuItem(GameResources.kMenuPath + "Create Module")]
+        [MenuItem(OGTConstants.kMenuPath + "➕ Create Module")]
         public static void ShowWindow()
         {
             m_window = GetWindow<CreateModuleWindow>(true, "Create Module", true);
@@ -207,7 +207,7 @@ namespace OGT
             if (!File.Exists(Path.Combine(kModulesEditorFolder, $"{kTemporalScriptName}.cs"))) 
                 return;
             
-            EditorApplication.ExecuteMenuItem($"{GameResources.kMenuPath}{kTemporalScriptName}");
+            EditorApplication.ExecuteMenuItem($"{OGTConstants.kMenuPath}{kTemporalScriptName}");
         }
 
         private static void DestroyTemp()

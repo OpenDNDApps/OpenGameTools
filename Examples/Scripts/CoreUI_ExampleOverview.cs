@@ -25,7 +25,7 @@ namespace OGT.Examples
         // You should manually add your prefabs to the UIWindows collection in the GameResourcesCollection.
         // Check UIResources.md in the docs.
         // https://github.com/OpenDNDApps/OpenGameTools/tree/master/Documentation
-        private void OnEnable() { GameResources.UI.UIWindows.AddUnique(m_customWindowPrefab); }
-        private void OnDestroy() { GameResources.UI.UIWindows.Remove(m_customWindowPrefab); }
+        private void OnEnable() { GameResources.UI.UIWindowPrefabs.AddUnique(m_customWindowPrefab); }
+        private void OnDestroy() { GameResources.UI.UIWindowPrefabs.Remove(m_customWindowPrefab); }
     }
 }

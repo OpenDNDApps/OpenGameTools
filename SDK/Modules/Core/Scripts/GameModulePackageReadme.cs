@@ -1,11 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace OGT
 {
-    [CreateAssetMenu(fileName = "Readme", menuName = GameResources.kCreateMenuPrefixNameResources + "📃 Module Readme")]
+    [CreateAssetMenu(fileName = "Readme", menuName = OGTConstants.kCreateMenuPrefixNameResources + "📃 Module Readme")]
     public class GameModulePackageReadme : ScriptableObject
     {
         public string ModuleName;

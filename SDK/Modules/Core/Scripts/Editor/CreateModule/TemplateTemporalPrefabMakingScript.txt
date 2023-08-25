@@ -8,7 +8,7 @@ namespace OGT
     
     public class #TEMP_SCRIPT_NAME#
     {
-        [MenuItem(GameResources.kMenuPath + "#TEMP_SCRIPT_NAME#")]
+        [MenuItem(OGTConstants.kMenuPath + "#TEMP_SCRIPT_NAME#")]
         public static void QueueCreation()
         {
             CreateModuleWindow.NotifyTemporalScriptCreation(CreateAssets);

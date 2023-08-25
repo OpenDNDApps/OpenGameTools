@@ -1,12 +1,11 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
 namespace OGT
 {
     using static GameResources;
     using static UIResourcesCollection;
+    using System;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
     
     public partial class UIRuntime : MonoSingletonSelfGenerated<UIRuntime>, IGameDependency
     {
@@ -63,7 +62,7 @@ namespace OGT
 
         private void Initialize()
         {
-            foreach (var container in m_canvases)
+            foreach (UIScreenPanelContainer container in m_canvases)
             {
                 if (!Settings.UI.Sorting.Exists(sort => sort.Type.Equals(container.Type)))
                     continue;
@@ -91,7 +90,7 @@ namespace OGT
 
         public static Canvas GetCanvasOfType(UISectionType type)
         {
-            var found = GameResources.UIRuntime.m_canvases.Find(canvas => canvas.Type == type);
+            UIScreenPanelContainer found = GameResources.UIRuntime.m_canvases.Find(canvas => canvas.Type == type);
             if (found.Canvas == default)
             {
                 Debug.LogError($"Canvas of type '{type}' does not exist in UI Controller.");
@@ -101,11 +100,11 @@ namespace OGT
 
         public void ShowTransition(Action onComplete = null, string transitionKey = null, bool addToList = false)
         {
-            var found = UI.TryGetUIItem(transitionKey, out UIItem prefab);
+            bool found = UI.TryGetUIItem(transitionKey, out UIItem prefab);
             if (!found)
             {
                 Debug.LogWarning($"[UIRuntime] Transition id '{transitionKey}' was not found, failsafe to default transition.");
-                var foundDefault = UI.TryGetUIItem(Settings.UI.Default.Transition.name, out prefab);
+                bool foundDefault = UI.TryGetUIItem(Settings.UI.Default.Transition.name, out prefab);
                 if (!foundDefault)
                 {
                     Debug.LogError($"[UIRuntime] There's no default transitions, defaulting to OnComplete");
@@ -125,7 +124,7 @@ namespace OGT
                 callback?.Invoke();
                 return;
             }
-            var transitionItem = InstantiateUI(transitionPrefab, addToList);
+            UIItem transitionItem = InstantiateUI(transitionPrefab, addToList);
             transitionItem.OnShow += callback;
             transitionItem.AnimatedShow();
 		}
@@ -180,10 +179,15 @@ namespace OGT
             window.Hide();
         }
 
+        public static bool TryCreateWindow<T>(out T spawnedWindow, bool addToList = false, Action onFailed = null) where T : UIWindow
+        {
+            return TryCreateWindow(typeof(T).Name, out spawnedWindow, addToList, onFailed);
+        }
+
         public static bool TryCreateWindow<T>(string windowName, out T spawnedWindow, bool addToList = false, Action onFailed = null) where T : UIWindow
         {
             spawnedWindow = default;
-            var found = UI.TryGetUIWindow(windowName, out UIWindow window);
+            bool found = UI.TryGetUIWindowPrefab(windowName, out UIWindow window);
             if (!found)
             {
                 Debug.LogError($"[UIRuntime] There's no windows of name '{windowName}'");
@@ -210,13 +214,13 @@ namespace OGT
 
         public static void NotifyWindowDestroy(UIWindow uiWindow)
         {
-            var removed = GameResources.UIRuntime.m_windowHistory[uiWindow.SectionType].Remove(uiWindow);
+            bool removed = GameResources.UIRuntime.m_windowHistory[uiWindow.SectionType].Remove(uiWindow);
             if(removed) GameResources.UIRuntime.OnWindowRemoved?.Invoke(uiWindow);
         }
 
         public bool TryShowGenericMessagePopup(out UIGenericTextMessagePopup messagePopup)
         {
-            return TryCreateWindow("UIGenericTextMessagePopup", out messagePopup);
+            return TryCreateWindow(out messagePopup);
         }
     }
 
@@ -225,7 +229,7 @@ namespace OGT
 		public static bool TryGetUISectionByType(this List<UIScreenPanelContainer> list, UISectionType type, out UIScreenPanelContainer container)
 		{
 			container = default;
-			foreach (var item in list)
+			foreach (UIScreenPanelContainer item in list)
 			{
 				if (item.Type != type) continue;
 				

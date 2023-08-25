@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace OGT
 {
-    [CreateAssetMenu(fileName = GameResources.kGameAudioFileName, menuName = GameResources.kCreateMenuPrefixNameResources + GameResources.kGameAudioFileName)]
+    [CreateAssetMenu(fileName = nameof(GameAudioResourcesCollection), menuName = OGTConstants.kCreateMenuPrefixNameResources + nameof(GameAudioResourcesCollection))]
     public partial class GameAudioResourcesCollection : BaseResourcesCollection
     {
         [SerializeField] private List<AudioClipDefinition> m_sounds = new List<AudioClipDefinition>();

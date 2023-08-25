@@ -3,12 +3,9 @@ namespace OGT
     public static partial class GameResources
     {
         public static AudioRuntime AudioRuntime => AudioRuntime.Instance;
+        public static GameAudioResourcesCollection Audio => GetGameResource(ref m_audio);
         
-        public const string kGameAudioFileName = "GameAudioResources";
-        public const string kGameAudioMenuPath = kPluginName + "/Audio/";
-
         private static GameAudioResourcesCollection m_audio;
-        public static GameAudioResourcesCollection Audio => GetGameResource(ref m_audio, kGameAudioFileName);
     }
 }
 
@@ -19,7 +16,7 @@ namespace OGT
     using UnityEditor;
     public static partial class CoreEditor
     {
-        [MenuItem(GameResources.kModuleMenuPath + "Select Audio")]
+        [MenuItem(OGTConstants.kModuleMenuPath + "Select 🎵 Audio")]
         private static void SelectGameAudioResources()
         {
             Selection.activeObject = GameResources.Audio;

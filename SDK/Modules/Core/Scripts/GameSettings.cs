@@ -2,10 +2,9 @@ namespace OGT
 {
     public static partial class GameResources
     {
-        public const string kSettingsFileName = "GameSettings";
+        public static GameSettingsCollection Settings => GetGameResource(ref m_settings);
         
         private static GameSettingsCollection m_settings;
-        public static GameSettingsCollection Settings => GetGameResource(ref m_settings, kSettingsFileName);
     }
 }
 
@@ -16,11 +15,11 @@ namespace OGT
     using UnityEditor;
     public static partial class CoreEditor
     {
-        [MenuItem(GameResources.kModuleMenuPath + "Select Settings")]
+        [MenuItem(OGTConstants.kModuleMenuPath + "Select ⚙️ Settings")]
         private static void SelectGameSettings()
         {
             Selection.activeObject = GameResources.Settings;
-            EditorGUIUtility.PingObject(UnityEditor.Selection.activeObject);
+            EditorGUIUtility.PingObject(Selection.activeObject);
         }
     }
 }

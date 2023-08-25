@@ -19,8 +19,6 @@ namespace OGT.Editor
         private GUIStyle m_headerStyleInternal;
         private bool m_showDefault;
         
-        private readonly BindingFlags m_bindingFlags = BindingFlags.Default | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly;
-        
         private Type m_targetType = typeof(T);
         private const string kScriptPropertyName = "m_Script";
         
@@ -39,7 +37,7 @@ namespace OGT.Editor
                 if(property.name.Equals(kScriptPropertyName) || !property.name.Equals(property.propertyPath))
                     continue;
                 
-                FieldInfo fieldInfo = m_targetType.GetField(property.name, m_bindingFlags, includeParents: true);
+                FieldInfo fieldInfo = m_targetType.GetField(property.name, ReflectionUtility.AllBindingFlags, includeParents: true);
 
                 Type type = typeof(UIExtra);
                 if (fieldInfo != null)
@@ -129,7 +127,7 @@ namespace OGT.Editor
                 GUIStyle style = new GUIStyle(EditorStyles.helpBox);
                 style.margin.right = 0;
                 style.margin.left = 0;
-                style.padding.left = -1;
+                style.padding.left = 0;
                 style.padding.right = 2;
                 style.padding.bottom = 3;
                 style.padding.top = 1;

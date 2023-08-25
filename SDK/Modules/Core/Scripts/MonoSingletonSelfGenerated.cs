@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace OGT
@@ -14,30 +15,17 @@ namespace OGT
                 if (m_instance != default)
                     return m_instance;
 
-                var target = FindObjectOfType<T>();
-                if (target != default)
-                    m_instance = target;
-
+                m_instance = FindObjectOfType<T>();
                 if (m_instance != default)
                     return m_instance;
 
-                GameObject loadable = GameResources.General.GetLoadablePrefab(typeof(T).Name);
-                GameObject newObject;
-                if (loadable != default)
-                {
-                    newObject = Instantiate(loadable);
-                    newObject.name = typeof(T).Name;
-                    m_instance = newObject.GetComponent<T>();
-                }
-                else
-                {
-                    newObject = new GameObject($@"{typeof(T).Name}")
-                    {
-                        hideFlags = HideFlags.DontSaveInEditor
-                    };
-                }
+                Type objType = typeof(T);
+
+                bool foundPrefab = GameResources.Dependencies.TryGetPrefab(out T loadable);
+                m_instance = foundPrefab ? Instantiate(loadable) : new GameObject(objType.Name).GetOrAddComponent<T>();
                 
-                m_instance = newObject.GetOrAddComponent<T>();
+                m_instance.name = objType.Name;
+                m_instance.hideFlags = HideFlags.DontSaveInEditor;
                 m_instance.transform.SetAsFirstSibling();
 
                 return m_instance;

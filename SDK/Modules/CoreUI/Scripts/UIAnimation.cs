@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace OGT
 {
-    [CreateAssetMenu(fileName = "UIAnimation_", menuName = GameResources.kPluginName + "/UI/Animation")]
+    [CreateAssetMenu(fileName = "UIAnimation_", menuName = OGTConstants.kPluginName + "/UI/Animation")]
     public class UIAnimation : ScriptableAnimation<UIAnimationStep, UIAnimationStepType>
     {
         public virtual void StartAnimation(CanvasGroup target, Action onComplete = null, Animator targetAnimator = null)

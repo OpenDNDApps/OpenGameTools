@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace OGT
 {
-    [CreateAssetMenu(fileName = GameResources.kScriptableVariablesFileName, menuName = GameResources.kCreateMenuPrefixNameResources + GameResources.kScriptableVariablesFileName)]
+    [CreateAssetMenu(fileName = nameof(ScriptableVariablesResourcesCollection), menuName = OGTConstants.kCreateMenuPrefixNameResources + nameof(ScriptableVariablesResourcesCollection))]
     public class ScriptableVariablesResourcesCollection : ScriptableObject
     {
         public PlayerData m_playerData;

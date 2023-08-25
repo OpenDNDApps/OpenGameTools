@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace OGT
@@ -5,31 +6,20 @@ namespace OGT
     public static partial class GameResources
     {
         public static GameRuntime Runtime => GameRuntime.Instance;
-        
-        // Notice: Change this to personalize your game, but don't PR.
-        public const string kPluginName = "OGT";
-        public const string kMenuPath = "Tools/" + kPluginName + "/";
-        public const string kModuleMenuPath = kMenuPath + "Module Resources/";
+        public static GameDependenciesCollection Dependencies => GetGameResource(ref m_dependencies);
 
-        public const string kCreateComponentUIPath = kPluginName + "/UI/";
-        public const string kCreateMenuPrefixNameResources = kPluginName + "/Base Collections/";
-        public const string kCreateMenuPrefixModules = kPluginName + "/Modules/";
-        public const string kCreateGameObjectMenuPath = "GameObject/" + kPluginName + "/";
-        public const string kCreateUIMenuPath = "GameObject/" + kPluginName + "/UI/";
+        private static GameDependenciesCollection m_dependencies;
 
-        public const string kGeneralFileName = "GameResources";
-        
-        private static GameResourcesCollection m_general;
-
-        public static GameResourcesCollection General => GetGameResource(ref m_general, kGeneralFileName);
-
-        private static T GetGameResource<T>(ref T localVariable, string filePath) where T : ScriptableObject
+        private static T GetGameResource<T>(ref T localVariable) where T : ScriptableObject
         {
+            if (localVariable != default)
+                return localVariable;
+
+            Type varType = typeof(T);
+            localVariable = (T)Resources.Load(varType.Name, varType);
             if (localVariable == default)
-                localVariable = (T)Resources.Load(filePath, typeof(T));
-            if (localVariable == default)
-                Debug.LogError($"Asset '{filePath}' not found.");
-            return localVariable as T;
+                Debug.LogError($"Asset '{varType.Name}' not found in Resources Folder(s).");
+            return localVariable;
         }
     }
 }
@@ -41,19 +31,18 @@ namespace OGT
     using UnityEditor;
     public static partial class CoreEditor
     {
-        private const string kDocumentationURL = "https://github.com/OpenDNDApps/OpenGameTools";
 		
-        [MenuItem(GameResources.kModuleMenuPath + "Select General")]
+        [MenuItem(OGTConstants.kModuleMenuPath + "Select 🛠️ Dependencies Collection")]
         private static void SelectGameProperties()
         {
-            Selection.activeObject = GameResources.General;
+            Selection.activeObject = GameResources.Dependencies;
             EditorGUIUtility.PingObject(Selection.activeObject);
         }
 		
-        [MenuItem(GameResources.kMenuPath + "Documentation")]
+        [MenuItem(OGTConstants.kMenuPath + "📝 Documentation")]
         private static void SelectDocumentation()
         {
-            Application.OpenURL(kDocumentationURL);
+            Application.OpenURL(OGTConstants.kDocumentationURL);
         }
     }
 }
